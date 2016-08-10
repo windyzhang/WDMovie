@@ -7,20 +7,30 @@
 //
 
 #import "WDMapViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface WDMapViewController ()
-
+@property(nonatomic,strong)MKMapView *mapview;
 @end
 
 @implementation WDMapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
+    self.view.backgroundColor = WD_COLOR.background;
+    [self initNavigationItem];
+    [self initMapView];
+}
+- (void)initMapView{
+    self.mapview = [[MKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64)];
+    [self.view addSubview:self.mapview];
+}
+- (void)initNavigationItem{
     WDLeftNavigationItemButton *leftButton = [[WDLeftNavigationItemButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
-    
 }
+#pragma mark - drawer
+
 - (void)drawerControllerWillOpen:(ICSDrawerController *)drawerController{
     self.view.userInteractionEnabled = NO;
 }

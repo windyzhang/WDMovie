@@ -21,7 +21,8 @@
     [self setUpNavigationBar];
 }
 - (void)setUpNavigationBar{
-    UIColor *backgroundColor = [UIColor colorWithRed:0.204 green:0.722 blue:0.918 alpha:1];
+    //UIColor *backgroundColor = [UIColor colorWithRed:0.204 green:0.722 blue:0.918 alpha:1];
+    UIColor *backgroundColor = WD_COLOR.navBarItem;
     [self.navigationBar setBackgroundImage:[[WDNavigationViewController CreateImageWithColor:backgroundColor] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 1, 5, 1)] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.tintColor = [UIColor whiteColor];
     //去掉导航栏下边的投影

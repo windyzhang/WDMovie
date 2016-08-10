@@ -25,18 +25,18 @@
     [self setupChildControllers];
 }
 - (void)setupChildControllers{
-    [self setupChildNavigationControllerWithClass:[WDNavigationViewController class] tabBarImageName:nil rootViewControllerClass: [WDMovieViewController class] rootViewControllerTitle:@"电影"];
-    [self setupChildNavigationControllerWithClass:[WDNavigationViewController class] tabBarImageName:nil rootViewControllerClass: [WDNewsViewController class] rootViewControllerTitle:@"新闻"];
-    [self setupChildNavigationControllerWithClass:[WDNavigationViewController class] tabBarImageName:nil rootViewControllerClass: [WDMusicViewController class] rootViewControllerTitle:@"音乐"];
-    [self setupChildNavigationControllerWithClass:[WDNavigationViewController class] tabBarImageName:nil rootViewControllerClass: [WDMapViewController class] rootViewControllerTitle:@"地图"];
-    [self setupChildNavigationControllerWithClass:[WDNavigationViewController class] tabBarImageName:nil rootViewControllerClass: [WDMoreViewController class] rootViewControllerTitle:@"更多"];
+    [self setupChildNavigationControllerWithClass:[WDNavigationViewController class] tabBarImageName:@"tabBar_Movie" rootViewControllerClass: [WDMovieViewController class] rootViewControllerTitle:@"电影"];
+    [self setupChildNavigationControllerWithClass:[WDNavigationViewController class] tabBarImageName:@"tabBar_New" rootViewControllerClass: [WDNewsViewController class] rootViewControllerTitle:@"新闻"];
+    [self setupChildNavigationControllerWithClass:[WDNavigationViewController class] tabBarImageName:@"tabBar_Map" rootViewControllerClass: [WDMapViewController class] rootViewControllerTitle:@"地图"];
+    [self setupChildNavigationControllerWithClass:[WDNavigationViewController class] tabBarImageName:@"tabBar_Music" rootViewControllerClass: [WDMusicViewController class] rootViewControllerTitle:@"音乐"];
+    [self setupChildNavigationControllerWithClass:[WDNavigationViewController class] tabBarImageName:@"tabBar_More" rootViewControllerClass: [WDMoreViewController class] rootViewControllerTitle:@"更多"];
     
 }
 - (void)setupChildNavigationControllerWithClass:(Class)class tabBarImageName:(NSString *)name rootViewControllerClass:(Class)rootViewControllerClass rootViewControllerTitle:(NSString *)title{
     UIViewController *rootVC = [[rootViewControllerClass alloc] init];
     rootVC.title = title;
     UINavigationController *navigatinVC = [[class  alloc] initWithRootViewController:rootVC];
-    //    navigatinVC.tabBarItem.image = [UIImage imageNamed:name];
+        navigatinVC.tabBarItem.image = [UIImage imageNamed:name];
     //    navigatinVC.tabBarItem.selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_press", name]];
     [self addChildViewController:navigatinVC];
 }

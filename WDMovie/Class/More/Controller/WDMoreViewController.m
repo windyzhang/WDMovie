@@ -16,10 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor purpleColor];
+    self.view.backgroundColor = WD_COLOR.background;
+    [self initNavigationItem];
+}
+- (void)initNavigationItem{
     WDLeftNavigationItemButton *leftButton = [[WDLeftNavigationItemButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
-    
 }
 - (void)drawerControllerWillOpen:(ICSDrawerController *)drawerController{
     self.view.userInteractionEnabled = NO;

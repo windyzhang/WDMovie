@@ -14,8 +14,15 @@
 
 #endif /* PrefixHeader_pch */
 
+#ifdef __OBJC__
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "ICSDrawerController.h"
 #import "WDLeftNavigationItemButton.h"
+#import "Macro.h"
+#import "WDSingleton.h"
+#import "UIColor+Init.h"
+#import "WDColorManager.h"
+
+#endif
