@@ -24,7 +24,7 @@
     self.drawer = [[ICSDrawerController alloc]initWithLeftViewController:self.sideBarVC centerViewController:self.mainTabBarC];
     self.window.rootViewController = self.drawer;
     [self.window makeKeyAndVisible];
-
+    
     return YES;
 }
 
