@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1855FB971D60C89A00A438AB /* WDColorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1855FB961D60C89A00A438AB /* WDColorManager.m */; };
 		1D02AA181D59C53900944CC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA171D59C53900944CC3 /* main.m */; };
 		1D02AA1B1D59C53900944CC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA1A1D59C53900944CC3 /* AppDelegate.m */; };
 		1D02AA1E1D59C53900944CC3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA1D1D59C53900944CC3 /* ViewController.m */; };
@@ -26,7 +27,6 @@
 		1D02AA7E1D59CA9D00944CC3 /* WDSideBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA7B1D59CA9D00944CC3 /* WDSideBarViewController.m */; };
 		1D02AA811D59CAB600944CC3 /* WDMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA801D59CAB600944CC3 /* WDMoreViewController.m */; };
 		1D02AA851D59CDAE00944CC3 /* WDLeftNavigationItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA841D59CDAE00944CC3 /* WDLeftNavigationItemButton.m */; };
-		1D9C5E5F1D5AC6FF006F5944 /* WDColorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C5E5E1D5AC6FF006F5944 /* WDColorManager.m */; };
 		1D9C5E661D5AD2FA006F5944 /* UIColor+Init.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C5E651D5AD2FA006F5944 /* UIColor+Init.m */; };
 		1D9C5E691D5AF007006F5944 /* WDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C5E681D5AF007006F5944 /* WDSettingViewController.m */; };
 /* End PBXBuildFile section */
@@ -42,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1855FB951D60C89A00A438AB /* WDColorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WDColorManager.h; path = WDMovie/Support/WDColorManager.h; sourceTree = SOURCE_ROOT; };
+		1855FB961D60C89A00A438AB /* WDColorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WDColorManager.m; path = WDMovie/Support/WDColorManager.m; sourceTree = SOURCE_ROOT; };
 		1D02AA131D59C53800944CC3 /* WDMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WDMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D02AA171D59C53900944CC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1D02AA191D59C53900944CC3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,8 +82,6 @@
 		1D02AA821D59CB4700944CC3 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		1D02AA831D59CDAE00944CC3 /* WDLeftNavigationItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDLeftNavigationItemButton.h; sourceTree = "<group>"; };
 		1D02AA841D59CDAE00944CC3 /* WDLeftNavigationItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDLeftNavigationItemButton.m; sourceTree = "<group>"; };
-		1D9C5E5D1D5AC6FF006F5944 /* WDColorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WDColorManager.h; path = ../WDColorManager.h; sourceTree = "<group>"; };
-		1D9C5E5E1D5AC6FF006F5944 /* WDColorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WDColorManager.m; path = ../WDColorManager.m; sourceTree = "<group>"; };
 		1D9C5E621D5AC76F006F5944 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		1D9C5E631D5AC8A3006F5944 /* WDSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSingleton.h; sourceTree = "<group>"; };
 		1D9C5E641D5AD2FA006F5944 /* UIColor+Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Init.h"; sourceTree = "<group>"; };
@@ -457,8 +457,8 @@
 		1D9C5E601D5AC733006F5944 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				1D9C5E5D1D5AC6FF006F5944 /* WDColorManager.h */,
-				1D9C5E5E1D5AC6FF006F5944 /* WDColorManager.m */,
+				1855FB951D60C89A00A438AB /* WDColorManager.h */,
+				1855FB961D60C89A00A438AB /* WDColorManager.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -572,7 +572,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D9C5E5F1D5AC6FF006F5944 /* WDColorManager.m in Sources */,
 				1D02AA6D1D59C8D000944CC3 /* WDMovieViewController.m in Sources */,
 				1D9C5E661D5AD2FA006F5944 /* UIColor+Init.m in Sources */,
 				1D02AA1E1D59C53900944CC3 /* ViewController.m in Sources */,
@@ -585,6 +584,7 @@
 				1D02AA5F1D59C6C500944CC3 /* ICSDrawerController.m in Sources */,
 				1D02AA851D59CDAE00944CC3 /* WDLeftNavigationItemButton.m in Sources */,
 				1D9C5E691D5AF007006F5944 /* WDSettingViewController.m in Sources */,
+				1855FB971D60C89A00A438AB /* WDColorManager.m in Sources */,
 				1D02AA701D59C8DE00944CC3 /* WDMusicViewController.m in Sources */,
 				1D02AA6A1D59C8BE00944CC3 /* WDMapViewController.m in Sources */,
 				1D02AA7E1D59CA9D00944CC3 /* WDSideBarViewController.m in Sources */,
