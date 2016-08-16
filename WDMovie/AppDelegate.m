@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "WDNavigationViewController.h"
+#import "WDLaunchViewController.h"
+#import "WDWelcomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,12 +21,28 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     self.sideBarVC = [[WDSideBarViewController alloc]init];
     self.mainTabBarC = [[WDMainTabBarController alloc]init];
     self.drawer = [[ICSDrawerController alloc]initWithLeftViewController:self.sideBarVC centerViewController:self.mainTabBarC];
     self.window.rootViewController = self.drawer;
-    [self.window makeKeyAndVisible];
-    
+
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    BOOL isFrist = [userDefaults boolForKey:@"isFrist"];
+    if (!isFrist) {
+        WDWelcomeViewController *welcomeVC = [[WDWelcomeViewController alloc]init];
+        self.window.rootViewController = welcomeVC;
+        [userDefaults setBool:YES forKey:@"isFrist"];
+    }
+    else{
+        WDBlock blockAfterWelcomePage = ^{
+            self.window.rootViewController = self.drawer;
+        };
+        [WDLaunchViewController judgeLaunchInWindow:self.window completeBlock:^{
+            blockAfterWelcomePage();
+        }];
+    }
+
     return YES;
 }
 

@@ -20,9 +20,11 @@
 #import <Foundation/Foundation.h>
 #import "ICSDrawerController.h"
 #import "WDLeftNavigationItemButton.h"
+#import "WDMacro.h"
 #import "Macro.h"
 #import "WDSingleton.h"
 #import "UIColor+Init.h"
 #import "WDColorManager.h"
+#import "WDBlock.h"
 
 #endif
