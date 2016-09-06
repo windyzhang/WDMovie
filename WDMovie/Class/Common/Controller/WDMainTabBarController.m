@@ -36,7 +36,7 @@
     UIViewController *rootVC = [[rootViewControllerClass alloc] init];
     rootVC.title = title;
     UINavigationController *navigatinVC = [[class  alloc] initWithRootViewController:rootVC];
-        navigatinVC.tabBarItem.image = [UIImage imageNamed:name];
+    navigatinVC.tabBarItem.image = [UIImage imageNamed:name];
     //    navigatinVC.tabBarItem.selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_press", name]];
     [self addChildViewController:navigatinVC];
 }
