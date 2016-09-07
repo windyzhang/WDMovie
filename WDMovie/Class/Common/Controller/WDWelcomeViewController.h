@@ -9,5 +9,7 @@
 #import "WDBaseViewController.h"
 
 @interface WDWelcomeViewController : WDBaseViewController
+
 + (void)judgeWelcomeInWindow:(UIWindow *)window completeBlock:(WDBlock)block;
+
 @end

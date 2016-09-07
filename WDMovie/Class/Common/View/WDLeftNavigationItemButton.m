@@ -21,7 +21,10 @@
 
 - (void)initSubViews{
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
-    imageView.image = [UIImage imageNamed:@"userIcon.jpg"];
+    imageView.layer.cornerRadius = 17.5;
+    imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    imageView.layer.borderWidth = 1.5;
+    imageView.image = [UIImage imageNamed:@"userIcon"];
     [self addSubview:imageView];
     
     UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openDrawer:)];

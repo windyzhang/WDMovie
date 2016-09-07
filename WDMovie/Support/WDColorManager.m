@@ -18,7 +18,7 @@ return _##key;\
 
 @implementation WDColorManager
 
-WDSingleton(WDColorManager)
+WDSingleton(WDColorManager);
 
 //+ (instancetype)sharedWDColorManager{
 //    static WDColorManager *sharedWDColorManager = nil;

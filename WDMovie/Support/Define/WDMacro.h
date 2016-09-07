@@ -10,3 +10,6 @@
 
 #define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
+#define WDFORMAT(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]

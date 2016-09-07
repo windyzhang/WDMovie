@@ -60,7 +60,7 @@
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
     
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 40, 50, 50)];
-    imageView.image = [UIImage imageNamed:@"userIcon.jpg"];
+    imageView.image = [UIImage imageNamed:@"userIcon"];
     imageView.layer.cornerRadius = 25;
     imageView.layer.masksToBounds = YES;
     [headerView addSubview:imageView];
