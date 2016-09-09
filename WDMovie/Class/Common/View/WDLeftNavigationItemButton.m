@@ -21,18 +21,17 @@
 
 - (void)initSubViews{
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
-    imageView.layer.cornerRadius = 17.5;
+    imageView.layer.cornerRadius = imageView.frame.size.width * 0.5;
     imageView.layer.borderColor = [UIColor whiteColor].CGColor;
     imageView.layer.borderWidth = 1.5;
+    imageView.layer.masksToBounds = YES;
     imageView.image = [UIImage imageNamed:@"userIcon"];
+    imageView.userInteractionEnabled = YES;
     [self addSubview:imageView];
     
     UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openDrawer:)];
-    imageView.userInteractionEnabled = YES;
     [imageView addGestureRecognizer:tapGr];
     
-    imageView.layer.masksToBounds = YES;
-    imageView.layer.cornerRadius = imageView.frame.size.width * 0.5;
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     [app.drawer hiddenHeadView:^(CGFloat alpha) {
         imageView.alpha = alpha;

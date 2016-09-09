@@ -8,6 +8,7 @@
 
 #import "WDSideBarViewController.h"
 #import "WDSettingViewController.h"
+#import "WDSideBarViewManager.h"
 
 @interface WDSideBarViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -117,8 +118,7 @@
     if (indexPath.row == 1) {
         
         WDSettingViewController *settingVC = [[WDSettingViewController alloc]init];
-        settingVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:settingVC animated:YES];
+        [WD_SIDEBARVIEW_MANAGER pushViewController:settingVC];
     }
     
 }

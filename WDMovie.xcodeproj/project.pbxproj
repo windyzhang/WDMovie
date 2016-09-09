@@ -116,6 +116,8 @@
 		1D4508001D62ABD60065ED99 /* lunch_for6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D4507FF1D62ABD60065ED99 /* lunch_for6.png */; };
 		1D4508021D62ABE20065ED99 /* lunch.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D4508011D62ABE20065ED99 /* lunch.png */; };
 		1D501A4E1D62C57A0082FCAE /* WDWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D501A4D1D62C57A0082FCAE /* WDWelcomeViewController.m */; };
+		1D5EA6BA1D811977005E3011 /* WDMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EA6B91D811977005E3011 /* WDMovieDetailViewController.m */; };
+		1D5EA6BD1D813B79005E3011 /* WDSideBarViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EA6BC1D813B79005E3011 /* WDSideBarViewManager.m */; };
 		1D9C5E661D5AD2FA006F5944 /* UIColor+Init.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C5E651D5AD2FA006F5944 /* UIColor+Init.m */; };
 		1D9C5E691D5AF007006F5944 /* WDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C5E681D5AF007006F5944 /* WDSettingViewController.m */; };
 /* End PBXBuildFile section */
@@ -349,6 +351,10 @@
 		1D4508031D62BBAB0065ED99 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		1D501A4C1D62C57A0082FCAE /* WDWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDWelcomeViewController.h; sourceTree = "<group>"; };
 		1D501A4D1D62C57A0082FCAE /* WDWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDWelcomeViewController.m; sourceTree = "<group>"; };
+		1D5EA6B81D811977005E3011 /* WDMovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDMovieDetailViewController.h; sourceTree = "<group>"; };
+		1D5EA6B91D811977005E3011 /* WDMovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDMovieDetailViewController.m; sourceTree = "<group>"; };
+		1D5EA6BB1D813B79005E3011 /* WDSideBarViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSideBarViewManager.h; sourceTree = "<group>"; };
+		1D5EA6BC1D813B79005E3011 /* WDSideBarViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDSideBarViewManager.m; sourceTree = "<group>"; };
 		1D9C5E621D5AC76F006F5944 /* WDMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDMacro.h; sourceTree = "<group>"; };
 		1D9C5E631D5AC8A3006F5944 /* WDSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSingleton.h; sourceTree = "<group>"; };
 		1D9C5E641D5AD2FA006F5944 /* UIColor+Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Init.h"; sourceTree = "<group>"; };
@@ -535,6 +541,8 @@
 			children = (
 				1D02AA6B1D59C8D000944CC3 /* WDMovieViewController.h */,
 				1D02AA6C1D59C8D000944CC3 /* WDMovieViewController.m */,
+				1D5EA6B81D811977005E3011 /* WDMovieDetailViewController.h */,
+				1D5EA6B91D811977005E3011 /* WDMovieDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1025,6 +1033,8 @@
 				1855FB961D60C89A00A438AB /* WDColorManager.m */,
 				1D0CFB991D7FC49A008419C9 /* WDLocationManager.h */,
 				1D0CFB9A1D7FC49A008419C9 /* WDLocationManager.m */,
+				1D5EA6BB1D813B79005E3011 /* WDSideBarViewManager.h */,
+				1D5EA6BC1D813B79005E3011 /* WDSideBarViewManager.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1174,6 +1184,7 @@
 				1D0CFC871D7FFA48008419C9 /* YYTextMagnifier.m in Sources */,
 				1D02AA731D59C8ED00944CC3 /* WDNewsViewController.m in Sources */,
 				1D0CFC791D7FFA48008419C9 /* YYImageCache.m in Sources */,
+				1D5EA6BA1D811977005E3011 /* WDMovieDetailViewController.m in Sources */,
 				1D501A4E1D62C57A0082FCAE /* WDWelcomeViewController.m in Sources */,
 				1D0CFC9C1D7FFA48008419C9 /* YYThreadSafeDictionary.m in Sources */,
 				1D0CFC5C1D7FFA48008419C9 /* NSTimer+YYAdd.m in Sources */,
@@ -1191,6 +1202,7 @@
 				1D0CFC721D7FFA48008419C9 /* CALayer+YYWebImage.m in Sources */,
 				1D02AA521D59C60500944CC3 /* WDBaseViewController.m in Sources */,
 				1D0CFC7C1D7FFA48008419C9 /* YYWebImageManager.m in Sources */,
+				1D5EA6BD1D813B79005E3011 /* WDSideBarViewManager.m in Sources */,
 				1D0CFC9A1D7FFA48008419C9 /* YYSentinel.m in Sources */,
 				1D0CFC9D1D7FFA48008419C9 /* YYTimer.m in Sources */,
 				1D0CFC931D7FFA48008419C9 /* YYTextView.m in Sources */,

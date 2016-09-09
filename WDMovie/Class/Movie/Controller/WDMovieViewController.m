@@ -7,6 +7,7 @@
 //
 
 #import "WDMovieViewController.h"
+#import "WDMovieDetailViewController.h"
 
 @interface WDMovieViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong)UICollectionView *collectionView;
@@ -60,6 +61,11 @@
     imageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     [cell.contentView addSubview:imageView];
     return cell;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    WDMovieDetailViewController *movieDetailVC = [[WDMovieDetailViewController alloc]init];
+    movieDetailVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:movieDetailVC animated:YES];
 }
 #pragma mark - drawer
 

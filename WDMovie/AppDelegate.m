@@ -42,6 +42,7 @@
             blockAfterWelcomePage();
         }];
     }else{
+        [USER_DEFAULTS setBool:NO forKey:kFirstLogin];
         @weakify(self);
         WDBlock blockAfterLaunchPage = ^(){
             @strongify(self);
