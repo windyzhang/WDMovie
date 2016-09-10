@@ -12,7 +12,7 @@
 @property(nonatomic,strong)UIImageView *imageView;
 @property(nonatomic,strong)NSMutableArray *imageArray;
 @property(nonatomic,assign)NSInteger index;
-@property (nonatomic,copy)WDBlock completionBlock;
+@property(nonatomic,copy)WDBlock completionBlock;
 @end
 
 static WDLaunchViewController *launchVC = nil;
@@ -28,6 +28,10 @@ static WDLaunchViewController *launchVC = nil;
     } else {
         _imageView.image = [UIImage imageNamed:@"lunch"];
     }
+    UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 200, SCREEN_WIDTH, 200)];
+    whiteView.backgroundColor = WD_COLOR.background;
+    [_imageView addSubview:whiteView];
+    
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [self loadImageViews];
     [self startAnimation];
@@ -74,9 +78,7 @@ static WDLaunchViewController *launchVC = nil;
         imageView.frame = CGRectMake(x, y, width, height);
         [self.view addSubview:imageView];
         [_imageArray addObject:imageView];
-        
     }
-    
 }
 - (void)startAnimation{
     if (_index == _imageArray.count) {
@@ -111,7 +113,7 @@ static WDLaunchViewController *launchVC = nil;
                      }];
 }
 + (void)judgeLaunchInWindow:(UIWindow *)window completeBlock:(WDBlock)block{
-    WDLaunchViewController *launchVC = [[WDLaunchViewController alloc]init];
+    launchVC = [[WDLaunchViewController alloc]init];
     launchVC.completionBlock = block;
     launchVC.view.frame = [UIScreen mainScreen].bounds;
     [window addSubview:launchVC.view];

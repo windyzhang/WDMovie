@@ -24,6 +24,7 @@
 
 #import "ICSDrawerController.h"
 #import "ICSDropShadowView.h"
+#import "WDSideBarViewManager.h"
 
 static const CGFloat kICSDrawerControllerDrawerDepth = 260.0f;
 static const CGFloat kICSDrawerControllerLeftViewInitialOffset = -60.0f;
@@ -117,10 +118,10 @@ typedef NS_ENUM(NSUInteger, ICSDrawerControllerState)
     
     // Add the center view container
     [self.view addSubview:self.centerView];
-
+    
     // Add the center view controller to the container
     [self addCenterViewController];
-
+    
     [self setupGestureRecognizers];
 }
 
@@ -174,7 +175,7 @@ typedef NS_ENUM(NSUInteger, ICSDrawerControllerState)
 {
     NSParameterAssert(self.centerView);
     NSParameterAssert(self.panGestureRecognizer);
-
+    
     [self.centerView removeGestureRecognizer:self.tapGestureRecognizer];
 }
 
@@ -212,7 +213,7 @@ typedef NS_ENUM(NSUInteger, ICSDrawerControllerState)
     CGPoint velocity = [panGestureRecognizer velocityInView:self.view];
     
     switch (state) {
-
+            
         case UIGestureRecognizerStateBegan:
             self.panGestureStartLocation = location;
             if (self.drawerState == ICSDrawerControllerStateClosed) {
@@ -247,8 +248,8 @@ typedef NS_ENUM(NSUInteger, ICSDrawerControllerState)
                 // While the centerView can move up to kICSDrawerControllerDrawerDepth points, to achieve a parallax effect
                 // the leftView has move no more than kICSDrawerControllerLeftViewInitialOffset points
                 l.origin.x = kICSDrawerControllerLeftViewInitialOffset
-                           - (delta * kICSDrawerControllerLeftViewInitialOffset) / kICSDrawerControllerDrawerDepth;
-
+                - (delta * kICSDrawerControllerLeftViewInitialOffset) / kICSDrawerControllerDrawerDepth;
+                
                 c.origin.x = delta;
                 CGFloat alpha = 1 - delta/100/2.6;
                 if (alpha > 1.0) {
@@ -257,7 +258,7 @@ typedef NS_ENUM(NSUInteger, ICSDrawerControllerState)
                     alpha = 0;
                 }
                 self.hiddenBlock(alpha);
-               // NSLog(@"%f",delta/100/2.6);
+                // NSLog(@"%f",delta/100/2.6);
             }
             
             self.leftView.frame = l;
@@ -267,7 +268,7 @@ typedef NS_ENUM(NSUInteger, ICSDrawerControllerState)
         }
             
         case UIGestureRecognizerStateEnded:
-
+            
             if (self.drawerState == ICSDrawerControllerStateOpening) {
                 CGFloat centerViewLocation = self.centerView.frame.origin.x;
                 if (centerViewLocation == kICSDrawerControllerDrawerDepth) {
@@ -287,7 +288,7 @@ typedef NS_ENUM(NSUInteger, ICSDrawerControllerState)
                     [self willClose];
                     [self animateClosing];
                 }
-
+                
             } else if (self.drawerState == ICSDrawerControllerStateClosing) {
                 CGFloat centerViewLocation = self.centerView.frame.origin.x;
                 if (centerViewLocation == 0.0f) {
@@ -304,7 +305,7 @@ typedef NS_ENUM(NSUInteger, ICSDrawerControllerState)
                     // Animate the drawer opening, as the opening gesture hasn't been completed or it has
                     // been reverted by the user
                     [self didClose];
-
+                    
                     // Here we save the current position for the leftView since
                     // we want the opening animation to start from the current position
                     // and not the one that is set in 'willOpen'
@@ -383,7 +384,7 @@ typedef NS_ENUM(NSUInteger, ICSDrawerControllerState)
 - (void)open
 {
     NSParameterAssert(self.drawerState == ICSDrawerControllerStateClosed);
-
+    
     [self willOpen];
     
     [self animateOpening];
@@ -410,7 +411,7 @@ typedef NS_ENUM(NSUInteger, ICSDrawerControllerState)
     [self addChildViewController:self.leftViewController];
     self.leftViewController.view.frame = self.leftView.bounds;
     [self.leftView addSubview:self.leftViewController.view];
-
+    
     // Add the left view to the view hierarchy
     [self.view insertSubview:self.leftView belowSubview:self.centerView];
     
@@ -451,9 +452,9 @@ typedef NS_ENUM(NSUInteger, ICSDrawerControllerState)
 - (void)close
 {
     NSParameterAssert(self.drawerState == ICSDrawerControllerStateOpen);
-
+    
     [self willClose];
-
+    
     [self animateClosing];
 }
 
@@ -572,6 +573,14 @@ typedef NS_ENUM(NSUInteger, ICSDrawerControllerState)
                          // Finally, close the drawer
                          [self animateClosing];
                      }];
+}
+- (NSUInteger)supportedInterfaceOrientations {
+    UINavigationController *nav = (UINavigationController *)WD_SIDEBARVIEW_MANAGER.mainTabBarController.selectedViewController;
+    return [nav.topViewController supportedInterfaceOrientations];
+}
+
+- (BOOL)shouldAutorotate {
+    return YES;
 }
 
 @end

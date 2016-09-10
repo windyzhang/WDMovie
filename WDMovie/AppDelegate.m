@@ -10,6 +10,7 @@
 #import "WDNavigationViewController.h"
 #import "WDLaunchViewController.h"
 #import "WDWelcomeViewController.h"
+#import "WDLocationManager.h"
 
 @interface AppDelegate ()
 
@@ -26,23 +27,32 @@
     self.mainTabBarC = [[WDMainTabBarController alloc]init];
     self.drawer = [[ICSDrawerController alloc]initWithLeftViewController:self.sideBarVC centerViewController:self.mainTabBarC];
     self.window.rootViewController = self.drawer;
-
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    BOOL isFrist = [userDefaults boolForKey:@"isFrist"];
+    
+    WD_LOCATION_MANAGER;
+    
+    BOOL isFrist = [USER_DEFAULTS boolForKey:kFirstLogin];
     if (!isFrist) {
-        WDWelcomeViewController *welcomeVC = [[WDWelcomeViewController alloc]init];
-        self.window.rootViewController = welcomeVC;
-        [userDefaults setBool:YES forKey:@"isFrist"];
-    }
-    else{
-        WDBlock blockAfterWelcomePage = ^{
+        [USER_DEFAULTS setBool:YES forKey:kFirstLogin];
+        @weakify(self);
+        WDBlock blockAfterWelcomePage = ^(){
+            @strongify(self);
+            self.window.rootViewController = self.drawer;
+        };
+        [WDWelcomeViewController judgeWelcomeInWindow:self.window completeBlock:^{
+            blockAfterWelcomePage();
+        }];
+    }else{
+        [USER_DEFAULTS setBool:NO forKey:kFirstLogin];
+        @weakify(self);
+        WDBlock blockAfterLaunchPage = ^(){
+            @strongify(self);
             self.window.rootViewController = self.drawer;
         };
         [WDLaunchViewController judgeLaunchInWindow:self.window completeBlock:^{
-            blockAfterWelcomePage();
+            blockAfterLaunchPage();
         }];
     }
-
+    
     return YES;
 }
 

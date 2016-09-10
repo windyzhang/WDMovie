@@ -8,6 +8,7 @@
 
 #import "WDSideBarViewController.h"
 #import "WDSettingViewController.h"
+#import "WDSideBarViewManager.h"
 
 @interface WDSideBarViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -60,7 +61,7 @@
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
     
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 40, 50, 50)];
-    imageView.image = [UIImage imageNamed:@"userIcon.jpg"];
+    imageView.image = [UIImage imageNamed:@"userIcon"];
     imageView.layer.cornerRadius = 25;
     imageView.layer.masksToBounds = YES;
     [headerView addSubview:imageView];
@@ -117,8 +118,7 @@
     if (indexPath.row == 1) {
         
         WDSettingViewController *settingVC = [[WDSettingViewController alloc]init];
-        settingVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:settingVC animated:YES];
+        [WD_SIDEBARVIEW_MANAGER pushViewController:settingVC];
     }
     
 }

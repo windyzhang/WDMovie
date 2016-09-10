@@ -8,8 +8,8 @@
 
 #import "WDMoreViewController.h"
 
-@interface WDMoreViewController ()
-
+@interface WDMoreViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property(nonatomic,strong)UITableView *tableView;
 @end
 
 @implementation WDMoreViewController
@@ -18,11 +18,34 @@
     [super viewDidLoad];
     self.view.backgroundColor = WD_COLOR.background;
     [self initNavigationItem];
+    [self initTableView];
 }
 - (void)initNavigationItem{
     WDLeftNavigationItemButton *leftButton = [[WDLeftNavigationItemButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
 }
+- (void)initTableView{
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 300) style:UITableViewStyleGrouped];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5;
+}
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"cell_01";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    cell.textLabel.text = WDFORMAT(@"标题%ld",indexPath.row + 1);
+    return cell;
+}
+#pragma mark -drawer
+
 - (void)drawerControllerWillOpen:(ICSDrawerController *)drawerController{
     self.view.userInteractionEnabled = NO;
 }
