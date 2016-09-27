@@ -67,12 +67,12 @@
     CLLocationDegrees latitude = [[USER_DEFAULTS objectForKey:kLatitude] floatValue];
     CLLocationDegrees longitude = [[USER_DEFAULTS objectForKey:kLongitude] floatValue];
     self.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
-    
-    MKCoordinateSpan span = MKCoordinateSpanMake(_coordinate.latitude, _coordinate.longitude);
-    MKCoordinateRegion region = MKCoordinateRegionMake(_coordinate, span);
-    region.span.longitudeDelta *= 0.0005;
-    region.span.latitudeDelta *= 0.0005;
+    //显示的跨度
+    MKCoordinateSpan span = {0.05, 0.05};
+    MKCoordinateRegion region = MKCoordinateRegionMake(self.coordinate, span);
+    //2.设置地图显示的区域
     [self.mapview setRegion:region animated:YES];
+
     //[self addAnnotation];
     
 }
