@@ -38,7 +38,7 @@
     //    layout.minimumLineSpacing = 10;//每行的最小间距
     //    layout.minimumInteritemSpacing = 10;//每列的最小间距
     layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);//网格视图的/上/左/下/右,的边距
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 49) collectionViewLayout:layout];
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;

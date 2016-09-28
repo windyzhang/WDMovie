@@ -16,9 +16,11 @@ WDSingleton(WDSideBarViewManager);
 - (id)init{
     self = [super init];
     if (self) {
-        self.mainTabBarController = [[WDMainTabBarController alloc]init];
+        self.mainTabBarController = [[UIStoryboard storyboardWithName:@"Main"
+                                                               bundle:nil]
+                                     instantiateViewControllerWithIdentifier:kMainTabBar];
         self.sideBarViewController = [[WDSideBarViewController alloc]init];
-        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
         delegate.drawer = [[ICSDrawerController alloc]initWithLeftViewController:self.sideBarViewController centerViewController:self.mainTabBarController];
     }
     return self;
@@ -28,6 +30,8 @@ WDSingleton(WDSideBarViewManager);
     UINavigationController *navigationC =
     self.mainTabBarController.viewControllers[self.mainTabBarController.selectedIndex];
     viewController.hidesBottomBarWhenPushed = YES;
+    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [delegate.drawer close];
     [navigationC pushViewController:viewController animated:NO];
 }
 - (void)presentViewController:(UIViewController *)viewControllerToPresent
@@ -38,4 +42,5 @@ WDSingleton(WDSideBarViewManager);
                                            completion:completion];
     
 }
+
 @end

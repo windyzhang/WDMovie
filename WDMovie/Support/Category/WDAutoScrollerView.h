@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  WDAutoScrollerView.h
 //  WDMovie
 //
-//  Created by WindyZhang on 16/8/9.
+//  Created by WindyZhang on 16/9/28.
 //  Copyright © 2016年 feeyo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface WDAutoScrollerView : UIView
 
 @end
-

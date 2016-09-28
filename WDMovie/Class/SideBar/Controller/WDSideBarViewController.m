@@ -9,6 +9,7 @@
 #import "WDSideBarViewController.h"
 #import "WDSettingViewController.h"
 #import "WDSideBarViewManager.h"
+#import "WDPersonCeterViewController.h"
 
 @interface WDSideBarViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -24,6 +25,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = WD_COLOR.background;
     [self initTableView];
+    [self initTopView];
+    [self initBottomView];
     self.titles = @[@"清除缓存",
                     @"给个评价",
                     @"商务合作",
@@ -41,9 +44,50 @@
                     ];
     
 }
+- (void)initTopView{
+    
+    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
+    topView.backgroundColor = [UIColor clearColor];
+    UITapGestureRecognizer *topViewTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapTopView:)];
+    [topView addGestureRecognizer:topViewTap];
+    [self.view addSubview:topView];
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 40, 55, 55)];
+    imageView.image = [UIImage imageNamed:@"userIcon"];
+    imageView.layer.cornerRadius = 25;
+    imageView.layer.masksToBounds = YES;
+    [topView addSubview:imageView];
+    
+    UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(75, 40, 120, 30)];
+    nameLabel.text = @"CiOS-张文迪";
+    nameLabel.textColor = [UIColor blackColor];
+    nameLabel.textAlignment = NSTextAlignmentLeft;
+    nameLabel.font = [UIFont systemFontOfSize:20];
+    [topView addSubview:nameLabel];
+    
+    UILabel *descLabel = [[UILabel alloc]initWithFrame:CGRectMake(75, 75, 150, 20)];
+    descLabel.text = @"QQ达人";
+    descLabel.textColor = [UIColor orangeColor];
+    descLabel.textAlignment = NSTextAlignmentLeft;
+    descLabel.font = [UIFont systemFontOfSize:18];
+    [topView addSubview:descLabel];
+}
+- (void)initBottomView{
+    UIButton *settingButton = [[UIButton alloc]initWithFrame:CGRectMake(15, SCREEN_HEIGHT - 60, 80, 30)];
+    settingButton.backgroundColor = [UIColor clearColor];
+    [settingButton setTitle:@"设置" forState:UIControlStateNormal];
+    [settingButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [settingButton setImage:[UIImage imageNamed:@"sideBar_Set"] forState:UIControlStateNormal];
+    [settingButton setBlockForControlEvents:UIControlEventTouchUpInside block:^(id sender) {
+        WDSettingViewController *settingVC = [[WDSettingViewController alloc]init];
+        [WD_SIDEBARVIEW_MANAGER pushViewController:settingVC];
+    }];
+    [self.view addSubview:settingButton];
+}
 - (void)initTableView{
-    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 150, SCREEN_WIDTH, SCREEN_HEIGHT - 250) style:UITableViewStyleGrouped];
+    self.tableView.backgroundColor = [UIColor blueColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
@@ -55,60 +99,17 @@
     return self.titles.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 150;
-}
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
-    
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 40, 50, 50)];
-    imageView.image = [UIImage imageNamed:@"userIcon"];
-    imageView.layer.cornerRadius = 25;
-    imageView.layer.masksToBounds = YES;
-    [headerView addSubview:imageView];
-    
-    UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(70, 50, 120, 30)];
-    nameLabel.text = @"CiOS-张文迪";
-    nameLabel.textColor = [UIColor blackColor];
-    nameLabel.textAlignment = NSTextAlignmentLeft;
-    nameLabel.font = [UIFont systemFontOfSize:20];
-    [headerView addSubview:nameLabel];
-    
-    UILabel *descLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 95, 150, 20)];
-    descLabel.text = @"QQ达人";
-    descLabel.textColor = [UIColor orangeColor];
-    descLabel.textAlignment = NSTextAlignmentLeft;
-    descLabel.font = [UIFont systemFontOfSize:18];
-    [headerView addSubview:descLabel];
-    return headerView;
+    return 0.1;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 80;
-}
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 80)];
-    
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 40, 20, 20)];
-    imageView.image = [UIImage imageNamed:@"sideBar_Set"];
-    [footerView addSubview:imageView];
-    
-    UILabel *descLabel = [[UILabel alloc]initWithFrame:CGRectMake(55, 40, 100, 20)];
-    descLabel.text = @"设置";
-    descLabel.textColor = [UIColor blackColor];
-    descLabel.textAlignment = NSTextAlignmentLeft;
-    descLabel.font = [UIFont systemFontOfSize:18];
-    [footerView addSubview:descLabel];
-    
-    UITapGestureRecognizer *tapGest = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickFooterView:)];
-    [footerView addGestureRecognizer:tapGest];
-    
-    return footerView;
+    return 0.1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifier = @"sidebarcell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        cell.contentView.backgroundColor = [UIColor clearColor];
+        cell.backgroundColor = [UIColor clearColor];
     }
     cell.textLabel.text = self.titles[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:self.images[indexPath.row]];
@@ -117,15 +118,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 1) {
         
-        WDSettingViewController *settingVC = [[WDSettingViewController alloc]init];
-        [WD_SIDEBARVIEW_MANAGER pushViewController:settingVC];
     }
     
 }
-- (void)clickFooterView:(UITapGestureRecognizer *)tap{
-    WDSettingViewController *settingVC = [[WDSettingViewController alloc]init];
-    settingVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:settingVC animated:YES];
+- (void)tapTopView:(UITapGestureRecognizer *)tap{
+    WDPersonCeterViewController *personCeterVC = [[WDPersonCeterViewController alloc]init];
+    [WD_SIDEBARVIEW_MANAGER pushViewController:personCeterVC];
 }
 #pragma mark - drawer
 

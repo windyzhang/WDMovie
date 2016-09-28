@@ -7,6 +7,7 @@
 //
 
 #import "WDNewsViewController.h"
+#import "WDAutoScrollerView.h"
 
 @interface WDNewsViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
@@ -25,7 +26,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
 }
 - (void)initTableView{
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 49) style:UITableViewStyleGrouped];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -39,7 +40,11 @@
     return 20;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 150;
+    return 200;
+}
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+    return headerView;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifier = @"newsTableViewCell";
@@ -53,7 +58,7 @@
     //    cell.imageView.image = [UIImage imageNamed:self.images[indexPath.row]];
     return cell;
 }
-
+#pragma mark - drawer
 - (void)drawerControllerWillOpen:(ICSDrawerController *)drawerController{
     self.view.userInteractionEnabled = NO;
 }

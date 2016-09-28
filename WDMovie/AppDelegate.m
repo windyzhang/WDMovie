@@ -24,7 +24,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     self.sideBarVC = [[WDSideBarViewController alloc]init];
-    self.mainTabBarC = [[WDMainTabBarController alloc]init];
+    self.mainTabBarC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kMainTabBar];
     self.drawer = [[ICSDrawerController alloc]initWithLeftViewController:self.sideBarVC centerViewController:self.mainTabBarC];
     self.window.rootViewController = self.drawer;
     

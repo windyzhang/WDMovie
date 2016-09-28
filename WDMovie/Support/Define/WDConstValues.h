@@ -12,3 +12,4 @@ static NSString *const kLatitude = @"kLatitude";
 static NSString *const kLongitude = @"kLongitude";
 static NSString *const kFirstLogin = @"isFirstLogin";
 
+static NSString *const kMainTabBar = @"WDMainTabBarController";

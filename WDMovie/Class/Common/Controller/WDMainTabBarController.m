@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupChildControllers];
+    //[self setupChildControllers];
 }
 - (void)setupChildControllers{
     [self setupChildNavigationControllerWithClass:[WDNavigationViewController class] tabBarImageName:@"tabBar_Movie" rootViewControllerClass: [WDMovieViewController class] rootViewControllerTitle:@"电影"];
