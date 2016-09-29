@@ -36,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"地图";
     self.view.backgroundColor = WD_COLOR.background;
     [self initMapView];
     [self initSubViews];

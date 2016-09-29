@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"新闻";
     self.view.backgroundColor = WD_COLOR.background;
     [self initNavigationItem];
     [self initTableView];
@@ -44,6 +45,8 @@
 }
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+    WDAutoScrollerView *autoView = [[WDAutoScrollerView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+    [headerView addSubview:autoView];
     return headerView;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -18,6 +18,7 @@
     [super viewDidLoad];
     self.title = @"设置";
     self.view.backgroundColor = WD_COLOR.background;
+    
 }
 
 - (void)didReceiveMemoryWarning {

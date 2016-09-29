@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"电影";
     self.view.backgroundColor = WD_COLOR.background;
     [self initLeftNavigationItem];
     [self initCollectionView];

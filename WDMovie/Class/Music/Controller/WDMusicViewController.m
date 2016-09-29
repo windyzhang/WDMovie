@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"音乐";
     self.view.backgroundColor = WD_COLOR.background;
     [self initNavigationItem];
     [self initTableView];

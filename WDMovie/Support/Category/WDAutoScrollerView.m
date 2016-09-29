@@ -15,23 +15,26 @@
 @property(nonatomic,assign)BOOL autoScroll;
 @property(nonatomic,strong)NSTimer *autoScrollTimer;
 @property(nonatomic,copy)NSArray *imageArray;
+@property(nonatomic,assign)NSInteger imageCount;
 @end
 
 @implementation WDAutoScrollerView
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
+        self.imageArray = @[@"Movie4",@"Movie1",@"Movie2",@"Movie3",@"Movie4",@"Movie1"];
+        self.imageCount = _imageArray.count - 2;
         [self configScrollerAndPageControlFrame];
         [self configScroller];
     }
     return self;
 }
 - (void)configScrollerAndPageControlFrame{
-    self.imageArray = @[@"Movie1",@"Movie2",@"Movie3",@"Movie4"];
+    
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CGRectGetHeight(self.frame))];
     self.scrollView.backgroundColor = WD_COLOR.background;
     self.scrollView.delegate = self;
-    self.scrollView.contentOffset = CGPointMake(0, 0);
+    self.scrollView.contentOffset = CGPointMake(SCREEN_WIDTH, 0);
     self.scrollView.contentSize = CGSizeMake(self.imageArray.count*SCREEN_WIDTH,CGRectGetHeight(self.frame));
     self.scrollView.pagingEnabled = YES;//分页模式
     self.scrollView.scrollEnabled = YES;//支持手动滑动
@@ -39,23 +42,16 @@
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     [self addSubview:self.scrollView];
-    self.pageControl = [[UIPageControl alloc] init];
-    if (SCREEN_WIDTH == 320) {
-        self.pageControl.frame = CGRectMake(SCREEN_WIDTH/2 - 45, CGRectGetHeight(self.frame) - 140, 90, 20);
-    }else if (SCREEN_WIDTH == 375){
-        self.pageControl.frame = CGRectMake(SCREEN_WIDTH/2 - 45, CGRectGetHeight(self.frame) - 170, 90, 20);
-        
-    }else {
-        self.pageControl.frame = CGRectMake(SCREEN_WIDTH/2 - 45, CGRectGetHeight(self.frame) - 185, 90, 20);
-    }
     
+    self.pageControl = [[UIPageControl alloc] init];
+    self.pageControl.frame = CGRectMake(SCREEN_WIDTH/2 - 45, CGRectGetHeight(self.frame) - 30, 90, 20);
     self.pageControl.currentPage = 0;
-    self.pageControl.numberOfPages = self.imageArray.count;
+    self.pageControl.numberOfPages = self.imageCount;
     self.pageControl.enabled = NO;//禁止默认的点击功能
     [self addSubview:self.pageControl];
     [self bringSubviewToFront:self.pageControl];
     self.pageControl.pageIndicatorTintColor = [[UIColor alloc] initWithWhite:255 alpha:0.5];
-    self.pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
     
 }
 -(void)configScroller{
@@ -87,15 +83,18 @@
             [[NSRunLoop currentRunLoop] addTimer:self.autoScrollTimer forMode:NSRunLoopCommonModes];
             [self.autoScrollTimer fire];
         }
+    }else{
+         [self.autoScrollTimer invalidate];//移除定时器
     }
 }
 
 - (void)handleScrollTimer{
-    if (self.scrollView.contentOffset.x == self.imageArray.count * SCREEN_WIDTH){//判断是否是最后一张图片
-        self.scrollView.contentOffset = CGPointMake(0, 0);
-    }
-    [self.scrollView setContentOffset:CGPointMake((self.pageControl.currentPage + 1) * SCREEN_WIDTH, 0) animated:YES];
+//    if (self.scrollView.contentOffset.x == SCREEN_WIDTH) {
+//        [self.scrollView setContentOffset:CGPointMake((self.pageControl.currentPage + 1) * SCREEN_WIDTH, 0) animated:YES];
+//    }else{
     
+        [self.scrollView setContentOffset:CGPointMake((self.pageControl.currentPage + 2) * SCREEN_WIDTH, 0) animated:YES];
+    //}
 }
 
 - (void)handleSelect:(UIGestureRecognizer *)gestureRecognizer{
@@ -103,13 +102,21 @@
     
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.x == SCREEN_WIDTH * self.imageArray.count){//滑动图片后改变scrollView偏移量
-        scrollView.contentOffset = CGPointMake(0, 0);
+    if (scrollView.contentOffset.x == (self.imageCount + 1) * SCREEN_WIDTH){//滑动图片后改变scrollView偏移量
+        scrollView.contentOffset = CGPointMake(SCREEN_WIDTH, 0);
         self.pageControl.currentPage = 0;
+    }else if (scrollView.contentOffset.x == 0){
+        scrollView.contentOffset = CGPointMake(self.imageCount * SCREEN_WIDTH, 0);
+        self.pageControl.currentPage = self.imageCount;
     }else{
-        self.pageControl.currentPage = scrollView.contentOffset.x/SCREEN_WIDTH;
+        self.pageControl.currentPage = scrollView.contentOffset.x/SCREEN_WIDTH - 1;
     }
-    
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    self.autoScroll = NO;
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    self.autoScroll = YES;
 }
 - (void)dealloc{
     [self.autoScrollTimer invalidate];//移除定时器

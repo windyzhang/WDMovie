@@ -111,6 +111,8 @@
 		1D0CFC9F1D7FFA48008419C9 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0CFC4D1D7FFA48008419C9 /* YYWeakProxy.m */; };
 		1D0CFCA11D80013B008419C9 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0CFCA01D80013B008419C9 /* libsqlite3.tbd */; };
 		1D0CFCA31D80018D008419C9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0CFCA21D80018D008419C9 /* libz.tbd */; };
+		1D4027D01D9CC90C00870578 /* WDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4027CF1D9CC90C00870578 /* WDWebViewController.m */; };
+		1D4027D31D9D0A5D00870578 /* WDSecurityViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D4027D21D9D0A5D00870578 /* WDSecurityViewController.mm */; };
 		1D4507FD1D62A91F0065ED99 /* WDLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4507FC1D62A91F0065ED99 /* WDLaunchViewController.m */; };
 		1D4508001D62ABD60065ED99 /* lunch_for6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D4507FF1D62ABD60065ED99 /* lunch_for6.png */; };
 		1D4508021D62ABE20065ED99 /* lunch.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D4508011D62ABE20065ED99 /* lunch.png */; };
@@ -345,6 +347,10 @@
 		1D0CFC4E1D7FFA48008419C9 /* YYKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKit.h; sourceTree = "<group>"; };
 		1D0CFCA01D80013B008419C9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		1D0CFCA21D80018D008419C9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		1D4027CE1D9CC90C00870578 /* WDWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDWebViewController.h; sourceTree = "<group>"; };
+		1D4027CF1D9CC90C00870578 /* WDWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDWebViewController.m; sourceTree = "<group>"; };
+		1D4027D11D9D0A5D00870578 /* WDSecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSecurityViewController.h; sourceTree = "<group>"; };
+		1D4027D21D9D0A5D00870578 /* WDSecurityViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WDSecurityViewController.mm; sourceTree = "<group>"; };
 		1D4507FB1D62A91F0065ED99 /* WDLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDLaunchViewController.h; sourceTree = "<group>"; };
 		1D4507FC1D62A91F0065ED99 /* WDLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDLaunchViewController.m; sourceTree = "<group>"; };
 		1D4507FE1D62A9770065ED99 /* WDBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDBlock.h; sourceTree = "<group>"; };
@@ -486,6 +492,8 @@
 				1D4507FC1D62A91F0065ED99 /* WDLaunchViewController.m */,
 				1D501A4C1D62C57A0082FCAE /* WDWelcomeViewController.h */,
 				1D501A4D1D62C57A0082FCAE /* WDWelcomeViewController.m */,
+				1D4027CE1D9CC90C00870578 /* WDWebViewController.h */,
+				1D4027CF1D9CC90C00870578 /* WDWebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -714,6 +722,8 @@
 				1D9C5E681D5AF007006F5944 /* WDSettingViewController.m */,
 				1DEF9E051D9BC4DF005D41FE /* WDPersonCeterViewController.h */,
 				1DEF9E061D9BC4DF005D41FE /* WDPersonCeterViewController.m */,
+				1D4027D11D9D0A5D00870578 /* WDSecurityViewController.h */,
+				1D4027D21D9D0A5D00870578 /* WDSecurityViewController.mm */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1219,6 +1229,7 @@
 				1DEF9E0D1D9BCCA1005D41FE /* UITableView+Animation.m in Sources */,
 				1D02AA581D59C64C00944CC3 /* WDMainTabBarController.m in Sources */,
 				1D0CFC9E1D7FFA48008419C9 /* YYTransaction.m in Sources */,
+				1D4027D01D9CC90C00870578 /* WDWebViewController.m in Sources */,
 				1D0CFC841D7FFA48008419C9 /* YYTextKeyboardManager.m in Sources */,
 				1D0CFC601D7FFA48008419C9 /* UIBarButtonItem+YYAdd.m in Sources */,
 				1D0CFC8B1D7FFA48008419C9 /* UIPasteboard+YYText.m in Sources */,
@@ -1263,6 +1274,7 @@
 				1D0CFC951D7FFA48008419C9 /* YYDispatchQueuePool.m in Sources */,
 				1D02AA7E1D59CA9D00944CC3 /* WDSideBarViewController.m in Sources */,
 				1D0CFC901D7FFA48008419C9 /* YYTextRunDelegate.m in Sources */,
+				1D4027D31D9D0A5D00870578 /* WDSecurityViewController.mm in Sources */,
 				1D0CFC821D7FFA48008419C9 /* YYTextEffectWindow.m in Sources */,
 				1D0CFC961D7FFA48008419C9 /* YYFileHash.m in Sources */,
 				1D0CFC621D7FFA48008419C9 /* UIColor+YYAdd.m in Sources */,
@@ -1422,6 +1434,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = C78VJKGV2J;
+				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = WDMovie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1436,6 +1449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = C78VJKGV2J;
+				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = WDMovie/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
