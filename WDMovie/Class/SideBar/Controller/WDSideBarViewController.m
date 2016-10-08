@@ -10,6 +10,7 @@
 #import "WDSettingViewController.h"
 #import "WDSideBarViewManager.h"
 #import "WDPersonCeterViewController.h"
+#import "WDBarCodeViewController.h"
 
 @interface WDSideBarViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -79,7 +80,7 @@
     [settingButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [settingButton setImage:[UIImage imageNamed:@"sideBar_Set"] forState:UIControlStateNormal];
     [settingButton setBlockForControlEvents:UIControlEventTouchUpInside block:^(id sender) {
-        WDSettingViewController *settingVC = [[WDSettingViewController alloc]init];
+        WDBarCodeViewController *settingVC = [[WDBarCodeViewController alloc]init];
         [WD_SIDEBARVIEW_MANAGER pushViewController:settingVC];
     }];
     [self.view addSubview:settingButton];

@@ -121,6 +121,8 @@
 		1D501A4E1D62C57A0082FCAE /* WDWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D501A4D1D62C57A0082FCAE /* WDWelcomeViewController.m */; };
 		1D5EA6BA1D811977005E3011 /* WDMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EA6B91D811977005E3011 /* WDMovieDetailViewController.m */; };
 		1D5EA6BD1D813B79005E3011 /* WDSideBarViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EA6BC1D813B79005E3011 /* WDSideBarViewManager.m */; };
+		1D6A98C91DA8CF25008A9EF4 /* WDScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A98C81DA8CF25008A9EF4 /* WDScannerViewController.m */; };
+		1D6A98CC1DA8D234008A9EF4 /* WDBarCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A98CB1DA8D234008A9EF4 /* WDBarCodeViewController.m */; };
 		1D9C5E661D5AD2FA006F5944 /* UIColor+Init.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C5E651D5AD2FA006F5944 /* UIColor+Init.m */; };
 		1D9C5E691D5AF007006F5944 /* WDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C5E681D5AF007006F5944 /* WDSettingViewController.m */; };
 		1DEF9E071D9BC4DF005D41FE /* WDPersonCeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEF9E061D9BC4DF005D41FE /* WDPersonCeterViewController.m */; };
@@ -369,6 +371,10 @@
 		1D5EA6B91D811977005E3011 /* WDMovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDMovieDetailViewController.m; sourceTree = "<group>"; };
 		1D5EA6BB1D813B79005E3011 /* WDSideBarViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSideBarViewManager.h; sourceTree = "<group>"; };
 		1D5EA6BC1D813B79005E3011 /* WDSideBarViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDSideBarViewManager.m; sourceTree = "<group>"; };
+		1D6A98C71DA8CF25008A9EF4 /* WDScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDScannerViewController.h; sourceTree = "<group>"; };
+		1D6A98C81DA8CF25008A9EF4 /* WDScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDScannerViewController.m; sourceTree = "<group>"; };
+		1D6A98CA1DA8D234008A9EF4 /* WDBarCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDBarCodeViewController.h; sourceTree = "<group>"; };
+		1D6A98CB1DA8D234008A9EF4 /* WDBarCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDBarCodeViewController.m; sourceTree = "<group>"; };
 		1D9C5E621D5AC76F006F5944 /* WDMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDMacro.h; sourceTree = "<group>"; };
 		1D9C5E631D5AC8A3006F5944 /* WDSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSingleton.h; sourceTree = "<group>"; };
 		1D9C5E641D5AD2FA006F5944 /* UIColor+Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Init.h"; sourceTree = "<group>"; };
@@ -434,6 +440,7 @@
 				1D02AA1A1D59C53900944CC3 /* AppDelegate.m */,
 				1D02AA1F1D59C53900944CC3 /* Main.storyboard */,
 				1D02AA591D59C68100944CC3 /* Vender */,
+				1D6A98C61DA8CEE0008A9EF4 /* Operation */,
 				1D9C5E5B1D5AC5B8006F5944 /* Support */,
 				1D02AA3B1D59C5C300944CC3 /* Class */,
 				1D0CFB9D1D7FC6D7008419C9 /* Resources */,
@@ -730,6 +737,8 @@
 				1DEF9E061D9BC4DF005D41FE /* WDPersonCeterViewController.m */,
 				1D4027D11D9D0A5D00870578 /* WDSecurityViewController.h */,
 				1D4027D21D9D0A5D00870578 /* WDSecurityViewController.mm */,
+				1D6A98CA1DA8D234008A9EF4 /* WDBarCodeViewController.h */,
+				1D6A98CB1DA8D234008A9EF4 /* WDBarCodeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1037,6 +1046,16 @@
 			path = WDMovie;
 			sourceTree = "<group>";
 		};
+		1D6A98C61DA8CEE0008A9EF4 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				1D6A98C71DA8CF25008A9EF4 /* WDScannerViewController.h */,
+				1D6A98C81DA8CF25008A9EF4 /* WDScannerViewController.m */,
+			);
+			name = Operation;
+			path = Vender;
+			sourceTree = "<group>";
+		};
 		1D9C5E5B1D5AC5B8006F5944 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -1210,6 +1229,7 @@
 				1D0CFC911D7FFA48008419C9 /* YYTextUtilities.m in Sources */,
 				1D0CFC831D7FFA48008419C9 /* YYTextInput.m in Sources */,
 				1D0CFC501D7FFA48008419C9 /* NSBundle+YYAdd.m in Sources */,
+				1D6A98C91DA8CF25008A9EF4 /* WDScannerViewController.m in Sources */,
 				1D0CFC661D7FFA48008419C9 /* UIGestureRecognizer+YYAdd.m in Sources */,
 				1D0CFC761D7FFA48008419C9 /* YYAnimatedImageView.m in Sources */,
 				1D02AA1B1D59C53900944CC3 /* AppDelegate.m in Sources */,
@@ -1218,6 +1238,7 @@
 				1D0CFC531D7FFA48008419C9 /* NSDictionary+YYAdd.m in Sources */,
 				1D0CFC6F1D7FFA48008419C9 /* YYKVStorage.m in Sources */,
 				1D0CFC9B1D7FFA48008419C9 /* YYThreadSafeArray.m in Sources */,
+				1D6A98CC1DA8D234008A9EF4 /* WDBarCodeViewController.m in Sources */,
 				1D0CFC941D7FFA48008419C9 /* YYAsyncLayer.m in Sources */,
 				1D0CFC781D7FFA48008419C9 /* YYImage.m in Sources */,
 				1D02AA551D59C62500944CC3 /* WDNavigationViewController.m in Sources */,
