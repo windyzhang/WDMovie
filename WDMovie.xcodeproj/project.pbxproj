@@ -111,6 +111,8 @@
 		1D0CFC9F1D7FFA48008419C9 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0CFC4D1D7FFA48008419C9 /* YYWeakProxy.m */; };
 		1D0CFCA11D80013B008419C9 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0CFCA01D80013B008419C9 /* libsqlite3.tbd */; };
 		1D0CFCA31D80018D008419C9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0CFCA21D80018D008419C9 /* libz.tbd */; };
+		1D0F06F31D9E492400187A12 /* NSString+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F06F21D9E492400187A12 /* NSString+AES256.m */; };
+		1D0F06F61D9E49AD00187A12 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F06F51D9E49AD00187A12 /* NSData+AES256.m */; };
 		1D4027D01D9CC90C00870578 /* WDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4027CF1D9CC90C00870578 /* WDWebViewController.m */; };
 		1D4027D31D9D0A5D00870578 /* WDSecurityViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D4027D21D9D0A5D00870578 /* WDSecurityViewController.mm */; };
 		1D4507FD1D62A91F0065ED99 /* WDLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4507FC1D62A91F0065ED99 /* WDLaunchViewController.m */; };
@@ -347,6 +349,10 @@
 		1D0CFC4E1D7FFA48008419C9 /* YYKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKit.h; sourceTree = "<group>"; };
 		1D0CFCA01D80013B008419C9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		1D0CFCA21D80018D008419C9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		1D0F06F11D9E492400187A12 /* NSString+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AES256.h"; sourceTree = "<group>"; };
+		1D0F06F21D9E492400187A12 /* NSString+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AES256.m"; sourceTree = "<group>"; };
+		1D0F06F41D9E49AD00187A12 /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
+		1D0F06F51D9E49AD00187A12 /* NSData+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
 		1D4027CE1D9CC90C00870578 /* WDWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDWebViewController.h; sourceTree = "<group>"; };
 		1D4027CF1D9CC90C00870578 /* WDWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDWebViewController.m; sourceTree = "<group>"; };
 		1D4027D11D9D0A5D00870578 /* WDSecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSecurityViewController.h; sourceTree = "<group>"; };
@@ -1052,6 +1058,10 @@
 				1DEF9E0C1D9BCCA1005D41FE /* UITableView+Animation.m */,
 				1DEF9E0E1D9BCD75005D41FE /* NSTimer+block.h */,
 				1DEF9E0F1D9BCD75005D41FE /* NSTimer+block.m */,
+				1D0F06F11D9E492400187A12 /* NSString+AES256.h */,
+				1D0F06F21D9E492400187A12 /* NSString+AES256.m */,
+				1D0F06F41D9E49AD00187A12 /* NSData+AES256.h */,
+				1D0F06F51D9E49AD00187A12 /* NSData+AES256.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1192,6 +1202,7 @@
 				1D02AA6D1D59C8D000944CC3 /* WDMovieViewController.m in Sources */,
 				1D0CFC611D7FFA48008419C9 /* UIBezierPath+YYAdd.m in Sources */,
 				1D9C5E661D5AD2FA006F5944 /* UIColor+Init.m in Sources */,
+				1D0F06F31D9E492400187A12 /* NSString+AES256.m in Sources */,
 				1D0CFC631D7FFA48008419C9 /* UIControl+YYAdd.m in Sources */,
 				1D0CFC5E1D7FFA48008419C9 /* YYCGUtilities.m in Sources */,
 				1D0CFC811D7FFA48008419C9 /* YYTextDebugOption.m in Sources */,
@@ -1242,6 +1253,7 @@
 				1D0CFC931D7FFA48008419C9 /* YYTextView.m in Sources */,
 				1D02AA5F1D59C6C500944CC3 /* ICSDrawerController.m in Sources */,
 				1D0CFC7B1D7FFA48008419C9 /* YYSpriteSheetImage.m in Sources */,
+				1D0F06F61D9E49AD00187A12 /* NSData+AES256.m in Sources */,
 				1D02AA851D59CDAE00944CC3 /* WDLeftNavigationItemButton.m in Sources */,
 				1D0CFC5D1D7FFA48008419C9 /* CALayer+YYAdd.m in Sources */,
 				1D0CFC6A1D7FFA48008419C9 /* UITableView+YYAdd.m in Sources */,
