@@ -8,6 +8,7 @@
 
 #import "WDBarCodeViewController.h"
 #import <CoreImage/CoreImage.h>
+#import "WDScannerViewController.h"
 
 @interface WDBarCodeViewController ()
 @property(nonatomic,strong)UIImageView *imageView;
@@ -34,6 +35,18 @@
     self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 100, 200, 200, 200)];
     self.imageView.image = [self createNonInterpolatedUIImageFormCIImage:outputImage withSize:200];
     [self.view addSubview:self.imageView];
+    
+    UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+    [rightButton setImage:[UIImage imageNamed:@"Scan_icon"] forState:UIControlStateNormal];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    @weakify(self);
+    [rightButton setBlockForControlEvents:UIControlEventTouchUpInside block:^(id sender) {
+        @strongify(self);
+        WDScannerViewController *scannerVC = [[WDScannerViewController alloc]init];
+        scannerVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:scannerVC animated:YES];
+    }];
 }
 /**
  *  根据CIImage生成指定大小的UIImage

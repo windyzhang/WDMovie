@@ -7,16 +7,107 @@
 //
 
 #import "WDScannerViewController.h"
+#import "WDScannerBorder.h"
+#import "WDScanner.h"
+#import "WDScannerMaskView.h"
+
+/// 控件间距
+#define kControlMargin  32.0
 
 @interface WDScannerViewController ()
+@property (nonatomic, copy) NSString *cardName;// 名片字符串
+@property (nonatomic, strong) UIImage *avatar;// 头像图片
+@property (nonatomic, copy) CompletionCallBack completionBlock;// 完成回调
 
 @end
 
-@implementation WDScannerViewController
+@implementation WDScannerViewController{
+    WDScannerBorder *scannerBorder;// 扫描框
+    WDScanner *scanner;// 扫描器
+    UILabel *tipLabel;// 提示标签
+}
+
+//- (instancetype)initWithCardName:(NSString *)cardName avatar:(UIImage *)avatar completion:(CompletionCallBack)completion {
+//    self = [super init];
+//    if (self) {
+//        self.cardName = cardName;
+//        self.avatar = avatar;
+//        self.completionBlock = completion;
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"扫一扫";
+    self.view.backgroundColor = WD_COLOR.background;
+    [self prepareScanerBorder];
+    [self prepareOtherControls];
     
+    // 实例化扫描器
+    @weakify(self);
+    scanner = [WDScanner scanerWithView:self.view scanFrame:scannerBorder.frame completion:^(NSString *stringValue) {
+        @strongify(self);
+        self.completionBlock(stringValue);
+    }];
+
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [scannerBorder startScannerAnimating];
+    [scanner startScan];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [scannerBorder stopScannerAnimating];
+    [scanner stopScan];
+}
+
+// 准备提示标签和名片按钮
+- (void)prepareOtherControls {
+    
+    // 1> 提示标签
+    tipLabel = [[UILabel alloc] init];
+    
+    tipLabel.text = @"将二维码/条码放入框中，即可自动扫描";
+    tipLabel.font = [UIFont systemFontOfSize:12];
+    tipLabel.textColor = [UIColor whiteColor];
+    tipLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [tipLabel sizeToFit];
+    tipLabel.center = CGPointMake(scannerBorder.center.x, CGRectGetMaxY(scannerBorder.frame) + kControlMargin);
+    
+    [self.view addSubview:tipLabel];
+    
+    // 2> 名片按钮
+    UIButton *cardButton = [[UIButton alloc] init];
+    
+    [cardButton setTitle:@"我的名片" forState:UIControlStateNormal];
+    cardButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    [cardButton setTitleColor:self.navigationController.navigationBar.tintColor forState:UIControlStateNormal];
+    
+    [cardButton sizeToFit];
+    cardButton.center = CGPointMake(tipLabel.center.x, CGRectGetMaxY(tipLabel.frame) + kControlMargin);
+    
+    [self.view addSubview:cardButton];
+    
+    //[cardButton addTarget:self action:@selector(clickCardButton) forControlEvents:UIControlEventTouchUpInside];
+}
+
+// 准备扫描框
+- (void)prepareScanerBorder {
+    
+    CGFloat width = self.view.bounds.size.width - 80;
+    scannerBorder = [[WDScannerBorder alloc] initWithFrame:CGRectMake(0, 0, width, width)];
+    
+    scannerBorder.center = self.view.center;
+    scannerBorder.tintColor = self.navigationController.navigationBar.tintColor;
+    
+    [self.view addSubview:scannerBorder];
+    
+    WDScannerMaskView *maskView = [WDScannerMaskView maskViewWithFrame:self.view.bounds cropRect:scannerBorder.frame];
+    [self.view insertSubview:maskView atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -113,6 +113,9 @@
 		1D0CFCA31D80018D008419C9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0CFCA21D80018D008419C9 /* libz.tbd */; };
 		1D0F06F31D9E492400187A12 /* NSString+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F06F21D9E492400187A12 /* NSString+AES256.m */; };
 		1D0F06F61D9E49AD00187A12 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F06F51D9E49AD00187A12 /* NSData+AES256.m */; };
+		1D1B9B071DA9F065005345BC /* WDScannerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1B9B061DA9F065005345BC /* WDScannerBorder.m */; };
+		1D1B9B0A1DA9F0D4005345BC /* WDScannerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1B9B091DA9F0D4005345BC /* WDScannerMaskView.m */; };
+		1D1B9B0D1DA9F0FA005345BC /* WDScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1B9B0C1DA9F0FA005345BC /* WDScanner.m */; };
 		1D4027D01D9CC90C00870578 /* WDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4027CF1D9CC90C00870578 /* WDWebViewController.m */; };
 		1D4027D31D9D0A5D00870578 /* WDSecurityViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D4027D21D9D0A5D00870578 /* WDSecurityViewController.mm */; };
 		1D4507FD1D62A91F0065ED99 /* WDLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4507FC1D62A91F0065ED99 /* WDLaunchViewController.m */; };
@@ -355,6 +358,12 @@
 		1D0F06F21D9E492400187A12 /* NSString+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AES256.m"; sourceTree = "<group>"; };
 		1D0F06F41D9E49AD00187A12 /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
 		1D0F06F51D9E49AD00187A12 /* NSData+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
+		1D1B9B051DA9F065005345BC /* WDScannerBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDScannerBorder.h; sourceTree = "<group>"; };
+		1D1B9B061DA9F065005345BC /* WDScannerBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDScannerBorder.m; sourceTree = "<group>"; };
+		1D1B9B081DA9F0D4005345BC /* WDScannerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDScannerMaskView.h; sourceTree = "<group>"; };
+		1D1B9B091DA9F0D4005345BC /* WDScannerMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDScannerMaskView.m; sourceTree = "<group>"; };
+		1D1B9B0B1DA9F0FA005345BC /* WDScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDScanner.h; sourceTree = "<group>"; };
+		1D1B9B0C1DA9F0FA005345BC /* WDScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDScanner.m; sourceTree = "<group>"; };
 		1D4027CE1D9CC90C00870578 /* WDWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDWebViewController.h; sourceTree = "<group>"; };
 		1D4027CF1D9CC90C00870578 /* WDWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDWebViewController.m; sourceTree = "<group>"; };
 		1D4027D11D9D0A5D00870578 /* WDSecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSecurityViewController.h; sourceTree = "<group>"; };
@@ -1051,6 +1060,12 @@
 			children = (
 				1D6A98C71DA8CF25008A9EF4 /* WDScannerViewController.h */,
 				1D6A98C81DA8CF25008A9EF4 /* WDScannerViewController.m */,
+				1D1B9B051DA9F065005345BC /* WDScannerBorder.h */,
+				1D1B9B061DA9F065005345BC /* WDScannerBorder.m */,
+				1D1B9B081DA9F0D4005345BC /* WDScannerMaskView.h */,
+				1D1B9B091DA9F0D4005345BC /* WDScannerMaskView.m */,
+				1D1B9B0B1DA9F0FA005345BC /* WDScanner.h */,
+				1D1B9B0C1DA9F0FA005345BC /* WDScanner.m */,
 			);
 			name = Operation;
 			path = Vender;
@@ -1264,6 +1279,7 @@
 				1D4027D01D9CC90C00870578 /* WDWebViewController.m in Sources */,
 				1D0CFC841D7FFA48008419C9 /* YYTextKeyboardManager.m in Sources */,
 				1D0CFC601D7FFA48008419C9 /* UIBarButtonItem+YYAdd.m in Sources */,
+				1D1B9B0D1DA9F0FA005345BC /* WDScanner.m in Sources */,
 				1D0CFC8B1D7FFA48008419C9 /* UIPasteboard+YYText.m in Sources */,
 				1D0CFC721D7FFA48008419C9 /* CALayer+YYWebImage.m in Sources */,
 				1D02AA521D59C60500944CC3 /* WDBaseViewController.m in Sources */,
@@ -1294,6 +1310,7 @@
 				1D0CFC6B1D7FFA48008419C9 /* UITextField+YYAdd.m in Sources */,
 				1D0CFC7D1D7FFA48008419C9 /* YYWebImageOperation.m in Sources */,
 				1D0CFC8E1D7FFA48008419C9 /* YYTextParser.m in Sources */,
+				1D1B9B071DA9F065005345BC /* WDScannerBorder.m in Sources */,
 				1D0CFC881D7FFA48008419C9 /* YYTextSelectionView.m in Sources */,
 				1D02AA6A1D59C8BE00944CC3 /* WDMapViewController.m in Sources */,
 				1D0CFC5A1D7FFA48008419C9 /* NSString+YYAdd.m in Sources */,
@@ -1311,6 +1328,7 @@
 				1D0CFC821D7FFA48008419C9 /* YYTextEffectWindow.m in Sources */,
 				1D0CFC961D7FFA48008419C9 /* YYFileHash.m in Sources */,
 				1D0CFC621D7FFA48008419C9 /* UIColor+YYAdd.m in Sources */,
+				1D1B9B0A1DA9F0D4005345BC /* WDScannerMaskView.m in Sources */,
 				1D0CFC561D7FFA48008419C9 /* NSNumber+YYAdd.m in Sources */,
 				1D0CFC991D7FFA48008419C9 /* YYReachability.m in Sources */,
 				1D0CFC741D7FFA48008419C9 /* UIButton+YYWebImage.m in Sources */,
