@@ -10,4 +10,9 @@
 
 @interface WDWebViewController : WDBaseViewController
 
+@property(nonatomic,copy)NSString *webTitle;
+@property(nonatomic,copy)NSString *url;
+
++ (instancetype)webViewControllerWithURL:(NSString *)url withTitle:(NSString *)title;
+
 @end

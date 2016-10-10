@@ -11,6 +11,7 @@
 #import "WDSideBarViewManager.h"
 #import "WDPersonCeterViewController.h"
 #import "WDBarCodeViewController.h"
+#import "WDWebViewController.h"
 
 @interface WDSideBarViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -118,7 +119,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 1) {
-        
+        WDWebViewController *webViewC = [WDWebViewController webViewControllerWithURL:@"https://www.baidu.com" withTitle:@"百度一下"];
+        [WD_SIDEBARVIEW_MANAGER pushViewController:webViewC];
     }
     
 }

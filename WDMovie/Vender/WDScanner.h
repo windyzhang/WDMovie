@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^CompletionCallBack)(NSString *);
+typedef void(^CompletionCallBack)(NSString *string);
 
 @interface WDScanner : NSObject
 
+@property (nonatomic, copy) CompletionCallBack completionBlock;// 完成回调
+- (instancetype)initWithView:(UIView *)view scanFrame:(CGRect)scanFrame;
 // 使用视图实例化扫描器，扫描预览窗口会添加到指定视图中
 //
 // @param view       指定的视图
@@ -19,7 +21,7 @@ typedef void(^CompletionCallBack)(NSString *);
 // @param completion 完成回调
 //
 // @return 扫描器
-+ (instancetype)scanerWithView:(UIView *)view scanFrame:(CGRect)scanFrame completion:(void (^)(NSString *stringValue))completion;
++ (instancetype)scanerWithView:(UIView *)view scanFrame:(CGRect)scanFrame;
 
 // 扫描图像
 //

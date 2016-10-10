@@ -15,7 +15,7 @@
 @interface WDScanner() <AVCaptureMetadataOutputObjectsDelegate>
 @property (nonatomic, weak) UIView *parentView;// 父视图弱引用
 @property (nonatomic, assign) CGRect scanFrame;// 扫描范围
-@property (nonatomic, copy) CompletionCallBack completionBlock;// 完成回调
+
 @end
 
 @implementation WDScanner{
@@ -24,11 +24,8 @@
     CALayer *drawLayer;// 绘制图层
     NSInteger currentDetectedCount;// 当前检测计数
 }
-
-
 #pragma mark - 扫描图像方法
 + (void)scaneImage:(UIImage *)image completion:(void (^)(NSArray *))completion {
-    
     NSAssert(completion != nil, @"必须传入完成回调");
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyHigh}];
@@ -43,20 +40,15 @@
         });
     });
 }
-
 #pragma mark - 构造函数
-+ (instancetype)scanerWithView:(UIView *)view scanFrame:(CGRect)scanFrame completion:(CompletionCallBack)completion {
-    NSAssert(completion != nil, @"必须传入完成回调");
-    return [[self alloc] initWithView:view scanFrame:scanFrame completion:completion];
++ (instancetype)scanerWithView:(UIView *)view scanFrame:(CGRect)scanFrame {
+    return [[self alloc] initWithView:view scanFrame:scanFrame];
 }
-
-- (instancetype)initWithView:(UIView *)view scanFrame:(CGRect)scanFrame completion:(CompletionCallBack)completion {
+- (instancetype)initWithView:(UIView *)view scanFrame:(CGRect)scanFrame {
     self = [super init];
     if (self) {
         self.parentView = view;
         self.scanFrame = scanFrame;
-        self.completionBlock = completion;
-        
         [self setupSession];
     }
     return self;
@@ -77,7 +69,6 @@
     }
     [session stopRunning];
 }
-
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
     [self clearDrawLayer];
@@ -97,14 +88,12 @@
             [self drawCornersShape:dataObject];
         } else {
             [self stopScan];
-            // 完成回调
             if (self.completionBlock != nil) {
                 self.completionBlock(dataObject.stringValue);
             }
         }
     }
 }
-
 // 清空绘制图层
 - (void)clearDrawLayer {
     if (drawLayer.sublayers.count == 0) {
@@ -112,12 +101,10 @@
     }
     [drawLayer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
 }
-
 // 绘制条码形状
 //
 // @param dataObject 识别到的数据对象
 - (void)drawCornersShape:(AVMetadataMachineReadableCodeObject *)dataObject {
-    
     if (dataObject.corners.count == 0) {
         return;
     }
@@ -128,14 +115,12 @@
     layer.path = [self cornersPath:dataObject.corners];
     [drawLayer addSublayer:layer];
 }
-
 // 使用 corners 数组生成绘制路径
 //
 // @param corners corners 数组
 //
 // @return 绘制路径
 - (CGPathRef)cornersPath:(NSArray *)corners {
-    
     UIBezierPath *path = [UIBezierPath bezierPath];
     CGPoint point = CGPointZero;
     // 1. 移动到第一个点
@@ -151,11 +136,9 @@
     [path closePath];
     return path.CGPath;
 }
-
 #pragma mark - 扫描相关方法
 // 设置绘制图层和预览图层
 - (void)setupLayers {
-    
     if (self.parentView == nil) {
         NSLog(@"父视图不存在");
         return;
@@ -174,10 +157,8 @@
     previewLayer.frame = self.parentView.bounds;
     [self.parentView.layer insertSublayer:previewLayer atIndex:0];
 }
-
 // 设置扫描会话
 - (void)setupSession {
-    
     // 1> 输入设备
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];

@@ -9,7 +9,7 @@
 #import "WDWebViewController.h"
 #import <WebKit/WebKit.h>
 
-@interface WDWebViewController ()
+@interface WDWebViewController ()<WKNavigationDelegate>
 
 @property(nonatomic,strong)WKWebView *webView;
 
@@ -19,9 +19,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = self.webTitle;
+    self.view.backgroundColor = WD_COLOR.background;
+    
+    self.webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self.webView.navigationDelegate = self;
+    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:self.url]];
+    [self.webView loadRequest:request];
+    [self.view addSubview:self.webView];
+}
++ (instancetype)webViewControllerWithURL:(NSString *)url withTitle:(NSString *)title {
+    WDWebViewController *webViewController = [[WDWebViewController alloc] init];
+    webViewController.url = url;
+    webViewController.webTitle = title;
+    return webViewController;
+}
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
     
 }
-
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error{
+    NSLog(@"%@",error);
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
