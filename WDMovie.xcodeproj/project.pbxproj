@@ -1065,14 +1065,8 @@
 		1D6A98C61DA8CEE0008A9EF4 /* Operation */ = {
 			isa = PBXGroup;
 			children = (
-				1D6A98C71DA8CF25008A9EF4 /* WDScannerViewController.h */,
-				1D6A98C81DA8CF25008A9EF4 /* WDScannerViewController.m */,
-				1D1B9B051DA9F065005345BC /* WDScannerBorder.h */,
-				1D1B9B061DA9F065005345BC /* WDScannerBorder.m */,
-				1D1B9B081DA9F0D4005345BC /* WDScannerMaskView.h */,
-				1D1B9B091DA9F0D4005345BC /* WDScannerMaskView.m */,
-				1D1B9B0B1DA9F0FA005345BC /* WDScanner.h */,
-				1D1B9B0C1DA9F0FA005345BC /* WDScanner.m */,
+				1DE831371DACF3450060D976 /* NetWork */,
+				1DE831361DACF3290060D976 /* Scanner */,
 			);
 			name = Operation;
 			path = Vender;
@@ -1130,6 +1124,28 @@
 				1D0CFB9C1D7FC603008419C9 /* WDConstValues.h */,
 			);
 			path = Define;
+			sourceTree = "<group>";
+		};
+		1DE831361DACF3290060D976 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				1D6A98C71DA8CF25008A9EF4 /* WDScannerViewController.h */,
+				1D6A98C81DA8CF25008A9EF4 /* WDScannerViewController.m */,
+				1D1B9B051DA9F065005345BC /* WDScannerBorder.h */,
+				1D1B9B061DA9F065005345BC /* WDScannerBorder.m */,
+				1D1B9B081DA9F0D4005345BC /* WDScannerMaskView.h */,
+				1D1B9B091DA9F0D4005345BC /* WDScannerMaskView.m */,
+				1D1B9B0B1DA9F0FA005345BC /* WDScanner.h */,
+				1D1B9B0C1DA9F0FA005345BC /* WDScanner.m */,
+			);
+			name = Scanner;
+			sourceTree = "<group>";
+		};
+		1DE831371DACF3450060D976 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NetWork;
 			sourceTree = "<group>";
 		};
 		7EDF97C565E2825E9DDEBE79 /* Pods */ = {

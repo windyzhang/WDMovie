@@ -24,26 +24,7 @@
     CALayer *drawLayer;// 绘制图层
     NSInteger currentDetectedCount;// 当前检测计数
 }
-#pragma mark - 扫描图像方法
-+ (void)scaneImage:(UIImage *)image completion:(void (^)(NSArray *))completion {
-    NSAssert(completion != nil, @"必须传入完成回调");
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyHigh}];
-        CIImage *ciImage = [[CIImage alloc] initWithImage:image];
-        NSArray *features = [detector featuresInImage:ciImage];
-        NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:features.count];
-        for (CIQRCodeFeature *feature in features) {
-            [arrayM addObject:feature.messageString];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(arrayM.copy);
-        });
-    });
-}
-#pragma mark - 构造函数
-+ (instancetype)scanerWithView:(UIView *)view scanFrame:(CGRect)scanFrame {
-    return [[self alloc] initWithView:view scanFrame:scanFrame];
-}
+
 - (instancetype)initWithView:(UIView *)view scanFrame:(CGRect)scanFrame {
     self = [super init];
     if (self) {
@@ -189,7 +170,22 @@
     // 6> 设置预览图层会话
     [self setupLayers];
 }
-
+//#pragma mark - 扫描图像方法
+//+ (void)scaneImage:(UIImage *)image completion:(void (^)(NSArray *))completion {
+//    NSAssert(completion != nil, @"必须传入完成回调");
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{CIDetectorAccuracy: CIDetectorAccuracyHigh}];
+//        CIImage *ciImage = [[CIImage alloc] initWithImage:image];
+//        NSArray *features = [detector featuresInImage:ciImage];
+//        NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:features.count];
+//        for (CIQRCodeFeature *feature in features) {
+//            [arrayM addObject:feature.messageString];
+//        }
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            completion(arrayM.copy);
+//        });
+//    });
+//}
 //#pragma mark - 生成二维码
 //+ (void)qrImageWithString:(NSString *)string avatar:(UIImage *)avatar completion:(void (^)(UIImage *))completion {
 //    [self qrImageWithString:string avatar:avatar scale:0.20 completion:completion];

@@ -13,21 +13,20 @@ typedef void(^CompletionCallBack)(NSString *string);
 @interface WDScanner : NSObject
 
 @property (nonatomic, copy) CompletionCallBack completionBlock;// 完成回调
-- (instancetype)initWithView:(UIView *)view scanFrame:(CGRect)scanFrame;
+
 // 使用视图实例化扫描器，扫描预览窗口会添加到指定视图中
 //
 // @param view       指定的视图
 // @param scanFrame  扫描范围
 // @param completion 完成回调
-//
-// @return 扫描器
-+ (instancetype)scanerWithView:(UIView *)view scanFrame:(CGRect)scanFrame;
+
+- (instancetype)initWithView:(UIView *)view scanFrame:(CGRect)scanFrame;
 
 // 扫描图像
 //
 // @param image 包含二维码的图像
 // @remark 目前只支持 64 位的 iOS 设备
-+ (void)scaneImage:(UIImage *)image completion:(void (^)(NSArray *values))completion;
+//+ (void)scaneImage:(UIImage *)image completion:(void (^)(NSArray *values))completion;
 
 // 使用 string / 头像 异步生成二维码图像
 //
