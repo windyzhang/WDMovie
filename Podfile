@@ -10,5 +10,8 @@ target 'WDMovie' do
  pod 'FMDB', '~> 2.6.2'
  pod 'MBProgressHUD', '~> 0.9.2'
  pod 'RegexKitLite', '~> 4.0'
-
+ pod 'Mantle', '~> 1.5.8'
+ pod 'ReactiveCocoa', '~> 2.5'
+ pod 'SVPullToRefresh', '~> 0.4.1'
+ 
 end

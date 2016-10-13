@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  WDMovie
+
+  Created by WindyZhang on 16/10/13.
+  Copyright © 2016年 feeyo. All rights reserved.
+*/
+
+"Pull to refresh..." = "     下拉可以刷新...";
+"Release to refresh..." = "      松开刷新...";
+"Loading..." = "     加载中...";

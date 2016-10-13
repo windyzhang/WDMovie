@@ -133,6 +133,9 @@
 		1DEF9E0D1D9BCCA1005D41FE /* UITableView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEF9E0C1D9BCCA1005D41FE /* UITableView+Animation.m */; };
 		1DEF9E101D9BCD75005D41FE /* NSTimer+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEF9E0F1D9BCD75005D41FE /* NSTimer+block.m */; };
 		1DEF9E131D9BD008005D41FE /* WDAutoScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEF9E121D9BD008005D41FE /* WDAutoScrollerView.m */; };
+		1DF1B5141DAF6780003E8AA3 /* WDHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF1B5131DAF6780003E8AA3 /* WDHTTPSessionManager.m */; };
+		1DF1B51A1DAF6A0A003E8AA3 /* WDHomeMovieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF1B5191DAF6A0A003E8AA3 /* WDHomeMovieModel.m */; };
+		1DF1B51C1DAF971F003E8AA3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DF1B51B1DAF971F003E8AA3 /* Localizable.strings */; };
 		B4501215B0817456E40FDF6E /* libPods-WDMovie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB5C4E417EE062B1D988FE38 /* libPods-WDMovie.a */; };
 /* End PBXBuildFile section */
 
@@ -402,6 +405,11 @@
 		1DEF9E0F1D9BCD75005D41FE /* NSTimer+block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+block.m"; sourceTree = "<group>"; };
 		1DEF9E111D9BD008005D41FE /* WDAutoScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WDAutoScrollerView.h; path = WDMovie/Support/Category/WDAutoScrollerView.h; sourceTree = SOURCE_ROOT; };
 		1DEF9E121D9BD008005D41FE /* WDAutoScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WDAutoScrollerView.m; path = WDMovie/Support/Category/WDAutoScrollerView.m; sourceTree = SOURCE_ROOT; };
+		1DF1B5121DAF6780003E8AA3 /* WDHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDHTTPSessionManager.h; sourceTree = "<group>"; };
+		1DF1B5131DAF6780003E8AA3 /* WDHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDHTTPSessionManager.m; sourceTree = "<group>"; };
+		1DF1B5181DAF6A0A003E8AA3 /* WDHomeMovieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDHomeMovieModel.h; sourceTree = "<group>"; };
+		1DF1B5191DAF6A0A003E8AA3 /* WDHomeMovieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDHomeMovieModel.m; sourceTree = "<group>"; };
+		1DF1B51B1DAF971F003E8AA3 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		3BEF10923257721DC0302483 /* Pods-WDMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WDMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WDMovie/Pods-WDMovie.debug.xcconfig"; sourceTree = "<group>"; };
 		DB5C4E417EE062B1D988FE38 /* libPods-WDMovie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WDMovie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -599,6 +607,8 @@
 		1D02AA461D59C5C300944CC3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1DF1B5181DAF6A0A003E8AA3 /* WDHomeMovieModel.h */,
+				1DF1B5191DAF6A0A003E8AA3 /* WDHomeMovieModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -779,6 +789,7 @@
 				1D4507FF1D62ABD60065ED99 /* lunch_for6.png */,
 				1D02AA221D59C53900944CC3 /* Assets.xcassets */,
 				1D02AA241D59C53900944CC3 /* LaunchScreen.storyboard */,
+				1DF1B51B1DAF971F003E8AA3 /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1144,6 +1155,8 @@
 		1DE831371DACF3450060D976 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				1DF1B5121DAF6780003E8AA3 /* WDHTTPSessionManager.h */,
+				1DF1B5131DAF6780003E8AA3 /* WDHTTPSessionManager.m */,
 			);
 			name = NetWork;
 			sourceTree = "<group>";
@@ -1247,6 +1260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D02AA261D59C53900944CC3 /* LaunchScreen.storyboard in Resources */,
+				1DF1B51C1DAF971F003E8AA3 /* Localizable.strings in Resources */,
 				1D02AA231D59C53900944CC3 /* Assets.xcassets in Resources */,
 				1D02AA211D59C53900944CC3 /* Main.storyboard in Resources */,
 				1D4508021D62ABE20065ED99 /* lunch.png in Resources */,
@@ -1367,6 +1381,7 @@
 				1D0CFC721D7FFA48008419C9 /* CALayer+YYWebImage.m in Sources */,
 				1D02AA521D59C60500944CC3 /* WDBaseViewController.m in Sources */,
 				1D0CFC7C1D7FFA48008419C9 /* YYWebImageManager.m in Sources */,
+				1DF1B5141DAF6780003E8AA3 /* WDHTTPSessionManager.m in Sources */,
 				1D5EA6BD1D813B79005E3011 /* WDSideBarViewManager.m in Sources */,
 				1D0CFC9A1D7FFA48008419C9 /* YYSentinel.m in Sources */,
 				1D0CFC9D1D7FFA48008419C9 /* YYTimer.m in Sources */,
@@ -1422,6 +1437,7 @@
 				1D02AA811D59CAB600944CC3 /* WDMoreViewController.m in Sources */,
 				1D0CFC711D7FFA48008419C9 /* _YYWebImageSetter.m in Sources */,
 				1D0CFC6C1D7FFA48008419C9 /* UIView+YYAdd.m in Sources */,
+				1DF1B51A1DAF6A0A003E8AA3 /* WDHomeMovieModel.m in Sources */,
 				1D0CFC6E1D7FFA48008419C9 /* YYDiskCache.m in Sources */,
 				1D02AA181D59C53900944CC3 /* main.m in Sources */,
 				1D0CFC4F1D7FFA48008419C9 /* NSArray+YYAdd.m in Sources */,
