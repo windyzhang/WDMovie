@@ -13,3 +13,11 @@
 
 #define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
 #define WDFORMAT(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() WDLog(@"%s", __func__)
+#else
+#define NSLog(...)
+#define debugMethod()
+#endif

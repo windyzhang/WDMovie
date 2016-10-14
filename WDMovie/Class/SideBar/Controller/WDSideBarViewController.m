@@ -26,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = WD_COLOR.background;
+    UIImageView *background = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    background.image = [UIImage imageNamed:@"sideBar_Background"];
+    [self.view addSubview:background];
     [self initTableView];
     [self initTopView];
     [self initBottomView];
@@ -62,7 +65,7 @@
     
     UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(75, 40, 120, 30)];
     nameLabel.text = @"CiOS-张文迪";
-    nameLabel.textColor = [UIColor blackColor];
+    nameLabel.textColor = [UIColor whiteColor];
     nameLabel.textAlignment = NSTextAlignmentLeft;
     nameLabel.font = [UIFont systemFontOfSize:20];
     [topView addSubview:nameLabel];
@@ -75,11 +78,15 @@
     [topView addSubview:descLabel];
 }
 - (void)initBottomView{
-    UIButton *settingButton = [[UIButton alloc]initWithFrame:CGRectMake(15, SCREEN_HEIGHT - 60, 80, 30)];
+    UIButton *settingButton = [[UIButton alloc]initWithFrame:CGRectMake(15, SCREEN_HEIGHT - 60, 80, 35)];
     settingButton.backgroundColor = [UIColor clearColor];
     [settingButton setTitle:@"设置" forState:UIControlStateNormal];
-    [settingButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [settingButton setImage:[UIImage imageNamed:@"sideBar_Set"] forState:UIControlStateNormal];
+    [settingButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [settingButton setImageEdgeInsets:UIEdgeInsetsMake(5, 5, 5, 50)];
+    [settingButton setTitleEdgeInsets:UIEdgeInsetsMake(10, 15, 10, 0)];
+    settingButton.tintColor = [UIColor whiteColor];
+    UIImage *newImage = [[UIImage imageNamed:@"sideBar_Set"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [settingButton setImage:newImage forState:UIControlStateNormal];
     [settingButton setBlockForControlEvents:UIControlEventTouchUpInside block:^(id sender) {
         WDBarCodeViewController *settingVC = [[WDBarCodeViewController alloc]init];
         [WD_SIDEBARVIEW_MANAGER pushViewController:settingVC];
@@ -88,7 +95,7 @@
 }
 - (void)initTableView{
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 150, SCREEN_WIDTH, SCREEN_HEIGHT - 250) style:UITableViewStyleGrouped];
-    self.tableView.backgroundColor = [UIColor blueColor];
+    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -112,7 +119,9 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.backgroundColor = [UIColor clearColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.text = self.titles[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:self.images[indexPath.row]];
     return cell;

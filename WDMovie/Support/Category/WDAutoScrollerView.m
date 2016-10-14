@@ -22,7 +22,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.imageArray = @[@"Movie4",@"Movie1",@"Movie2",@"Movie3",@"Movie4",@"Movie1"];
+        self.imageArray = @[@"News4",@"News1",@"News2",@"News3",@"News4",@"News1"];
         self.imageCount = _imageArray.count - 2;
         [self configScrollerAndPageControlFrame];
         [self configScroller];
@@ -34,7 +34,7 @@
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, CGRectGetHeight(self.frame))];
     self.scrollView.backgroundColor = WD_COLOR.background;
     self.scrollView.delegate = self;
-    self.scrollView.contentOffset = CGPointMake(SCREEN_WIDTH, 0);
+    self.scrollView.contentOffset = CGPointMake(0, 0);
     self.scrollView.contentSize = CGSizeMake(self.imageArray.count*SCREEN_WIDTH,CGRectGetHeight(self.frame));
     self.scrollView.pagingEnabled = YES;//分页模式
     self.scrollView.scrollEnabled = YES;//支持手动滑动
@@ -74,7 +74,7 @@
     if (autoScroll) {
         if (!self.autoScrollTimer || !self.autoScrollTimer.isValid) {//判断定时器是否存在或失效
             @weakify(self);
-            self.autoScrollTimer = [NSTimer wd_scheduledTimerWithTimeInterval:3
+            self.autoScrollTimer = [NSTimer wd_scheduledTimerWithTimeInterval:5
                                                                     withBlock:^{
                                                                              @strongify(self);
                                                                              [self handleScrollTimer];
@@ -89,12 +89,11 @@
 }
 
 - (void)handleScrollTimer{
-//    if (self.scrollView.contentOffset.x == SCREEN_WIDTH) {
-//        [self.scrollView setContentOffset:CGPointMake((self.pageControl.currentPage + 1) * SCREEN_WIDTH, 0) animated:YES];
-//    }else{
-    
+    if (self.scrollView.contentOffset.x == 0) {
+        [self.scrollView setContentOffset:CGPointMake((self.pageControl.currentPage + 1) * SCREEN_WIDTH, 0) animated:YES];
+    }else{
         [self.scrollView setContentOffset:CGPointMake((self.pageControl.currentPage + 2) * SCREEN_WIDTH, 0) animated:YES];
-    //}
+    }
 }
 
 - (void)handleSelect:(UIGestureRecognizer *)gestureRecognizer{
@@ -112,12 +111,7 @@
         self.pageControl.currentPage = scrollView.contentOffset.x/SCREEN_WIDTH - 1;
     }
 }
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    self.autoScroll = NO;
-}
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    self.autoScroll = YES;
-}
+
 - (void)dealloc{
     [self.autoScrollTimer invalidate];//移除定时器
 }
