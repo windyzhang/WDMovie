@@ -7,6 +7,7 @@
 //
 
 #import "WDMovieDetailViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface WDMovieDetailViewController ()
 
@@ -18,6 +19,16 @@
     [super viewDidLoad];
     self.title = @"电影详情";
     self.view.backgroundColor = WD_COLOR.background;
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    [manager POST:@"" parameters:@"" progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

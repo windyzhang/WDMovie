@@ -43,14 +43,13 @@
     self.scrollView.showsVerticalScrollIndicator = NO;
     [self addSubview:self.scrollView];
     
-    self.pageControl = [[UIPageControl alloc] init];
-    self.pageControl.frame = CGRectMake(SCREEN_WIDTH/2 - 45, CGRectGetHeight(self.frame) - 30, 90, 20);
+    self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 45, CGRectGetHeight(self.frame) - 30, 90, 20)];
     self.pageControl.currentPage = 0;
     self.pageControl.numberOfPages = self.imageCount;
     self.pageControl.enabled = NO;//禁止默认的点击功能
     [self addSubview:self.pageControl];
     [self bringSubviewToFront:self.pageControl];
-    self.pageControl.pageIndicatorTintColor = [[UIColor alloc] initWithWhite:255 alpha:0.5];
+    self.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
     self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
     
 }

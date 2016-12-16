@@ -21,6 +21,7 @@ static WDLaunchViewController *launchVC = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     _imageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
     [self.view addSubview:_imageView];
     if (SCREEN_WIDTH == 375 && [UIScreen mainScreen].scale == 2) {
@@ -118,10 +119,7 @@ static WDLaunchViewController *launchVC = nil;
     launchVC.view.frame = [UIScreen mainScreen].bounds;
     [window addSubview:launchVC.view];
 }
-//隐藏状态栏
-- (BOOL)prefersStatusBarHidden{
-    return YES;
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

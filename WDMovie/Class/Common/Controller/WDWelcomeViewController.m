@@ -21,6 +21,7 @@ static WDWelcomeViewController *welcomeVC = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self initScrollView];
 }
 - (void)initScrollView{
@@ -36,7 +37,7 @@ static WDWelcomeViewController *welcomeVC = nil;
     _pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 60, SCREEN_HEIGHT - 50, 120, 30)];
     _pageControl.currentPage = 0;
     _pageControl.numberOfPages = 5;
-    self.pageControl.pageIndicatorTintColor = [[UIColor alloc] initWithWhite:255 alpha:0.5];
+    self.pageControl.pageIndicatorTintColor = [UIColor grayColor];
     self.pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
     [self.view addSubview:_pageControl];
     
@@ -102,6 +103,7 @@ static WDWelcomeViewController *welcomeVC = nil;
      */
 }
 + (void)judgeWelcomeInWindow:(UIWindow *)window completeBlock:(WDBlock)block{
+    [UIApplication sharedApplication].statusBarHidden = YES;
     welcomeVC = [[WDWelcomeViewController alloc]init];
     welcomeVC.completeBlock = block;
     welcomeVC.view.frame = [UIScreen mainScreen].bounds;
@@ -116,9 +118,6 @@ static WDWelcomeViewController *welcomeVC = nil;
     }
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
