@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WDBlock.h"
 
 @interface NSTimer (block)
 

@@ -15,6 +15,10 @@
 
 @implementation WDNewsViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setNavigationBarStyle:HistoryStyle];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"新闻";

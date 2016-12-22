@@ -14,6 +14,10 @@
 
 @implementation WDMusicViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setNavigationBarStyle:HistoryStyle];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"音乐";
@@ -23,7 +27,7 @@
     [self initTopToolView];
 }
 - (void)initTopToolView{
-    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 30)];
+    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
     topView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:topView];
     NSArray *titles = @[@"精选",@"排行",@"歌单",@"电台",@"MV"];
@@ -42,7 +46,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
 }
 - (void)initTableView{
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 79) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, SCREEN_HEIGHT - 143) style:UITableViewStyleGrouped];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

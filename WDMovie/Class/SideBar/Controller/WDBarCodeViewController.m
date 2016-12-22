@@ -16,6 +16,11 @@
 
 @implementation WDBarCodeViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setNavigationBarStyle:HistoryStyle];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = WD_COLOR.background;

@@ -16,9 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationBar.barStyle = UIBarStyleBlack;
-    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    [self setUpNavigationBar];
+//    self.navigationBar.barStyle = UIBarStyleBlack;
+//    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+//    [self setUpNavigationBar];
 }
 - (void)setUpNavigationBar{
     //UIColor *backgroundColor = [UIColor colorWithRed:0.204 green:0.722 blue:0.918 alpha:1];

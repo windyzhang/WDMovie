@@ -23,7 +23,7 @@
 #import "WDMacro.h"
 #import "Macro.h"
 #import "WDSingleton.h"
-#import "UIColor+Init.h"
+#import "WDCategoryHeader.h"
 #import "WDColorManager.h"
 #import "WDBlock.h"
 #import "WDConstValues.h"

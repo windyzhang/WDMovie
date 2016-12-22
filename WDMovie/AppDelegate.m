@@ -30,28 +30,28 @@
     
     WD_LOCATION_MANAGER;
     
-    BOOL isFrist = [USER_DEFAULTS boolForKey:kFirstLogin];
-    if (!isFrist) {
-        [USER_DEFAULTS setBool:YES forKey:kFirstLogin];
-        @weakify(self);
-        WDBlock blockAfterWelcomePage = ^(){
-            @strongify(self);
-            self.window.rootViewController = self.drawer;
-        };
-        [WDWelcomeViewController judgeWelcomeInWindow:self.window completeBlock:^{
-            blockAfterWelcomePage();
-        }];
-    }else{
-        [USER_DEFAULTS setBool:NO forKey:kFirstLogin];
-        @weakify(self);
-        WDBlock blockAfterLaunchPage = ^(){
-            @strongify(self);
-            self.window.rootViewController = self.drawer;
-        };
-        [WDLaunchViewController judgeLaunchInWindow:self.window completeBlock:^{
-            blockAfterLaunchPage();
-        }];
-    }
+//    BOOL isFrist = [USER_DEFAULTS boolForKey:kFirstLogin];
+//    if (!isFrist) {
+//        [USER_DEFAULTS setBool:YES forKey:kFirstLogin];
+//        @weakify(self);
+//        WDBlock blockAfterWelcomePage = ^(){
+//            @strongify(self);
+//            self.window.rootViewController = self.drawer;
+//        };
+//        [WDWelcomeViewController judgeWelcomeInWindow:self.window completeBlock:^{
+//            blockAfterWelcomePage();
+//        }];
+//    }else{
+//        [USER_DEFAULTS setBool:NO forKey:kFirstLogin];
+//        @weakify(self);
+//        WDBlock blockAfterLaunchPage = ^(){
+//            @strongify(self);
+//            self.window.rootViewController = self.drawer;
+//        };
+//        [WDLaunchViewController judgeLaunchInWindow:self.window completeBlock:^{
+//            blockAfterLaunchPage();
+//        }];
+//    }
     
     return YES;
 }

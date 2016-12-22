@@ -34,6 +34,10 @@
 
 @implementation WDMapViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setNavigationBarStyle:HistoryStyle];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"地图";
@@ -59,7 +63,7 @@
     [self.view addSubview:changeButton];
 }
 - (void)initMapView{
-    self.mapview = [[MKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64)];
+    self.mapview = [[MKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 113)];
     self.mapview.delegate = self;
     self.mapview.mapType = MKMapTypeStandard;
     self.mapview.showsUserLocation = YES;

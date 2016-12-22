@@ -113,6 +113,8 @@
 		1D0CFCA31D80018D008419C9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0CFCA21D80018D008419C9 /* libz.tbd */; };
 		1D0F06F31D9E492400187A12 /* NSString+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F06F21D9E492400187A12 /* NSString+AES256.m */; };
 		1D0F06F61D9E49AD00187A12 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F06F51D9E49AD00187A12 /* NSData+AES256.m */; };
+		1D0F67F71E0BAABA00A55FBB /* NSString+Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F67F61E0BAABA00A55FBB /* NSString+Operation.m */; };
+		1D0F67FA1E0BABDF00A55FBB /* UIViewController+Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F67F91E0BABDF00A55FBB /* UIViewController+Status.m */; };
 		1D1B9B071DA9F065005345BC /* WDScannerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1B9B061DA9F065005345BC /* WDScannerBorder.m */; };
 		1D1B9B0A1DA9F0D4005345BC /* WDScannerMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1B9B091DA9F0D4005345BC /* WDScannerMaskView.m */; };
 		1D1B9B0D1DA9F0FA005345BC /* WDScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1B9B0C1DA9F0FA005345BC /* WDScanner.m */; };
@@ -363,6 +365,11 @@
 		1D0F06F21D9E492400187A12 /* NSString+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AES256.m"; sourceTree = "<group>"; };
 		1D0F06F41D9E49AD00187A12 /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
 		1D0F06F51D9E49AD00187A12 /* NSData+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
+		1D0F67F51E0BAABA00A55FBB /* NSString+Operation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Operation.h"; sourceTree = "<group>"; };
+		1D0F67F61E0BAABA00A55FBB /* NSString+Operation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Operation.m"; sourceTree = "<group>"; };
+		1D0F67F81E0BABDF00A55FBB /* UIViewController+Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Status.h"; sourceTree = "<group>"; };
+		1D0F67F91E0BABDF00A55FBB /* UIViewController+Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Status.m"; sourceTree = "<group>"; };
+		1D0F67FB1E0BB2AD00A55FBB /* WDCategoryHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDCategoryHeader.h; sourceTree = "<group>"; };
 		1D1B9B051DA9F065005345BC /* WDScannerBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDScannerBorder.h; sourceTree = "<group>"; };
 		1D1B9B061DA9F065005345BC /* WDScannerBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDScannerBorder.m; sourceTree = "<group>"; };
 		1D1B9B081DA9F0D4005345BC /* WDScannerMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDScannerMaskView.h; sourceTree = "<group>"; };
@@ -1096,6 +1103,7 @@
 		1D9C5E5C1D5AC6D6006F5944 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				1D0F67FB1E0BB2AD00A55FBB /* WDCategoryHeader.h */,
 				1D9C5E641D5AD2FA006F5944 /* UIColor+Init.h */,
 				1D9C5E651D5AD2FA006F5944 /* UIColor+Init.m */,
 				1DEF9E081D9BCBA8005D41FE /* UITableView+Effect.h */,
@@ -1108,6 +1116,10 @@
 				1D0F06F21D9E492400187A12 /* NSString+AES256.m */,
 				1D0F06F41D9E49AD00187A12 /* NSData+AES256.h */,
 				1D0F06F51D9E49AD00187A12 /* NSData+AES256.m */,
+				1D0F67F51E0BAABA00A55FBB /* NSString+Operation.h */,
+				1D0F67F61E0BAABA00A55FBB /* NSString+Operation.m */,
+				1D0F67F81E0BABDF00A55FBB /* UIViewController+Status.h */,
+				1D0F67F91E0BABDF00A55FBB /* UIViewController+Status.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1348,6 +1360,7 @@
 				1D0CFC981D7FFA48008419C9 /* YYKeychain.m in Sources */,
 				1D0CFC591D7FFA48008419C9 /* NSObject+YYAddForKVO.m in Sources */,
 				1D0CFC531D7FFA48008419C9 /* NSDictionary+YYAdd.m in Sources */,
+				1D0F67FA1E0BABDF00A55FBB /* UIViewController+Status.m in Sources */,
 				1D0CFC6F1D7FFA48008419C9 /* YYKVStorage.m in Sources */,
 				1D0CFC9B1D7FFA48008419C9 /* YYThreadSafeArray.m in Sources */,
 				1D6A98CC1DA8D234008A9EF4 /* WDBarCodeViewController.m in Sources */,
@@ -1437,6 +1450,7 @@
 				1D02AA811D59CAB600944CC3 /* WDMoreViewController.m in Sources */,
 				1D0CFC711D7FFA48008419C9 /* _YYWebImageSetter.m in Sources */,
 				1D0CFC6C1D7FFA48008419C9 /* UIView+YYAdd.m in Sources */,
+				1D0F67F71E0BAABA00A55FBB /* NSString+Operation.m in Sources */,
 				1DF1B51A1DAF6A0A003E8AA3 /* WDHomeMovieModel.m in Sources */,
 				1D0CFC6E1D7FFA48008419C9 /* YYDiskCache.m in Sources */,
 				1D02AA181D59C53900944CC3 /* main.m in Sources */,

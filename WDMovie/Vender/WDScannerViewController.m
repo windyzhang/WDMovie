@@ -46,6 +46,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setNavigationBarStyle:HistoryStyle];
     [scannerBorder startScannerAnimating];
     [scanner startScan];
 }
