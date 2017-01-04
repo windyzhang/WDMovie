@@ -40,13 +40,6 @@
     //    navigatinVC.tabBarItem.selectedImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_press", name]];
     [self addChildViewController:navigatinVC];
 }
-- (void)drawerControllerWillOpen:(ICSDrawerController *)drawerController{
-    self.view.userInteractionEnabled = NO;
-}
-
-- (void)drawerControllerDidClose:(ICSDrawerController *)drawerController{
-    self.view.userInteractionEnabled = YES;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -11,6 +11,7 @@
 #import "WDLaunchViewController.h"
 #import "WDWelcomeViewController.h"
 #import "WDLocationManager.h"
+#import "MMDrawerVisualState.h"
 
 @interface AppDelegate ()
 
@@ -25,33 +26,35 @@
     [self.window makeKeyAndVisible];
     self.sideBarVC = [[WDSideBarViewController alloc]init];
     self.mainTabBarC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kMainTabBar];
-    self.drawer = [[ICSDrawerController alloc]initWithLeftViewController:self.sideBarVC centerViewController:self.mainTabBarC];
-    self.window.rootViewController = self.drawer;
+    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:self.mainTabBarC leftDrawerViewController:self.sideBarVC];
+    [self.drawerController setDrawerVisualStateBlock:[MMDrawerVisualState slideVisualStateBlock]];
+    [self.drawerController setMaximumLeftDrawerWidth:280.0];
+    self.window.rootViewController = self.drawerController;
     
     WD_LOCATION_MANAGER;
     
-//    BOOL isFrist = [USER_DEFAULTS boolForKey:kFirstLogin];
-//    if (!isFrist) {
-//        [USER_DEFAULTS setBool:YES forKey:kFirstLogin];
-//        @weakify(self);
-//        WDBlock blockAfterWelcomePage = ^(){
-//            @strongify(self);
-//            self.window.rootViewController = self.drawer;
-//        };
-//        [WDWelcomeViewController judgeWelcomeInWindow:self.window completeBlock:^{
-//            blockAfterWelcomePage();
-//        }];
-//    }else{
+    BOOL isFrist = [USER_DEFAULTS boolForKey:kFirstLogin];
+    if (!isFrist) {
+        [USER_DEFAULTS setBool:YES forKey:kFirstLogin];
+        @weakify(self);
+        WDBlock blockAfterWelcomePage = ^(){
+            @strongify(self);
+            self.window.rootViewController = self.drawerController;
+        };
+        [WDWelcomeViewController judgeWelcomeInWindow:self.window completeBlock:^{
+            blockAfterWelcomePage();
+        }];
+    }else{
 //        [USER_DEFAULTS setBool:NO forKey:kFirstLogin];
-//        @weakify(self);
-//        WDBlock blockAfterLaunchPage = ^(){
-//            @strongify(self);
-//            self.window.rootViewController = self.drawer;
-//        };
-//        [WDLaunchViewController judgeLaunchInWindow:self.window completeBlock:^{
-//            blockAfterLaunchPage();
-//        }];
-//    }
+        @weakify(self);
+        WDBlock blockAfterLaunchPage = ^(){
+            @strongify(self);
+            self.window.rootViewController = self.drawerController;
+        };
+        [WDLaunchViewController judgeLaunchInWindow:self.window completeBlock:^{
+            blockAfterLaunchPage();
+        }];
+    }
     
     return YES;
 }

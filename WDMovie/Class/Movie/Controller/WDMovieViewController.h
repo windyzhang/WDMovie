@@ -6,8 +6,8 @@
 //  Copyright © 2016年 feeyo. All rights reserved.
 //
 
-#import "WDBaseViewController.h"
+#import "WDHomeBaseViewController.h"
 
-@interface WDMovieViewController : WDBaseViewController
+@interface WDMovieViewController : WDHomeBaseViewController
 
 @end

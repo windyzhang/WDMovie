@@ -23,13 +23,9 @@
     [super viewDidLoad];
     self.title = @"新闻";
     self.view.backgroundColor = WD_COLOR.background;
-    [self initNavigationItem];
     [self initTableView];
 }
-- (void)initNavigationItem{
-    WDLeftNavigationItemButton *leftButton = [[WDLeftNavigationItemButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
-}
+
 - (void)initTableView{
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 49) style:UITableViewStyleGrouped];
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -64,14 +60,6 @@
     cell.textLabel.text = [NSString stringWithFormat:@"新闻%ld",indexPath.row + 1];
     //    cell.imageView.image = [UIImage imageNamed:self.images[indexPath.row]];
     return cell;
-}
-#pragma mark - drawer
-- (void)drawerControllerWillOpen:(ICSDrawerController *)drawerController{
-    self.view.userInteractionEnabled = NO;
-}
-
-- (void)drawerControllerDidClose:(ICSDrawerController *)drawerController{
-    self.view.userInteractionEnabled = YES;
 }
 
 - (void)didReceiveMemoryWarning {

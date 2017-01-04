@@ -8,10 +8,11 @@
 
 #import "WDSideBarViewController.h"
 #import "WDSettingViewController.h"
-#import "WDSideBarViewManager.h"
 #import "WDPersonCeterViewController.h"
 #import "WDBarCodeViewController.h"
 #import "WDWebViewController.h"
+#import "AppDelegate.h"
+#import "UIViewController+MMDrawerController.h"
 
 @interface WDSideBarViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -37,16 +38,14 @@
                     @"商务合作",
                     @"检测新版本",
                     @"欢迎页",
-                    @"关于我们"
-                    ];
+                    @"关于我们"];
     
     self.images = @[@"sideBar_Clear",
                     @"sideBar_Score",
                     @"sideBar_Business",
                     @"sideBar_Version",
                     @"sideBar_Welcome",
-                    @"sideBar_About",
-                    ];
+                    @"sideBar_About"];
     
 }
 - (void)initTopView{
@@ -89,7 +88,7 @@
     [settingButton setImage:newImage forState:UIControlStateNormal];
     [settingButton setBlockForControlEvents:UIControlEventTouchUpInside block:^(id sender) {
         WDBarCodeViewController *settingVC = [[WDBarCodeViewController alloc]init];
-        [WD_SIDEBARVIEW_MANAGER pushViewController:settingVC];
+        [self pushViewControllerInMainViewController:settingVC];
     }];
     [self.view addSubview:settingButton];
 }
@@ -129,32 +128,23 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 1) {
         WDWebViewController *webViewC = [WDWebViewController webViewControllerWithURL:@"https://www.baidu.com" withTitle:@"百度一下"];
-        [WD_SIDEBARVIEW_MANAGER pushViewController:webViewC];
+        [self pushViewControllerInMainViewController:webViewC];
     }
     
 }
 - (void)tapTopView:(UITapGestureRecognizer *)tap{
     WDPersonCeterViewController *personCeterVC = [[WDPersonCeterViewController alloc]init];
-    [WD_SIDEBARVIEW_MANAGER pushViewController:personCeterVC];
+    [self pushViewControllerInMainViewController:personCeterVC];
 }
-#pragma mark - drawer
-
-- (void)drawerControllerWillOpen:(ICSDrawerController *)drawerController{
-    self.view.userInteractionEnabled = NO;
+- (void)pushViewControllerInMainViewController:(UIViewController *)viewController{
+    AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    UINavigationController *navigationC = appDelegate.mainTabBarC.selectedViewController;
+    viewController.hidesBottomBarWhenPushed = YES;
+    [navigationC pushViewController:viewController animated:NO];
+    [self.mm_drawerController closeDrawerAnimated:YES completion:^(BOOL finished) {
+        [appDelegate.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+    }];
 }
-
-- (void)drawerControllerDidOpen:(ICSDrawerController *)drawerController{
-    self.view.userInteractionEnabled = YES;
-}
-
-- (void)drawerControllerWillClose:(ICSDrawerController *)drawerController{
-    self.view.userInteractionEnabled = NO;
-}
-
-- (void)drawerControllerDidClose:(ICSDrawerController *)drawerController{
-    self.view.userInteractionEnabled = YES;
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

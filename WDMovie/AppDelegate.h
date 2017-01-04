@@ -9,14 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "WDSideBarViewController.h"
 #import "WDMainTabBarController.h"
-#import "ICSDrawerController.h"
+#import "MMDrawerController.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) WDSideBarViewController *sideBarVC;
-@property (strong, nonatomic) ICSDrawerController *drawer;
 @property (strong, nonatomic) WDMainTabBarController *mainTabBarC;
+@property (strong, nonatomic) MMDrawerController *drawerController;
 
 
 @end

@@ -27,16 +27,11 @@
     [super viewDidLoad];
     self.title = @"电影";
     self.view.backgroundColor = WD_COLOR.background;
-    [self initLeftNavigationItem];
     [self initCollectionView];
     self.imageArray = [NSMutableArray array];
     for (int i = 0; i < 28; i++) {
         [self.imageArray addObject:[NSString stringWithFormat:@"Movie%d",i+1]];
     }
-}
-- (void)initLeftNavigationItem{
-    WDLeftNavigationItemButton *leftButton = [[WDLeftNavigationItemButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -53,23 +48,14 @@
     }
     return cell;
 }
-#pragma mark - drawer
-
-- (void)drawerControllerWillOpen:(ICSDrawerController *)drawerController{
-    self.view.userInteractionEnabled = NO;
-}
-
-- (void)drawerControllerDidClose:(ICSDrawerController *)drawerController{
-    self.view.userInteractionEnabled = YES;
-}
 - (void)initCollectionView{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     //layout.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, 20);//头部视图的框架大小
     layout.itemSize = CGSizeMake((SCREEN_WIDTH - 40)/3, (SCREEN_WIDTH - 40)/3 +30);//每个cell的大小
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    //    layout.minimumLineSpacing = 10;//每行的最小间距
-    //    layout.minimumInteritemSpacing = 10;//每列的最小间距
-    layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);//网格视图的/上/左/下/右,的边距
+//        layout.minimumLineSpacing = 10;//每行的最小间距
+//        layout.minimumInteritemSpacing = 10;//每列的最小间距
+//    layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);//网格视图的/上/左/下/右,的边距
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 113) collectionViewLayout:layout];
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.delegate = self;

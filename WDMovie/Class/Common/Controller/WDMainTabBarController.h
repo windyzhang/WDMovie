@@ -8,6 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WDMainTabBarController : UITabBarController<ICSDrawerControllerPresenting,ICSDrawerControllerChild>
-@property (nonatomic,weak) ICSDrawerController *drawer;
+@interface WDMainTabBarController : UITabBarController
 @end

@@ -8,6 +8,6 @@
 
 #import "WDBaseViewController.h"
 
-@interface WDSideBarViewController : WDBaseViewController<ICSDrawerControllerChild,ICSDrawerControllerPresenting>
-@property (nonatomic,weak) ICSDrawerController *drawer;
+@interface WDSideBarViewController : WDBaseViewController
+
 @end

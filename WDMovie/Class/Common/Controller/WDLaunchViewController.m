@@ -21,7 +21,6 @@ static WDLaunchViewController *launchVC = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     _imageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
     [self.view addSubview:_imageView];
     if (SCREEN_WIDTH == 375 && [UIScreen mainScreen].scale == 2) {
@@ -33,7 +32,8 @@ static WDLaunchViewController *launchVC = nil;
     whiteView.backgroundColor = WD_COLOR.background;
     [_imageView addSubview:whiteView];
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES
+                                            withAnimation:UIStatusBarAnimationNone];
     [self loadImageViews];
     [self startAnimation];
 }

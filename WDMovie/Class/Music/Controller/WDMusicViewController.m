@@ -22,7 +22,6 @@
     [super viewDidLoad];
     self.title = @"音乐";
     self.view.backgroundColor = WD_COLOR.background;
-    [self initNavigationItem];
     [self initTableView];
     [self initTopToolView];
 }
@@ -41,10 +40,7 @@
         [topView addSubview:button];
     }
 }
-- (void)initNavigationItem{
-    WDLeftNavigationItemButton *leftButton = [[WDLeftNavigationItemButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
-}
+
 - (void)initTableView{
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, SCREEN_HEIGHT - 143) style:UITableViewStyleGrouped];
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -76,14 +72,6 @@
     cell.textLabel.text = [NSString stringWithFormat:@"专辑%ld",indexPath.row + 1];
     //    cell.imageView.image = [UIImage imageNamed:self.images[indexPath.row]];
     return cell;
-}
-
-- (void)drawerControllerWillOpen:(ICSDrawerController *)drawerController{
-    self.view.userInteractionEnabled = NO;
-}
-
-- (void)drawerControllerDidClose:(ICSDrawerController *)drawerController{
-    self.view.userInteractionEnabled = YES;
 }
 
 - (void)didReceiveMemoryWarning {
