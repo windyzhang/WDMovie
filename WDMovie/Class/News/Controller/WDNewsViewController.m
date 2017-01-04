@@ -45,7 +45,11 @@
 }
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
-    WDAutoScrollerView *autoView = [[WDAutoScrollerView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+    NSArray *images = @[@"News1",@"News2",@"News3",@"News4"];
+    WDAutoScrollerView *autoView = [[WDAutoScrollerView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)
+                                                                 withImages:images
+                                                                withAutoPlay:YES
+                                                                   withDelay:3];
     [headerView addSubview:autoView];
     return headerView;
 }
