@@ -114,17 +114,17 @@
         }
     }
 }
-- (void)setupNavbarBackgroundWithImage:(UIImage *) image{
+- (void)setupNavbarBackgroundWithImage:(UIImage*)image{
     [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = image;
 }
 
-- (void)setupNavbarBackgroundWithColor:(UIColor *)color{
+- (void)setupNavbarBackgroundWithColor:(UIColor*)color{
     self.navigationController.navigationBar.barTintColor = color;
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
 }
 
-- (void)setupPromptNavbarBackgroundWithImage:(UIImage *) image{
+- (void)setupPromptNavbarBackgroundWithImage:(UIImage *)image{
     [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefaultPrompt];
     self.navigationController.navigationBar.shadowImage = image;
 }

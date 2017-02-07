@@ -118,6 +118,8 @@
 		1D1DA0851E1CE0E400A5E24F /* WDHomeBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1DA0841E1CE0E400A5E24F /* WDHomeBaseViewController.m */; };
 		1D1DA08B1E1CF5BE00A5E24F /* CRToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1DA0881E1CF5BE00A5E24F /* CRToast.m */; };
 		1D1DA08F1E1CFD1000A5E24F /* WDToastOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1DA08E1E1CFD1000A5E24F /* WDToastOperation.m */; };
+		1D2CA8521E495A65008884AA /* NSArray+YJInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2CA8511E495A65008884AA /* NSArray+YJInfo.m */; };
+		1D2CA8551E495AFB008884AA /* WDTopLeftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2CA8541E495AFB008884AA /* WDTopLeftLabel.m */; };
 		1D4027D01D9CC90C00870578 /* WDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4027CF1D9CC90C00870578 /* WDWebViewController.m */; };
 		1D4027D31D9D0A5D00870578 /* WDSecurityViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D4027D21D9D0A5D00870578 /* WDSecurityViewController.mm */; };
 		1D4507FD1D62A91F0065ED99 /* WDLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4507FC1D62A91F0065ED99 /* WDLaunchViewController.m */; };
@@ -375,6 +377,10 @@
 		1D1DA0881E1CF5BE00A5E24F /* CRToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToast.m; sourceTree = "<group>"; };
 		1D1DA08D1E1CFD1000A5E24F /* WDToastOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDToastOperation.h; sourceTree = "<group>"; };
 		1D1DA08E1E1CFD1000A5E24F /* WDToastOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDToastOperation.m; sourceTree = "<group>"; };
+		1D2CA8501E495A65008884AA /* NSArray+YJInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+YJInfo.h"; sourceTree = "<group>"; };
+		1D2CA8511E495A65008884AA /* NSArray+YJInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+YJInfo.m"; sourceTree = "<group>"; };
+		1D2CA8531E495AFB008884AA /* WDTopLeftLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDTopLeftLabel.h; sourceTree = "<group>"; };
+		1D2CA8541E495AFB008884AA /* WDTopLeftLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDTopLeftLabel.m; sourceTree = "<group>"; };
 		1D4027CE1D9CC90C00870578 /* WDWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDWebViewController.h; sourceTree = "<group>"; };
 		1D4027CF1D9CC90C00870578 /* WDWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDWebViewController.m; sourceTree = "<group>"; };
 		1D4027D11D9D0A5D00870578 /* WDSecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSecurityViewController.h; sourceTree = "<group>"; };
@@ -550,6 +556,8 @@
 		1D02AA3F1D59C5C300944CC3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1D2CA8531E495AFB008884AA /* WDTopLeftLabel.h */,
+				1D2CA8541E495AFB008884AA /* WDTopLeftLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1117,6 +1125,8 @@
 				1D0F67F61E0BAABA00A55FBB /* NSString+Operation.m */,
 				1D0F67F81E0BABDF00A55FBB /* UIViewController+Status.h */,
 				1D0F67F91E0BABDF00A55FBB /* UIViewController+Status.m */,
+				1D2CA8501E495A65008884AA /* NSArray+YJInfo.h */,
+				1D2CA8511E495A65008884AA /* NSArray+YJInfo.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1352,6 +1362,7 @@
 				1D0CFC661D7FFA48008419C9 /* UIGestureRecognizer+YYAdd.m in Sources */,
 				1D0CFC761D7FFA48008419C9 /* YYAnimatedImageView.m in Sources */,
 				1D02AA1B1D59C53900944CC3 /* AppDelegate.m in Sources */,
+				1D2CA8521E495A65008884AA /* NSArray+YJInfo.m in Sources */,
 				1D0CFC981D7FFA48008419C9 /* YYKeychain.m in Sources */,
 				1D0CFC591D7FFA48008419C9 /* NSObject+YYAddForKVO.m in Sources */,
 				1D0CFC531D7FFA48008419C9 /* NSDictionary+YYAdd.m in Sources */,
@@ -1378,6 +1389,7 @@
 				1D0CFC971D7FFA48008419C9 /* YYGestureRecognizer.m in Sources */,
 				1D0CFC701D7FFA48008419C9 /* YYMemoryCache.m in Sources */,
 				1D0CFC8F1D7FFA48008419C9 /* YYTextRubyAnnotation.m in Sources */,
+				1D2CA8551E495AFB008884AA /* WDTopLeftLabel.m in Sources */,
 				1D0CFC6D1D7FFA48008419C9 /* YYCache.m in Sources */,
 				1DEF9E0D1D9BCCA1005D41FE /* UITableView+Animation.m in Sources */,
 				1D02AA581D59C64C00944CC3 /* WDMainTabBarController.m in Sources */,
