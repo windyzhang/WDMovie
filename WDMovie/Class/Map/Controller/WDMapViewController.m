@@ -36,17 +36,17 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self setNavigationBarStyle:HistoryStyle];
+    [self setNavigationBarStyle:MapStyle];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"地图";
+//    self.title = @"地图";
     self.view.backgroundColor = WD_COLOR.background;
     [self initMapView];
     [self initSubViews];
 }
 - (void)initSubViews{
-    UIButton *changeButton = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 50, 30, 40, 40)];
+    UIButton *changeButton = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 120, 40, 40)];
     [changeButton setImage:[UIImage imageNamed:@"map_changeType"] forState:UIControlStateNormal];
     __block BOOL isSelect = NO;
     @weakify(self);
@@ -63,7 +63,7 @@
     [self.view addSubview:changeButton];
 }
 - (void)initMapView{
-    self.mapview = [[MKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 113)];
+    self.mapview = [[MKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 49)];
     self.mapview.delegate = self;
     self.mapview.mapType = MKMapTypeStandard;
     self.mapview.showsUserLocation = YES;

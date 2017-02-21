@@ -8,6 +8,8 @@
 
 #import "WDMoreViewController.h"
 
+static NSString *kMoreTableViewCellID = @"kMoreTableViewCellID";
+
 @interface WDMoreViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
@@ -51,10 +53,9 @@
     return 50;
 }
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"cell_01";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMoreTableViewCellID];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kMoreTableViewCellID];
     }
     cell.textLabel.text = WDFORMAT(@"标题%ld",indexPath.row + 1);
     return cell;
