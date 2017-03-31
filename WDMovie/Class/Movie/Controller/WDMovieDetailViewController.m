@@ -31,8 +31,8 @@
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64)];
     self.scrollView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.scrollView];
-    [self initTopView];
     [self initTableView];
+    [self initTopView];
 }
 
 - (void)initTopView{
@@ -48,9 +48,10 @@
 }
 
 - (void)initTableView{
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, SCREEN_WIDTH, SCREEN_HEIGHT - 124) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.contentInset = UIEdgeInsetsMake(60, 0, 0, 0);
     [self.scrollView addSubview:self.tableView];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -71,28 +72,12 @@
     return cell;
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
-    // 实时监测scrollView.contentInset.top， 系统优化以及手动设置contentInset都会影响contentInset.top。
-//    if (self.marginTop != self.tableView.contentInset.top) {
-//        self.marginTop = self.tableView.contentInset.top;
-//    }
-//    CGFloat offsetY = scrollView.contentOffset.y;
-//    NSLog(@"%f",offsetY);
-//    //newoffsetY 便是我们想监测的偏移offset.y，初始值为0， 向下滑动时<0，向上滑动时>0；
-//    if (offsetY <= 0) {
-//        CGRect newFrame = self.topView.frame;
-//        newFrame.origin.y = offsetY;
-//        self.topView.frame = newFrame;
-//        
-//        CGRect tableFrame = self.tableView.frame;
-//        tableFrame.origin.y = offsetY + 60;
-//        self.tableView.frame = tableFrame;
-//        
-//        self.tableView.contentOffset = CGPointMake(0, offsetY);
-//    } else if (offsetY > 0 && offsetY < 60){
-//        
-//    }
-
+    if (scrollView.contentOffset.y + 60 <= 0) {
+        self.topView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 60);
+    }else{
+        self.topView.frame = CGRectMake(0, -(scrollView.contentOffset.y + 60), SCREEN_WIDTH, 60);
+    }
+   
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

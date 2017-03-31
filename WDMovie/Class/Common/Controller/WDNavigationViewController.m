@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.useSystemBackBarButtonItem = YES;
+    self.transferNavigationBarAttributes = YES;
+    self.rt_disableInteractivePop = NO;
 //    self.navigationBar.barStyle = UIBarStyleBlack;
 //    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
 //    [self setUpNavigationBar];

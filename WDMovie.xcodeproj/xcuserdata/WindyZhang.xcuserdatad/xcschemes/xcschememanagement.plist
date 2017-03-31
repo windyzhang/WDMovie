@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>WDMovie Widget Extension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 		<key>WDMovie.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>1D02AA2B1D59C53900944CC3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1D2BA20D1E715EC600142310</key>
 		<dict>
 			<key>primary</key>
 			<true/>

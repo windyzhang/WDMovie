@@ -118,6 +118,10 @@
 		1D1DA0851E1CE0E400A5E24F /* WDHomeBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1DA0841E1CE0E400A5E24F /* WDHomeBaseViewController.m */; };
 		1D1DA08B1E1CF5BE00A5E24F /* CRToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1DA0881E1CF5BE00A5E24F /* CRToast.m */; };
 		1D1DA08F1E1CFD1000A5E24F /* WDToastOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1DA08E1E1CFD1000A5E24F /* WDToastOperation.m */; };
+		1D2BA2101E715EC600142310 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2BA20F1E715EC600142310 /* NotificationCenter.framework */; };
+		1D2BA2141E715EC600142310 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BA2131E715EC600142310 /* TodayViewController.m */; };
+		1D2BA2171E715EC600142310 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D2BA2151E715EC600142310 /* MainInterface.storyboard */; };
+		1D2BA21B1E715EC600142310 /* WDMovie Widget Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1D2BA20E1E715EC600142310 /* WDMovie Widget Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1D2CA8521E495A65008884AA /* NSArray+YJInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2CA8511E495A65008884AA /* NSArray+YJInfo.m */; };
 		1D2CA8551E495AFB008884AA /* WDTopLeftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2CA8541E495AFB008884AA /* WDTopLeftLabel.m */; };
 		1D4027D01D9CC90C00870578 /* WDWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4027CF1D9CC90C00870578 /* WDWebViewController.m */; };
@@ -126,6 +130,9 @@
 		1D4508001D62ABD60065ED99 /* lunch_for6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D4507FF1D62ABD60065ED99 /* lunch_for6.png */; };
 		1D4508021D62ABE20065ED99 /* lunch.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D4508011D62ABE20065ED99 /* lunch.png */; };
 		1D501A4E1D62C57A0082FCAE /* WDWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D501A4D1D62C57A0082FCAE /* WDWelcomeViewController.m */; };
+		1D5BC75A1E8E429800AFF416 /* RTRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5BC7571E8E429800AFF416 /* RTRootNavigationController.m */; };
+		1D5BC75B1E8E429800AFF416 /* UIViewController+RTRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5BC7591E8E429800AFF416 /* UIViewController+RTRootNavigationController.m */; };
+		1D5BC75E1E8E463900AFF416 /* WDCreateBarcodeOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5BC75D1E8E463900AFF416 /* WDCreateBarcodeOperation.m */; };
 		1D5EA6BA1D811977005E3011 /* WDMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EA6B91D811977005E3011 /* WDMovieDetailViewController.m */; };
 		1D6A98C91DA8CF25008A9EF4 /* WDScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A98C81DA8CF25008A9EF4 /* WDScannerViewController.m */; };
 		1D6A98CC1DA8D234008A9EF4 /* WDBarCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A98CB1DA8D234008A9EF4 /* WDBarCodeViewController.m */; };
@@ -150,7 +157,28 @@
 			remoteGlobalIDString = 1D02AA121D59C53800944CC3;
 			remoteInfo = WDMovie;
 		};
+		1D2BA2191E715EC600142310 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D02AA0B1D59C53800944CC3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D2BA20D1E715EC600142310;
+			remoteInfo = "WDMovie Widget Extension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1D2BA21F1E715EC600142310 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1D2BA21B1E715EC600142310 /* WDMovie Widget Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		044FD58B413C51171B27054A /* Pods-WDMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WDMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-WDMovie/Pods-WDMovie.release.xcconfig"; sourceTree = "<group>"; };
@@ -377,6 +405,14 @@
 		1D1DA0881E1CF5BE00A5E24F /* CRToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToast.m; sourceTree = "<group>"; };
 		1D1DA08D1E1CFD1000A5E24F /* WDToastOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDToastOperation.h; sourceTree = "<group>"; };
 		1D1DA08E1E1CFD1000A5E24F /* WDToastOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDToastOperation.m; sourceTree = "<group>"; };
+		1D2BA20E1E715EC600142310 /* WDMovie Widget Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WDMovie Widget Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D2BA20F1E715EC600142310 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		1D2BA2121E715EC600142310 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		1D2BA2131E715EC600142310 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		1D2BA2161E715EC600142310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		1D2BA2181E715EC600142310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D2BA2201E715F3200142310 /* WDMovie Widget Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WDMovie Widget Extension.entitlements"; sourceTree = "<group>"; };
+		1D2BA2211E715FA400142310 /* WDMovie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WDMovie.entitlements; sourceTree = "<group>"; };
 		1D2CA8501E495A65008884AA /* NSArray+YJInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+YJInfo.h"; sourceTree = "<group>"; };
 		1D2CA8511E495A65008884AA /* NSArray+YJInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+YJInfo.m"; sourceTree = "<group>"; };
 		1D2CA8531E495AFB008884AA /* WDTopLeftLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDTopLeftLabel.h; sourceTree = "<group>"; };
@@ -393,6 +429,12 @@
 		1D4508031D62BBAB0065ED99 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		1D501A4C1D62C57A0082FCAE /* WDWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDWelcomeViewController.h; sourceTree = "<group>"; };
 		1D501A4D1D62C57A0082FCAE /* WDWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDWelcomeViewController.m; sourceTree = "<group>"; };
+		1D5BC7561E8E429800AFF416 /* RTRootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRootNavigationController.h; sourceTree = "<group>"; };
+		1D5BC7571E8E429800AFF416 /* RTRootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRootNavigationController.m; sourceTree = "<group>"; };
+		1D5BC7581E8E429800AFF416 /* UIViewController+RTRootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RTRootNavigationController.h"; sourceTree = "<group>"; };
+		1D5BC7591E8E429800AFF416 /* UIViewController+RTRootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RTRootNavigationController.m"; sourceTree = "<group>"; };
+		1D5BC75C1E8E463900AFF416 /* WDCreateBarcodeOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDCreateBarcodeOperation.h; sourceTree = "<group>"; };
+		1D5BC75D1E8E463900AFF416 /* WDCreateBarcodeOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDCreateBarcodeOperation.m; sourceTree = "<group>"; };
 		1D5EA6B81D811977005E3011 /* WDMovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDMovieDetailViewController.h; sourceTree = "<group>"; };
 		1D5EA6B91D811977005E3011 /* WDMovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDMovieDetailViewController.m; sourceTree = "<group>"; };
 		1D6A98C71DA8CF25008A9EF4 /* WDScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDScannerViewController.h; sourceTree = "<group>"; };
@@ -443,6 +485,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1D2BA20B1E715EC600142310 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D2BA2101E715EC600142310 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -450,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				1D02AA151D59C53800944CC3 /* WDMovie */,
+				1D2BA2111E715EC600142310 /* WDMovie Widget Extension */,
 				1D0CFCA41D8001F1008419C9 /* Frameworks */,
 				1D02AA2F1D59C53900944CC3 /* WDMovieTests */,
 				1D02AA141D59C53800944CC3 /* Products */,
@@ -462,6 +513,7 @@
 			children = (
 				1D02AA131D59C53800944CC3 /* WDMovie.app */,
 				1D02AA2C1D59C53900944CC3 /* WDMovieTests.xctest */,
+				1D2BA20E1E715EC600142310 /* WDMovie Widget Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -469,6 +521,7 @@
 		1D02AA151D59C53800944CC3 /* WDMovie */ = {
 			isa = PBXGroup;
 			children = (
+				1D2BA2211E715FA400142310 /* WDMovie.entitlements */,
 				1D02AA191D59C53900944CC3 /* AppDelegate.h */,
 				1D02AA1A1D59C53900944CC3 /* AppDelegate.m */,
 				1D02AA1F1D59C53900944CC3 /* Main.storyboard */,
@@ -703,6 +756,7 @@
 		1D02AA591D59C68100944CC3 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				1D5BC7551E8E429800AFF416 /* RTRootNavigationController */,
 				1D1DA0861E1CF5BE00A5E24F /* CRToast */,
 				1D0CFB9E1D7FFA48008419C9 /* YYKit */,
 			);
@@ -1069,6 +1123,7 @@
 				1D0CFCA01D80013B008419C9 /* libsqlite3.tbd */,
 				1D0CFB971D7FB01C008419C9 /* MapKit.framework */,
 				DB5C4E417EE062B1D988FE38 /* libPods-WDMovie.a */,
+				1D2BA20F1E715EC600142310 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			path = WDMovie;
@@ -1083,6 +1138,29 @@
 			path = CRToast;
 			sourceTree = "<group>";
 		};
+		1D2BA2111E715EC600142310 /* WDMovie Widget Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1D2BA2201E715F3200142310 /* WDMovie Widget Extension.entitlements */,
+				1D2BA2121E715EC600142310 /* TodayViewController.h */,
+				1D2BA2131E715EC600142310 /* TodayViewController.m */,
+				1D2BA2151E715EC600142310 /* MainInterface.storyboard */,
+				1D2BA2181E715EC600142310 /* Info.plist */,
+			);
+			path = "WDMovie Widget Extension";
+			sourceTree = "<group>";
+		};
+		1D5BC7551E8E429800AFF416 /* RTRootNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				1D5BC7561E8E429800AFF416 /* RTRootNavigationController.h */,
+				1D5BC7571E8E429800AFF416 /* RTRootNavigationController.m */,
+				1D5BC7581E8E429800AFF416 /* UIViewController+RTRootNavigationController.h */,
+				1D5BC7591E8E429800AFF416 /* UIViewController+RTRootNavigationController.m */,
+			);
+			path = RTRootNavigationController;
+			sourceTree = "<group>";
+		};
 		1D6A98C61DA8CEE0008A9EF4 /* Operation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1090,6 +1168,8 @@
 				1DE831361DACF3290060D976 /* Scanner */,
 				1D1DA08D1E1CFD1000A5E24F /* WDToastOperation.h */,
 				1D1DA08E1E1CFD1000A5E24F /* WDToastOperation.m */,
+				1D5BC75C1E8E463900AFF416 /* WDCreateBarcodeOperation.h */,
+				1D5BC75D1E8E463900AFF416 /* WDCreateBarcodeOperation.m */,
 			);
 			name = Operation;
 			path = Vender;
@@ -1200,10 +1280,12 @@
 				1D02AA111D59C53800944CC3 /* Resources */,
 				78D029AD89F74AC868A4046A /* [CP] Embed Pods Frameworks */,
 				972BAFFCA6195A7395E55844 /* [CP] Copy Pods Resources */,
+				1D2BA21F1E715EC600142310 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1D2BA21A1E715EC600142310 /* PBXTargetDependency */,
 			);
 			name = WDMovie;
 			productName = WDMovie;
@@ -1228,6 +1310,23 @@
 			productReference = 1D02AA2C1D59C53900944CC3 /* WDMovieTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		1D2BA20D1E715EC600142310 /* WDMovie Widget Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D2BA21E1E715EC600142310 /* Build configuration list for PBXNativeTarget "WDMovie Widget Extension" */;
+			buildPhases = (
+				1D2BA20A1E715EC600142310 /* Sources */,
+				1D2BA20B1E715EC600142310 /* Frameworks */,
+				1D2BA20C1E715EC600142310 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WDMovie Widget Extension";
+			productName = "WDMovie Widget Extension";
+			productReference = 1D2BA20E1E715EC600142310 /* WDMovie Widget Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1241,6 +1340,9 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = C78VJKGV2J;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -1249,6 +1351,16 @@
 					1D02AA2B1D59C53900944CC3 = {
 						CreatedOnToolsVersion = 7.3.1;
 						TestTargetID = 1D02AA121D59C53800944CC3;
+					};
+					1D2BA20D1E715EC600142310 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = C78VJKGV2J;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1267,6 +1379,7 @@
 			targets = (
 				1D02AA121D59C53800944CC3 /* WDMovie */,
 				1D02AA2B1D59C53900944CC3 /* WDMovieTests */,
+				1D2BA20D1E715EC600142310 /* WDMovie Widget Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -1289,6 +1402,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D2BA20C1E715EC600142310 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D2BA2171E715EC600142310 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1385,6 +1506,7 @@
 				1D0CFC9C1D7FFA48008419C9 /* YYThreadSafeDictionary.m in Sources */,
 				1DEF9E071D9BC4DF005D41FE /* WDPersonCeterViewController.m in Sources */,
 				1D0CFC5C1D7FFA48008419C9 /* NSTimer+YYAdd.m in Sources */,
+				1D5BC75B1E8E429800AFF416 /* UIViewController+RTRootNavigationController.m in Sources */,
 				1D0CFC641D7FFA48008419C9 /* UIDevice+YYAdd.m in Sources */,
 				1D0CFC971D7FFA48008419C9 /* YYGestureRecognizer.m in Sources */,
 				1D0CFC701D7FFA48008419C9 /* YYMemoryCache.m in Sources */,
@@ -1428,6 +1550,7 @@
 				1D0CFC8E1D7FFA48008419C9 /* YYTextParser.m in Sources */,
 				1D1B9B071DA9F065005345BC /* WDScannerBorder.m in Sources */,
 				1D0CFC881D7FFA48008419C9 /* YYTextSelectionView.m in Sources */,
+				1D5BC75E1E8E463900AFF416 /* WDCreateBarcodeOperation.m in Sources */,
 				1D02AA6A1D59C8BE00944CC3 /* WDMapViewController.m in Sources */,
 				1D0CFC5A1D7FFA48008419C9 /* NSString+YYAdd.m in Sources */,
 				1DEF9E0A1D9BCBA8005D41FE /* UITableView+Effect.m in Sources */,
@@ -1442,6 +1565,7 @@
 				1D0CFC901D7FFA48008419C9 /* YYTextRunDelegate.m in Sources */,
 				1D4027D31D9D0A5D00870578 /* WDSecurityViewController.mm in Sources */,
 				1D0CFC821D7FFA48008419C9 /* YYTextEffectWindow.m in Sources */,
+				1D5BC75A1E8E429800AFF416 /* RTRootNavigationController.m in Sources */,
 				1D0CFC961D7FFA48008419C9 /* YYFileHash.m in Sources */,
 				1D0CFC621D7FFA48008419C9 /* UIColor+YYAdd.m in Sources */,
 				1D1B9B0A1DA9F0D4005345BC /* WDScannerMaskView.m in Sources */,
@@ -1480,6 +1604,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1D2BA20A1E715EC600142310 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D2BA2141E715EC600142310 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1487,6 +1619,11 @@
 			isa = PBXTargetDependency;
 			target = 1D02AA121D59C53800944CC3 /* WDMovie */;
 			targetProxy = 1D02AA2D1D59C53900944CC3 /* PBXContainerItemProxy */;
+		};
+		1D2BA21A1E715EC600142310 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D2BA20D1E715EC600142310 /* WDMovie Widget Extension */;
+			targetProxy = 1D2BA2191E715EC600142310 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1505,6 +1642,14 @@
 				1D02AA251D59C53900944CC3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1D2BA2151E715EC600142310 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D2BA2161E715EC600142310 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1604,6 +1749,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = WDMovie/WDMovie.entitlements;
 				DEVELOPMENT_TEAM = C78VJKGV2J;
 				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = WDMovie/Info.plist;
@@ -1620,6 +1766,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = WDMovie/WDMovie.entitlements;
 				DEVELOPMENT_TEAM = C78VJKGV2J;
 				GCC_INPUT_FILETYPE = automatic;
 				INFOPLIST_FILE = WDMovie/Info.plist;
@@ -1654,6 +1801,40 @@
 			};
 			name = Release;
 		};
+		1D2BA21C1E715EC600142310 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_ENTITLEMENTS = "WDMovie Widget Extension/WDMovie Widget Extension.entitlements";
+				DEVELOPMENT_TEAM = C78VJKGV2J;
+				INFOPLIST_FILE = "WDMovie Widget Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feeyo.WDMovie.WDMovie-Widget-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1D2BA21D1E715EC600142310 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_ENTITLEMENTS = "WDMovie Widget Extension/WDMovie Widget Extension.entitlements";
+				DEVELOPMENT_TEAM = C78VJKGV2J;
+				INFOPLIST_FILE = "WDMovie Widget Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.feeyo.WDMovie.WDMovie-Widget-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1680,6 +1861,15 @@
 			buildConfigurations = (
 				1D02AA391D59C53900944CC3 /* Debug */,
 				1D02AA3A1D59C53900944CC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D2BA21E1E715EC600142310 /* Build configuration list for PBXNativeTarget "WDMovie Widget Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D2BA21C1E715EC600142310 /* Debug */,
+				1D2BA21D1E715EC600142310 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
