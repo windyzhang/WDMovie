@@ -21,17 +21,16 @@ static WDWelcomeViewController *welcomeVC = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES
+    [[UIApplication sharedApplication] setStatusBarHidden:NO
                                             withAnimation:UIStatusBarAnimationNone];
 
     [self initScrollView];
 }
 - (void)initScrollView{
-    //创建滑动视图
     _scrollView = [[UIScrollView alloc]initWithFrame:self.view.bounds];
-    _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH*6, SCREEN_HEIGHT);//设置内容尺寸
+    _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH*6, SCREEN_HEIGHT);
     _scrollView.delegate = self;
-    _scrollView.pagingEnabled = YES;//开启分页
+    _scrollView.pagingEnabled = YES;
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.bounces = NO;
     [self.view addSubview:_scrollView];
@@ -44,7 +43,6 @@ static WDWelcomeViewController *welcomeVC = nil;
     [self.view addSubview:_pageControl];
     
     for (int i = 0; i < 5; i++) {
-        //创建视图
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*i, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
         NSString *imageName = [NSString stringWithFormat:@"Welcome%d",i+1];
         imageView.image = [UIImage imageNamed:imageName];
@@ -52,7 +50,6 @@ static WDWelcomeViewController *welcomeVC = nil;
         [_scrollView addSubview:imageView];
         
         if (i == 4) {
-            //创建按钮，切换主控制器
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.frame = CGRectMake(SCREEN_WIDTH/2 - 75, SCREEN_HEIGHT  -  100, 150, 40);
             button.layer.cornerRadius = 5;
@@ -60,9 +57,7 @@ static WDWelcomeViewController *welcomeVC = nil;
             button.layer.borderWidth = 1.5;
             button.layer.masksToBounds = YES;
             [button setTitle:@"立刻体验" forState:UIControlStateNormal];
-            //设置字体
             button.titleLabel.font = [UIFont boldSystemFontOfSize:20];
-            //设置字体颜色
             [button setTitleColor:[UIColor colorWithRed:150 / 255.f green:55 / 255.f blue:55/ 255.f alpha:1] forState:UIControlStateNormal];
             [imageView addSubview:button];
             @weakify(self);
@@ -74,14 +69,12 @@ static WDWelcomeViewController *welcomeVC = nil;
     }
 }
 - (void)removeWelcomeVC{
-    [[UIApplication sharedApplication] setStatusBarHidden:NO
-                                            withAnimation:UIStatusBarAnimationNone];
     @weakify(self);
     [UIView animateWithDuration:0.3
                      animations:^{
                          @strongify(self);
                          self.view.alpha = 0;
-                     }
+                    }
                      completion:^(BOOL finished) {
                          @strongify(self);
                          [self.view removeFromSuperview];
@@ -90,6 +83,7 @@ static WDWelcomeViewController *welcomeVC = nil;
     if (self.completeBlock) {
         self.completeBlock();
     }
+
 }
 - (void)clickButton:(UIButton*)button{
     /*
@@ -112,7 +106,7 @@ static WDWelcomeViewController *welcomeVC = nil;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.x == SCREEN_WIDTH * 5){//滑动图片后改变scrollView偏移量
+    if (scrollView.contentOffset.x == SCREEN_WIDTH * 5){
         [self removeWelcomeVC];
     }else{
         self.pageControl.currentPage = scrollView.contentOffset.x/SCREEN_WIDTH;

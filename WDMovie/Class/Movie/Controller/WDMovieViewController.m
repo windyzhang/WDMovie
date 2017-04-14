@@ -50,13 +50,14 @@
 }
 - (void)initCollectionView{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    //layout.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, 20);//头部视图的框架大小
-    layout.itemSize = CGSizeMake((SCREEN_WIDTH - 40)/3, (SCREEN_WIDTH - 40)/3 +30);//每个cell的大小
+    layout.headerReferenceSize = CGSizeZero;//头部视图的框架大小
+    layout.footerReferenceSize = CGSizeZero;
+    layout.itemSize = CGSizeMake((SCREEN_WIDTH - 20)/3, (SCREEN_WIDTH - 20)/3 + 30);//每个cell的大小
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-//        layout.minimumLineSpacing = 10;//每行的最小间距
-//        layout.minimumInteritemSpacing = 10;//每列的最小间距
-//    layout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);//网格视图的/上/左/下/右,的边距
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 113) collectionViewLayout:layout];
+    layout.minimumLineSpacing = 5;//每行的最小间距
+    layout.minimumInteritemSpacing = 5;//每列的最小间距
+    layout.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5);//网格视图的/上/左/下/右,的边距
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64) collectionViewLayout:layout];
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -73,9 +74,11 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
-    cell.contentView.backgroundColor = [UIColor redColor];
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0,(SCREEN_WIDTH - 40)/3, (SCREEN_WIDTH - 40)/3 +30)];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, (SCREEN_WIDTH - 20)/3, (SCREEN_WIDTH - 20)/3 + 30)];
     imageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
+    imageView.layer.cornerRadius = 10;
+    imageView.layer.masksToBounds = YES;
     [cell.contentView addSubview:imageView];
     return cell;
 }
@@ -84,7 +87,6 @@
     movieDetailVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:movieDetailVC animated:YES];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

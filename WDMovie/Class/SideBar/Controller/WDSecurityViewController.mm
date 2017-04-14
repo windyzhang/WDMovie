@@ -38,20 +38,20 @@
     const void *dataIn;
     size_t dataInLength;
     
-    if (encryptOperation == kCCDecrypt)//传递过来的是decrypt 解码
-    {
+//    if (encryptOperation == kCCDecrypt)//传递过来的是decrypt 解码
+//    {
         //解码 base64
-        //NSData *decryptData = [GTMBase64 decodeData:[sText dataUsingEncoding:NSUTF8StringEncoding]];//转成utf-8并decode
+//        NSData *decryptData = [GTMBase64 decodeData:[sText dataUsingEncoding:NSUTF8StringEncoding]];//转成utf-8并decode
 //        dataInLength = [decryptData length];
 //        dataIn = [decryptData bytes];
-    }
-    else  //encrypt
-    {
+//    }
+//    else  //encrypt
+//    {
         NSData* encryptData = [sText dataUsingEncoding:NSUTF8StringEncoding];
         dataInLength = [encryptData length];
         dataIn = (const void *)[encryptData bytes];
-    }
-    
+//    }
+
     /*
      DES加密 ：用CCCrypt函数加密一下，然后用base64编码下，传过去
      DES解密 ：把收到的数据根据base64，decode一下，然后再用CCCrypt函数解密，得到原本的数据

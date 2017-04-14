@@ -7,6 +7,7 @@
 //
 
 #import "WDMoreViewController.h"
+#import "WDScannerViewController.h"
 
 static NSString *kMoreTableViewCellID = @"kMoreTableViewCellID";
 
@@ -27,8 +28,16 @@ static NSString *kMoreTableViewCellID = @"kMoreTableViewCellID";
     self.title = @"更多";
     self.view.backgroundColor = WD_COLOR.background;
     [self initTableView];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Scan_icon"]
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(scanBarcode)];
 }
-
+- (void)scanBarcode{
+    WDScannerViewController *scannerVC = [[WDScannerViewController alloc]init];
+    scannerVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:scannerVC animated:YES];
+}
 - (void)initTableView{
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 113) style:UITableViewStyleGrouped];
     self.tableView.backgroundColor = [UIColor clearColor];

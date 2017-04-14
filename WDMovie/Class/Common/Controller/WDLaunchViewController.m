@@ -21,6 +21,8 @@ static WDLaunchViewController *launchVC = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO
+                                            withAnimation:UIStatusBarAnimationNone];
     _imageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
     [self.view addSubview:_imageView];
     if (SCREEN_WIDTH == 375 && [UIScreen mainScreen].scale == 2) {
@@ -31,9 +33,7 @@ static WDLaunchViewController *launchVC = nil;
     UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 200, SCREEN_WIDTH, 200)];
     whiteView.backgroundColor = WD_COLOR.background;
     [_imageView addSubview:whiteView];
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:YES
-                                            withAnimation:UIStatusBarAnimationNone];
+   
     [self loadImageViews];
     [self startAnimation];
 }
@@ -46,7 +46,7 @@ static WDLaunchViewController *launchVC = nil;
     for (int i = 0; i < 24; i++) {
         NSString *imageName = [NSString stringWithFormat:@"Movie%d",i+1];
         UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:imageName]];
-        imageView.alpha = 0;//设置透明度
+        imageView.alpha = 0;
         if (i <= 3) {
             x = i*width;
             y = 0;
@@ -75,7 +75,6 @@ static WDLaunchViewController *launchVC = nil;
             x = width;
             y = SCREEN_HEIGHT - (i - 19)*height;
         }
-        //计算图片视图的坐标
         imageView.frame = CGRectMake(x, y, width, height);
         [self.view addSubview:imageView];
         [_imageArray addObject:imageView];
@@ -87,7 +86,6 @@ static WDLaunchViewController *launchVC = nil;
         if (self.completionBlock) {
             self.completionBlock();
         }
-        //跳出循环
         return;
     }
     UIImageView *imageView = _imageArray[_index];
@@ -99,8 +97,6 @@ static WDLaunchViewController *launchVC = nil;
     
 }
 - (void)removeLaunchVC{
-    [[UIApplication sharedApplication] setStatusBarHidden:NO
-                                            withAnimation:UIStatusBarAnimationNone];
     @weakify(self);
     [UIView animateWithDuration:0.3
                      animations:^{
@@ -112,6 +108,9 @@ static WDLaunchViewController *launchVC = nil;
                          [self.view removeFromSuperview];
                          launchVC = nil;
                      }];
+    if (self.completionBlock) {
+        self.completionBlock();
+    }
 }
 + (void)judgeLaunchInWindow:(UIWindow *)window completeBlock:(WDBlock)block{
     launchVC = [[WDLaunchViewController alloc]init];
@@ -119,7 +118,6 @@ static WDLaunchViewController *launchVC = nil;
     launchVC.view.frame = [UIScreen mainScreen].bounds;
     [window addSubview:launchVC.view];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

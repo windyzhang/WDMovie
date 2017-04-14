@@ -30,9 +30,9 @@
     [self.drawerController setDrawerVisualStateBlock:[MMDrawerVisualState slideVisualStateBlock]];
     [self.drawerController setMaximumLeftDrawerWidth:280.0];
     self.window.rootViewController = self.drawerController;
-    
+
     WD_LOCATION_MANAGER;
-    
+   
     BOOL isFrist = [USER_DEFAULTS boolForKey:kFirstLogin];
     if (!isFrist) {
         [USER_DEFAULTS setBool:YES forKey:kFirstLogin];

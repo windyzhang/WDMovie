@@ -63,7 +63,7 @@
     [topView addSubview:imageView];
     
     UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(75, 40, 120, 30)];
-    nameLabel.text = @"CiOS-张文迪";
+    nameLabel.text = @"WindyZhang";
     nameLabel.textColor = [UIColor whiteColor];
     nameLabel.textAlignment = NSTextAlignmentLeft;
     nameLabel.font = [UIFont systemFontOfSize:20];

@@ -7,7 +7,6 @@
 //
 
 #import "WDBarCodeViewController.h"
-#import "WDScannerViewController.h"
 #import "WDCreateBarcodeOperation.h"
 
 @interface WDBarCodeViewController ()
@@ -30,16 +29,8 @@
     self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 100, (SCREEN_HEIGHT - 64)/2 - 150, 200, 200)];
     [WD_CREATEBARCODE_OPERATION createBarcodeImageWithString:dataString withBarcodeImageView:self.imageView withBarcodeSize:200];
     [self.view addSubview:self.imageView];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Scan_icon"]
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(scanBarcode)];
 }
-- (void)scanBarcode{
-    WDScannerViewController *scannerVC = [[WDScannerViewController alloc]init];
-    scannerVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:scannerVC animated:YES];
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
