@@ -14,7 +14,6 @@
 @interface WDMovieViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic,strong)UICollectionView *collectionView;
 @property(nonatomic,strong)NSMutableArray *imageArray;
-@property(nonatomic,strong)UITableView *tableView;
 @end
 
 @implementation WDMovieViewController
@@ -33,24 +32,9 @@
         [self.imageArray addObject:[NSString stringWithFormat:@"Movie%d",i+1]];
     }
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 200;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"cell_01";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    return cell;
-}
 - (void)initCollectionView{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.headerReferenceSize = CGSizeZero;//头部视图的框架大小
+    layout.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, 20);//头部视图的框架大小
     layout.footerReferenceSize = CGSizeZero;
     layout.itemSize = CGSizeMake((SCREEN_WIDTH - 20)/3, (SCREEN_WIDTH - 20)/3 + 30);//每个cell的大小
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
@@ -67,7 +51,7 @@
 
 #pragma mark - collectionView delegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+    return 2;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.imageArray.count;

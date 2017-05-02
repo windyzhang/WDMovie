@@ -136,6 +136,7 @@
 		1D5EA6BA1D811977005E3011 /* WDMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EA6B91D811977005E3011 /* WDMovieDetailViewController.m */; };
 		1D6A98C91DA8CF25008A9EF4 /* WDScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A98C81DA8CF25008A9EF4 /* WDScannerViewController.m */; };
 		1D6A98CC1DA8D234008A9EF4 /* WDBarCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A98CB1DA8D234008A9EF4 /* WDBarCodeViewController.m */; };
+		1D74A5691EB8906100647E66 /* WDChangeRealNameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D74A5681EB8906100647E66 /* WDChangeRealNameController.m */; };
 		1D9C5E661D5AD2FA006F5944 /* UIColor+Init.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C5E651D5AD2FA006F5944 /* UIColor+Init.m */; };
 		1D9C5E691D5AF007006F5944 /* WDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C5E681D5AF007006F5944 /* WDSettingViewController.m */; };
 		1DEF9E071D9BC4DF005D41FE /* WDPersonCeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DEF9E061D9BC4DF005D41FE /* WDPersonCeterViewController.m */; };
@@ -441,6 +442,8 @@
 		1D6A98C81DA8CF25008A9EF4 /* WDScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDScannerViewController.m; sourceTree = "<group>"; };
 		1D6A98CA1DA8D234008A9EF4 /* WDBarCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDBarCodeViewController.h; sourceTree = "<group>"; };
 		1D6A98CB1DA8D234008A9EF4 /* WDBarCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDBarCodeViewController.m; sourceTree = "<group>"; };
+		1D74A5671EB8906100647E66 /* WDChangeRealNameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDChangeRealNameController.h; sourceTree = "<group>"; };
+		1D74A5681EB8906100647E66 /* WDChangeRealNameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDChangeRealNameController.m; sourceTree = "<group>"; };
 		1D9C5E621D5AC76F006F5944 /* WDMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDMacro.h; sourceTree = "<group>"; };
 		1D9C5E631D5AC8A3006F5944 /* WDSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSingleton.h; sourceTree = "<group>"; };
 		1D9C5E641D5AD2FA006F5944 /* UIColor+Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Init.h"; sourceTree = "<group>"; };
@@ -819,6 +822,8 @@
 				1D4027D21D9D0A5D00870578 /* WDSecurityViewController.mm */,
 				1D6A98CA1DA8D234008A9EF4 /* WDBarCodeViewController.h */,
 				1D6A98CB1DA8D234008A9EF4 /* WDBarCodeViewController.m */,
+				1D74A5671EB8906100647E66 /* WDChangeRealNameController.h */,
+				1D74A5681EB8906100647E66 /* WDChangeRealNameController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1473,6 +1478,7 @@
 				1D9C5E661D5AD2FA006F5944 /* UIColor+Init.m in Sources */,
 				1D0F06F31D9E492400187A12 /* NSString+AES256.m in Sources */,
 				1D0CFC631D7FFA48008419C9 /* UIControl+YYAdd.m in Sources */,
+				1D74A5691EB8906100647E66 /* WDChangeRealNameController.m in Sources */,
 				1D0CFC5E1D7FFA48008419C9 /* YYCGUtilities.m in Sources */,
 				1D0CFC811D7FFA48008419C9 /* YYTextDebugOption.m in Sources */,
 				1D0CFC511D7FFA48008419C9 /* NSData+YYAdd.m in Sources */,

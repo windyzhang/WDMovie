@@ -12,5 +12,7 @@
 
 - (void)alertInViewController:(UIViewController *)viewController;
 - (BOOL)isEmptyOrNil;
+- (BOOL)isChinese;
+- (BOOL)includeChinese;
 
 @end
