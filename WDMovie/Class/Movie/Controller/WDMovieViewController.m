@@ -31,6 +31,7 @@
     for (int i = 0; i < 28; i++) {
         [self.imageArray addObject:[NSString stringWithFormat:@"Movie%d",i+1]];
     }
+    
 }
 - (void)initCollectionView{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];

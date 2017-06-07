@@ -7,25 +7,25 @@
 //
 
 #import "WDAutoScrollerView.h"
+#import "NSTimer+block.h"
+#import "WDWebViewController.h"
 
 @interface WDAutoScrollerView()<UIScrollViewDelegate>
 
-@property(nonatomic,strong)UIScrollView *scrollView;
-@property(nonatomic,strong)UIPageControl *pageControl;
-@property(nonatomic,assign)int currentPage;
-@property(nonatomic,assign)BOOL autoPlay;
-@property(nonatomic,assign)NSTimeInterval timeInterval;
-@property(nonatomic,strong)NSMutableArray *currentImages;
-@property(nonatomic,copy)NSArray *imageArray;
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIPageControl *pageControl;
+@property (nonatomic, assign) int currentPage;
+@property (nonatomic, assign) BOOL autoPlay;
+@property (nonatomic, assign) NSTimeInterval timeInterval;
+@property (nonatomic, strong) NSMutableArray *currentImages;
+@property (nonatomic, strong) NSTimer *autoScrollTimer;
+@property (nonatomic, copy) NSArray *imageArray;
 
 @end
 
 @implementation WDAutoScrollerView
 
-- (instancetype)initWithFrame:(CGRect)frame
-                   withImages:(NSArray*)images
-                 withAutoPlay:(BOOL)isAuto
-                    withDelay:(NSTimeInterval)timeInterval{
+- (instancetype)initWithFrame:(CGRect)frame images:(NSArray*)images autoPlay:(BOOL)isAuto delay:(NSTimeInterval)timeInterval{
     if (self = [super initWithFrame:frame]) {
         _imageArray = images;
         _autoPlay = isAuto;
@@ -33,9 +33,6 @@
         _currentPage = 0;
         [self addScrollView];
         [self addPageControl];
-        if (self.autoPlay) {
-            [self toPlay];
-        }
     }
     return self;
 }
@@ -43,87 +40,99 @@
 
     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 20, SCREEN_WIDTH, 20)];
     backView.backgroundColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.2];
-    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
-    pageControl.numberOfPages = self.imageArray.count;
-    pageControl.currentPage = 0;
-    pageControl.userInteractionEnabled = NO;
-    _pageControl = pageControl;
-    [backView addSubview:self.pageControl];
+    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 20)];
+    _pageControl.numberOfPages = _imageArray.count;
+    _pageControl.currentPage = 0;
+    _pageControl.userInteractionEnabled = NO;
+    [backView addSubview:_pageControl];
     [self addSubview:backView];
 }
 - (void)addScrollView {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-    for (int i = 0; i < 3; i++) {
+    _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+    for (int i = 0; i < self.currentImages.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, self.frame.size.height)];
+        imageView.userInteractionEnabled = YES;
         imageView.image = [UIImage imageNamed:self.currentImages[i]];
-        [scrollView addSubview:imageView];
+        [_scrollView addSubview:imageView];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapped:)];
+        [imageView addGestureRecognizer:tapGesture];
+        imageView.tag = 1000 + i;
     }
-    scrollView.scrollsToTop = NO;
-    scrollView.contentSize = CGSizeMake(3*SCREEN_WIDTH, self.frame.size.height);
-    scrollView.contentOffset = CGPointMake(SCREEN_WIDTH, 0);
-    scrollView.pagingEnabled = YES;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.delegate = self;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapped:)];
-    [scrollView addGestureRecognizer:tap];
+    _scrollView.scrollsToTop = NO;
+    _scrollView.contentSize = CGSizeMake(self.currentImages.count * SCREEN_WIDTH,self.frame.size.height);
+    _scrollView.contentOffset = CGPointMake(SCREEN_WIDTH, 0);
+    _scrollView.pagingEnabled = YES;
+    _scrollView.showsHorizontalScrollIndicator = NO;
+    _scrollView.delegate = self;
+    [self addSubview:_scrollView];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int16_t)(5 * NSEC_PER_SEC)),
+//                   dispatch_get_main_queue(), ^{
+//                       if (self.autoPlay) {
+//                           [self toPlay];
+//                       }
+//    });
+    [self performSelector:@selector(toPlay) withObject:nil afterDelay:_timeInterval];
     
-    [self addSubview:scrollView];
-    _scrollView = scrollView;
 }
 - (void)singleTapped:(UITapGestureRecognizer *)recognizer {
-    if ([self.delegate respondsToSelector:@selector(loopViewDidSelectedImage:withIndex:)]) {
-        [self.delegate loopViewDidSelectedImage:self withIndex:_currentPage];
-    }
+//    UIImageView *imageView = (UIImageView *)recognizer.view;
+//    NSInteger index = imageView.tag - 1000;
+    WDWebViewController *web = [WDWebViewController webViewControllerWithURL:@"http://www.baidu.com" withTitle:@"百度一下"];
+    web.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:web animated:YES];
+
 }
 
 - (void)toPlay{
-    [self performSelector:@selector(autoPlayToNextPage) withObject:nil afterDelay:_timeInterval];
+
+    if (!self.autoScrollTimer || !self.autoScrollTimer.isValid) { //判断定时器是否存在或失效
+        @weakify(self);
+        self.autoScrollTimer = [NSTimer wd_scheduledTimerWithTimeInterval:_timeInterval withBlock:^{
+                                                                         @strongify(self);
+                                                                         [self autoPlayToNextPage];
+                                                                     } withRepeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:self.autoScrollTimer forMode:NSRunLoopCommonModes];
+        [self.autoScrollTimer fire];
+    }
+
 }
 - (void)autoPlayToNextPage{
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(autoPlayToNextPage) object:nil];
-    [self.scrollView setContentOffset:CGPointMake(self.frame.size.width * 2, 0) animated:YES];
-    [self performSelector:@selector(autoPlayToNextPage) withObject:nil afterDelay:_timeInterval];
+    
+    if (_scrollView.contentOffset.x == (_imageArray.count + 1) * self.frame.size.width) {
+        self.pageControl.currentPage = 0;
+        [self.scrollView setContentOffset:CGPointMake(self.frame.size.width, 0)];
+    } else if (_scrollView.contentOffset.x == 0) {
+        self.pageControl.currentPage = _imageArray.count - 1;
+        [self.scrollView setContentOffset:CGPointMake(_imageArray.count * SCREEN_WIDTH, 0)];
+    } else {
+        self.pageControl.currentPage = _scrollView.contentOffset.x/SCREEN_WIDTH - 1;
+        [self.scrollView setContentOffset:CGPointMake((self.pageControl.currentPage + 2) * SCREEN_WIDTH, 0) animated:YES];
+    }
+
 }
 - (NSMutableArray *)currentImages {
     if (_currentImages == nil) {
         _currentImages = [[NSMutableArray alloc] init];
+        [_currentImages addObject:_imageArray.lastObject];
+        [_currentImages addObjectsFromArray:_imageArray];
+        [_currentImages addObject:_imageArray.firstObject];
     }
-    [_currentImages removeAllObjects];
-    NSInteger count = self.imageArray.count;
-    int i = (int)(_currentPage + count - 1)%count;
-    [_currentImages addObject:self.imageArray[i]];
-    [_currentImages addObject:self.imageArray[_currentPage]];
-    i = (int)(_currentPage + 1)%count;
-    [_currentImages addObject:self.imageArray[i]];
     return _currentImages;
-}
-
-- (void)refreshImages {
-    NSArray *subViews = self.scrollView.subviews;
-    for (int i = 0; i < subViews.count; i++) {
-        UIImageView *imageView = (UIImageView *)subViews[i];
-        imageView.image = [UIImage imageNamed:self.currentImages[i]];
-    }
-    [self.scrollView setContentOffset:CGPointMake(self.frame.size.width, 0)];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    if (scrollView.contentOffset.x >= 2 * self.frame.size.width) {
-        _currentPage = (++_currentPage) % self.imageArray.count;
-        self.pageControl.currentPage = _currentPage;
-        [self refreshImages];
+    if (scrollView.contentOffset.x == (_imageArray.count + 1) * self.frame.size.width) {
+        self.pageControl.currentPage = 0;
+        [self.scrollView setContentOffset:CGPointMake(self.frame.size.width, 0)];
+    } else if (scrollView.contentOffset.x == 0) {
+        self.pageControl.currentPage = _imageArray.count - 1;
+        [self.scrollView setContentOffset:CGPointMake(_imageArray.count * SCREEN_WIDTH, 0)];
+    } else {
+        self.pageControl.currentPage = scrollView.contentOffset.x/SCREEN_WIDTH - 1;
     }
-    if (scrollView.contentOffset.x <= 0) {
-        _currentPage = (int)(_currentPage + self.imageArray.count - 1)%self.imageArray.count;
-        self.pageControl.currentPage = _currentPage;
-        [self refreshImages];
-    }
-
+    
 }
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [scrollView setContentOffset:CGPointMake(self.frame.size.width, 0) animated:YES];
+- (void)dealloc{
+    [self.autoScrollTimer invalidate];
 }
-
-
 @end

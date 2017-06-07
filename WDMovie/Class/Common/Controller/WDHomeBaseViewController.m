@@ -18,8 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIButton *leftBarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftBarBtn.frame = CGRectMake(0, 0, 30, 30);
+    UIButton *leftBarBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     leftBarBtn.layer.borderColor = [UIColor whiteColor].CGColor;
     leftBarBtn.layer.borderWidth = 1.5;
     leftBarBtn.layer.cornerRadius = 15;

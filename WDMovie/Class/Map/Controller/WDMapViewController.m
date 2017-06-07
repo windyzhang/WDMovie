@@ -8,6 +8,7 @@
 
 #import "WDMapViewController.h"
 #import <MapKit/MapKit.h>
+#import "WDMainTabBarController.h"
 
 @interface WDAnnotation : NSObject <MKAnnotation>
 
@@ -30,6 +31,8 @@
 
 @property(nonatomic,strong)MKMapView *mapview;
 @property(nonatomic,assign)CLLocationCoordinate2D coordinate;
+@property(nonatomic,assign)BOOL isHidenTabar;
+
 @end
 
 @implementation WDMapViewController
@@ -40,7 +43,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.title = @"地图";
     self.view.backgroundColor = WD_COLOR.background;
     [self initMapView];
     [self initSubViews];
@@ -48,6 +50,7 @@
 - (void)initSubViews{
     UIButton *changeButton = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 120, 40, 40)];
     [changeButton setImage:[UIImage imageNamed:@"map_changeType"] forState:UIControlStateNormal];
+    [self.view addSubview:changeButton];
     __block BOOL isSelect = NO;
     @weakify(self);
     [changeButton setBlockForControlEvents:UIControlEventTouchUpInside block:^(id sender) {
@@ -57,13 +60,12 @@
             isSelect = NO;
         }else{
             isSelect = YES;
-            self.mapview.mapType = MKMapTypeSatellite;
+            self.mapview.mapType = MKMapTypeHybrid;
         }
     }];
-    [self.view addSubview:changeButton];
 }
 - (void)initMapView{
-    self.mapview = [[MKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 49)];
+    self.mapview = [[MKMapView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.mapview.delegate = self;
     self.mapview.mapType = MKMapTypeStandard;
     self.mapview.showsUserLocation = YES;
@@ -75,15 +77,29 @@
     //显示的跨度
     MKCoordinateSpan span = {0.05, 0.05};
     MKCoordinateRegion region = MKCoordinateRegionMake(self.coordinate, span);
-    //2.设置地图显示的区域
+    //设置地图显示的区域
     [self.mapview setRegion:region animated:YES];
-
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapMapView:)];
+    tapGesture.numberOfTapsRequired = 1;//设置点击次数
+    tapGesture.numberOfTouchesRequired = 1;//设置点击时手指个数
+    [self.mapview addGestureRecognizer:tapGesture];
     //[self addAnnotation];
     
 }
+- (void)tapMapView:(UITapGestureRecognizer*)tapMap{
+    if (tapMap.numberOfTapsRequired == 1) {
+        if (!self.isHidenTabar) {
+            self.isHidenTabar = YES;
+            self.tabBarController.tabBar.hidden = YES;
+        } else {
+            self.isHidenTabar = NO;
+            self.tabBarController.tabBar.hidden = NO;
+        }
+    }
+}
 - (void)addAnnotation{
     //CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(_latitude,_longitude);
-    WDAnnotation *annotation = [[WDAnnotation alloc]initWithCoordinate:_coordinate];
+    WDAnnotation *annotation = [[WDAnnotation alloc] initWithCoordinate:_coordinate];
     //    annotation.title = @"新华国际广场";
     //    annotation.subtitle = @"A座";
     //    annotation.coordinate = coordinate;
@@ -145,9 +161,6 @@
     [navigationBtn setTitle:@"导航" forState:UIControlStateNormal];
     annotationView.rightCalloutAccessoryView = navigationBtn;
     return annotationView;
-}
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-    
 }
 
 - (void)didReceiveMemoryWarning {
