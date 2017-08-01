@@ -9,6 +9,7 @@
 #import "WDMapViewController.h"
 #import <MapKit/MapKit.h>
 #import "WDMainTabBarController.h"
+#import <YYKit.h>
 
 @interface WDAnnotation : NSObject <MKAnnotation>
 

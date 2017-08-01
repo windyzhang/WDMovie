@@ -13,6 +13,7 @@
 #import "WDWebViewController.h"
 #import "AppDelegate.h"
 #import "UIViewController+MMDrawerController.h"
+#import <YYKit.h>
 
 @interface WDSideBarViewController ()<UITableViewDelegate,UITableViewDataSource>
 

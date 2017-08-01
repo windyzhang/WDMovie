@@ -14,5 +14,6 @@
 - (BOOL)isEmptyOrNil;
 - (BOOL)isChinese;
 - (BOOL)includeChinese;
+- (BOOL)haveString:(NSString *)string;
 
 @end
