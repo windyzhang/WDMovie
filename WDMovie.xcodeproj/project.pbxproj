@@ -53,6 +53,9 @@
 		1D5BC75B1E8E429800AFF416 /* UIViewController+RTRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5BC7591E8E429800AFF416 /* UIViewController+RTRootNavigationController.m */; };
 		1D5BC75E1E8E463900AFF416 /* WDCreateBarcodeOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5BC75D1E8E463900AFF416 /* WDCreateBarcodeOperation.m */; };
 		1D5EA6BA1D811977005E3011 /* WDMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EA6B91D811977005E3011 /* WDMovieDetailViewController.m */; };
+		1D6317EA1F3DAE3400FBA1DB /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6317E91F3DAE3400FBA1DB /* HMSegmentedControl.m */; };
+		1D6317F01F3DAE4200FBA1DB /* M13ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6317ED1F3DAE4200FBA1DB /* M13ProgressView.m */; };
+		1D6317F11F3DAE4200FBA1DB /* M13ProgressViewRing.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6317EF1F3DAE4200FBA1DB /* M13ProgressViewRing.m */; };
 		1D6A98C91DA8CF25008A9EF4 /* WDScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A98C81DA8CF25008A9EF4 /* WDScannerViewController.m */; };
 		1D6A98CC1DA8D234008A9EF4 /* WDBarCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A98CB1DA8D234008A9EF4 /* WDBarCodeViewController.m */; };
 		1D74A5691EB8906100647E66 /* WDChangeRealNameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D74A5681EB8906100647E66 /* WDChangeRealNameController.m */; };
@@ -202,6 +205,12 @@
 		1D5BC75D1E8E463900AFF416 /* WDCreateBarcodeOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDCreateBarcodeOperation.m; sourceTree = "<group>"; };
 		1D5EA6B81D811977005E3011 /* WDMovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDMovieDetailViewController.h; sourceTree = "<group>"; };
 		1D5EA6B91D811977005E3011 /* WDMovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDMovieDetailViewController.m; sourceTree = "<group>"; };
+		1D6317E81F3DAE3400FBA1DB /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		1D6317E91F3DAE3400FBA1DB /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		1D6317EC1F3DAE4200FBA1DB /* M13ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressView.h; sourceTree = "<group>"; };
+		1D6317ED1F3DAE4200FBA1DB /* M13ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressView.m; sourceTree = "<group>"; };
+		1D6317EE1F3DAE4200FBA1DB /* M13ProgressViewRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressViewRing.h; sourceTree = "<group>"; };
+		1D6317EF1F3DAE4200FBA1DB /* M13ProgressViewRing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressViewRing.m; sourceTree = "<group>"; };
 		1D6A98C71DA8CF25008A9EF4 /* WDScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDScannerViewController.h; sourceTree = "<group>"; };
 		1D6A98C81DA8CF25008A9EF4 /* WDScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDScannerViewController.m; sourceTree = "<group>"; };
 		1D6A98CA1DA8D234008A9EF4 /* WDBarCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDBarCodeViewController.h; sourceTree = "<group>"; };
@@ -533,6 +542,8 @@
 		1D02AA591D59C68100944CC3 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				1D6317EB1F3DAE4200FBA1DB /* M13ProgressView */,
+				1D6317E71F3DAE3400FBA1DB /* HMSegmentedControl */,
 				1D5BC7551E8E429800AFF416 /* RTRootNavigationController */,
 				1D1DA0861E1CF5BE00A5E24F /* CRToast */,
 			);
@@ -676,6 +687,26 @@
 				1D5BC7591E8E429800AFF416 /* UIViewController+RTRootNavigationController.m */,
 			);
 			path = RTRootNavigationController;
+			sourceTree = "<group>";
+		};
+		1D6317E71F3DAE3400FBA1DB /* HMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				1D6317E81F3DAE3400FBA1DB /* HMSegmentedControl.h */,
+				1D6317E91F3DAE3400FBA1DB /* HMSegmentedControl.m */,
+			);
+			path = HMSegmentedControl;
+			sourceTree = "<group>";
+		};
+		1D6317EB1F3DAE4200FBA1DB /* M13ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				1D6317EC1F3DAE4200FBA1DB /* M13ProgressView.h */,
+				1D6317ED1F3DAE4200FBA1DB /* M13ProgressView.m */,
+				1D6317EE1F3DAE4200FBA1DB /* M13ProgressViewRing.h */,
+				1D6317EF1F3DAE4200FBA1DB /* M13ProgressViewRing.m */,
+			);
+			path = M13ProgressView;
 			sourceTree = "<group>";
 		};
 		1D6A98C61DA8CEE0008A9EF4 /* Operation */ = {
@@ -1014,6 +1045,7 @@
 				1D6A98CC1DA8D234008A9EF4 /* WDBarCodeViewController.m in Sources */,
 				1D02AA551D59C62500944CC3 /* WDNavigationViewController.m in Sources */,
 				1D02AA731D59C8ED00944CC3 /* WDNewsViewController.m in Sources */,
+				1D6317F01F3DAE4200FBA1DB /* M13ProgressView.m in Sources */,
 				1DA8F62B1F2F27C800885BC8 /* WDSelectSeatViewController.m in Sources */,
 				1D1DA0851E1CE0E400A5E24F /* WDHomeBaseViewController.m in Sources */,
 				1D1DA08B1E1CF5BE00A5E24F /* CRToast.m in Sources */,
@@ -1035,6 +1067,7 @@
 				1D02AA701D59C8DE00944CC3 /* WDMusicViewController.m in Sources */,
 				1D1B9B071DA9F065005345BC /* WDScannerBorder.m in Sources */,
 				1D5BC75E1E8E463900AFF416 /* WDCreateBarcodeOperation.m in Sources */,
+				1D6317F11F3DAE4200FBA1DB /* M13ProgressViewRing.m in Sources */,
 				1D02AA6A1D59C8BE00944CC3 /* WDMapViewController.m in Sources */,
 				1DEF9E0A1D9BCBA8005D41FE /* UITableView+Effect.m in Sources */,
 				1D02AA7E1D59CA9D00944CC3 /* WDSideBarViewController.m in Sources */,
@@ -1043,6 +1076,7 @@
 				1D1B9B0A1DA9F0D4005345BC /* WDScannerMaskView.m in Sources */,
 				1D4507FD1D62A91F0065ED99 /* WDLaunchViewController.m in Sources */,
 				1D84ADB51EE7F375001B0D7B /* WDNewsTableViewCell.m in Sources */,
+				1D6317EA1F3DAE3400FBA1DB /* HMSegmentedControl.m in Sources */,
 				1D02AA811D59CAB600944CC3 /* WDMoreViewController.m in Sources */,
 				1D84ADA91EE7E1EE001B0D7B /* UIView+Postion.m in Sources */,
 				1D0F67F71E0BAABA00A55FBB /* NSString+Operation.m in Sources */,

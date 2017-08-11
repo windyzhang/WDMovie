@@ -39,8 +39,18 @@ static NSString *const kSelectSeatCollectionViewCellID = @"kSelectSeatCollection
     [self loadSeatData];
     [self.view addSubview:self.collectionView];
     
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 400, 80, 80)];
+    button.backgroundColor = [UIColor redColor];
+    [self.view addSubview:button];
+    
+    CABasicAnimation* rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 ];
+    rotationAnimation.duration = 1.0;
+    rotationAnimation.cumulative = YES;
+    rotationAnimation.repeatCount = 20;
+    [button.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
 }
-
 - (void)loadSeatData{
     NSString *path = [[NSBundle mainBundle] pathForResource:@"selectSeat" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
