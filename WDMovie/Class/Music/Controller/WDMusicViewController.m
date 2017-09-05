@@ -35,34 +35,36 @@
     vc1.view.backgroundColor = [UIColor redColor];
     
     UIViewController *vc2 = [[UIViewController alloc] init];
-    vc2.view.backgroundColor = [UIColor yellowColor];
+    vc2.view.backgroundColor = [UIColor orangeColor];
 
     UIViewController *vc3 = [[UIViewController alloc] init];
-    vc3.view.backgroundColor = [UIColor blueColor];
+    vc3.view.backgroundColor = [UIColor yellowColor];
 
     UIViewController *vc4 = [[UIViewController alloc] init];
     vc4.view.backgroundColor = [UIColor greenColor];
 
-    self.pageArray = [@[vc1,vc2,vc3,vc4] mutableCopy];
+    UIViewController *vc5 = [[UIViewController alloc] init];
+    vc5.view.backgroundColor = [UIColor blueColor];
     
-    [self.pageViewController setViewControllers:@[vc1]
-                                      direction:UIPageViewControllerNavigationDirectionForward
-                                       animated:NO
-                                     completion:NULL];
-    [self.pageViewController setViewControllers:@[vc2]
-                                      direction:UIPageViewControllerNavigationDirectionForward
-                                       animated:NO
-                                     completion:NULL];
+    UIViewController *vc6 = [[UIViewController alloc] init];
+    vc6.view.backgroundColor = [UIColor purpleColor];
+    
+    UIViewController *vc7 = [[UIViewController alloc] init];
+    vc7.view.backgroundColor = [UIColor darkGrayColor];
 
-    [self.pageViewController setViewControllers:@[vc3]
-                                      direction:UIPageViewControllerNavigationDirectionForward
-                                       animated:NO
-                                     completion:NULL];
-    [self.pageViewController setViewControllers:@[vc4]
-                                      direction:UIPageViewControllerNavigationDirectionForward
-                                       animated:NO
-                                     completion:NULL];
-
+    UIViewController *vc8 = [[UIViewController alloc] init];
+    vc8.view.backgroundColor = [UIColor blackColor];
+    
+    self.pageArray = [@[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8] mutableCopy];
+    @weakify(self);
+    [self.pageArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        [self.pageViewController setViewControllers:@[obj]
+                                          direction:UIPageViewControllerNavigationDirectionForward
+                                           animated:NO
+                                         completion:NULL];
+    }];
+   
 
 }
 - (void)setupSubviews{
@@ -76,16 +78,16 @@
         make.edges.equalTo(self.view);
     }];
 
-    NSArray *titles = @[@"精选",@"排行",@"歌单",@"电台"];
+    NSArray *titles = @[@"王者荣耀",@"排行",@"歌单",@"电台",@"MV",@"歌手",@"个性",@"我的"];
     self.pageControl = [[HMSegmentedControl alloc] initWithSectionTitles:titles];
     self.pageControl.backgroundColor = [UIColor whiteColor];
     self.pageControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationNone;
     self.pageControl.titleFormatter = ^NSAttributedString *(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected) {
         if (!selected) {
-            NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:12]}];
+            NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:15]}];
             return attString;
         } else {
-            NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : [UIColor redColor], NSFontAttributeName : [UIFont systemFontOfSize:12]}];
+            NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : WD_COLOR.button, NSFontAttributeName : [UIFont systemFontOfSize:15]}];
             return attString;
         }
     };
@@ -109,7 +111,7 @@
 }
 - (UIViewController *)selectedController
 {
-    return self.pageArray[[self.pageControl selectedSegmentIndex]];
+    return self.pageArray[self.pageControl.selectedSegmentIndex];
 }
 
 - (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
@@ -131,7 +133,7 @@
     if (!completed) {
         return;
     }
-    [self.pageControl setSelectedSegmentIndex:[self.pageArray indexOfObject:[viewController.viewControllers firstObject]] animated:YES];
+    [self.pageControl setSelectedSegmentIndex:[self.pageArray indexOfObject:viewController.viewControllers.firstObject] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
