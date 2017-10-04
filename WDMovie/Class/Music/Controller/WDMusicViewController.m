@@ -7,9 +7,16 @@
 //
 
 #import "WDMusicViewController.h"
+#import "HMSegmentedControl.h"
+#import <Masonry.h>
 
-@interface WDMusicViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface WDMusicViewController ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>
+
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)HMSegmentedControl *pageControl;
+@property(nonatomic,strong)UIPageViewController *pageViewController;
+@property(nonatomic,strong)NSMutableArray *pageArray;
+
 @end
 
 @implementation WDMusicViewController
@@ -22,56 +29,111 @@
     [super viewDidLoad];
     self.title = @"音乐";
     self.view.backgroundColor = WD_COLOR.background;
-    [self initTableView];
-    [self initTopToolView];
+    [self setupSubviews];
+
+    UIViewController *vc1 = [[UIViewController alloc] init];
+    vc1.view.backgroundColor = [UIColor redColor];
+    
+    UIViewController *vc2 = [[UIViewController alloc] init];
+    vc2.view.backgroundColor = [UIColor orangeColor];
+
+    UIViewController *vc3 = [[UIViewController alloc] init];
+    vc3.view.backgroundColor = [UIColor yellowColor];
+
+    UIViewController *vc4 = [[UIViewController alloc] init];
+    vc4.view.backgroundColor = [UIColor greenColor];
+
+    UIViewController *vc5 = [[UIViewController alloc] init];
+    vc5.view.backgroundColor = [UIColor blueColor];
+    
+    UIViewController *vc6 = [[UIViewController alloc] init];
+    vc6.view.backgroundColor = [UIColor purpleColor];
+    
+    UIViewController *vc7 = [[UIViewController alloc] init];
+    vc7.view.backgroundColor = [UIColor darkGrayColor];
+
+    UIViewController *vc8 = [[UIViewController alloc] init];
+    vc8.view.backgroundColor = [UIColor blackColor];
+    
+    self.pageArray = [@[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8] mutableCopy];
+    @weakify(self);
+    [self.pageArray enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        [self.pageViewController setViewControllers:@[obj]
+                                          direction:UIPageViewControllerNavigationDirectionForward
+                                           animated:NO
+                                         completion:NULL];
+    }];
+   
+
 }
-- (void)initTopToolView{
-    UIView *topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
-    topView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:topView];
-    NSArray *titles = @[@"精选",@"排行",@"歌单",@"电台",@"MV"];
-    CGFloat itemWidth = SCREEN_WIDTH/5;
-    for (int i = 0; i < titles.count; i++) {
-        NSString *title = titles[i];
-        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(itemWidth * i, 0, itemWidth, 30)];
-        [button setTitle:title forState:UIControlStateNormal];
-        [button setTitleColor:WD_COLOR.button forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:14];
-        [topView addSubview:button];
-    }
+- (void)setupSubviews{
+    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    [self.pageViewController setDataSource:self];
+    [self.pageViewController setDelegate:self];
+    [self.pageViewController.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+    [self addChildViewController:self.pageViewController];
+    [self.view addSubview:self.pageViewController.view];
+    [self.pageViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+
+    NSArray *titles = @[@"王者荣耀",@"排行",@"歌单",@"电台",@"MV",@"歌手",@"个性",@"我的"];
+    self.pageControl = [[HMSegmentedControl alloc] initWithSectionTitles:titles];
+    self.pageControl.backgroundColor = [UIColor whiteColor];
+    self.pageControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationNone;
+    self.pageControl.titleFormatter = ^NSAttributedString *(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected) {
+        if (!selected) {
+            NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:15]}];
+            return attString;
+        } else {
+            NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : WD_COLOR.button, NSFontAttributeName : [UIFont systemFontOfSize:15]}];
+            return attString;
+        }
+    };
+    [self.pageControl addTarget:self action:@selector(pageControlValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:self.pageControl];
+    [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_offset(0);
+        make.right.mas_offset(0);
+        make.top.mas_offset(0);
+        make.height.mas_equalTo(40);
+    }];
+
+}
+- (void)pageControlValueChanged:(id)sender
+{
+    UIPageViewControllerNavigationDirection direction = [self.pageControl selectedSegmentIndex] > [self.pageArray indexOfObject:[self.pageViewController.viewControllers lastObject]] ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
+    [self.pageViewController setViewControllers:@[ [self selectedController] ]
+                                      direction:direction
+                                       animated:YES
+                                     completion:NULL];
+}
+- (UIViewController *)selectedController
+{
+    return self.pageArray[self.pageControl.selectedSegmentIndex];
 }
 
-- (void)initTableView{
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 30, SCREEN_WIDTH, SCREEN_HEIGHT - 143) style:UITableViewStyleGrouped];
-    self.tableView.backgroundColor = [UIColor clearColor];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self.view addSubview:self.tableView];
-    
-}
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 50;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.1;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"musicTableViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        cell.contentView.backgroundColor = [UIColor clearColor];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
+    NSUInteger index = [self.pageArray indexOfObject:viewController];
+    if ((index == NSNotFound) || (index == 0)) {
+        return nil;
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"专辑%ld",indexPath.row + 1];
-    //    cell.imageView.image = [UIImage imageNamed:self.images[indexPath.row]];
-    return cell;
+    return self.pageArray[--index];
+}
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
+    NSUInteger index = [self.pageArray indexOfObject:viewController];
+    if ((index == NSNotFound) || (index + 1 >= [self.pageArray count])) {
+        return nil;
+    }
+    return self.pageArray[++index];
+}
+- (void)pageViewController:(UIPageViewController *)viewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
+{
+    if (!completed) {
+        return;
+    }
+    [self.pageControl setSelectedSegmentIndex:[self.pageArray indexOfObject:viewController.viewControllers.firstObject] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

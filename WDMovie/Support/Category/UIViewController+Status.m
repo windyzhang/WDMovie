@@ -133,5 +133,4 @@
 //    self.navigationController.navigationBar.barTintColor = color;
 //    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefaultPrompt];
 //}
-
 @end

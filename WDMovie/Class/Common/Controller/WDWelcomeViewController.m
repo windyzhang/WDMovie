@@ -7,6 +7,7 @@
 //
 
 #import "WDWelcomeViewController.h"
+#import <YYKit.h>
 
 @interface WDWelcomeViewController ()<UIScrollViewDelegate>
 @property(nonatomic,strong)UIScrollView *scrollView;

@@ -8,6 +8,7 @@
 
 #import "WDMoreViewController.h"
 #import "WDScannerViewController.h"
+#import "WDSelectSeatViewController.h"
 
 static NSInteger const headerHeight = 160;
 static NSString *kMoreTableViewCellID = @"kMoreTableViewCellID";
@@ -108,8 +109,16 @@ static NSString *kMoreTableViewCellID = @"kMoreTableViewCellID";
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kMoreTableViewCellID];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = WDFORMAT(@"标题%ld",indexPath.row + 1);
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        WDSelectSeatViewController *selectSeatVC = [[WDSelectSeatViewController alloc] init];
+        selectSeatVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:selectSeatVC animated:YES];
+    }
 }
 - (void)scanBarcode{
     WDScannerViewController *scannerVC = [[WDScannerViewController alloc]init];
