@@ -18,12 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIButton *leftBarBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    leftBarBtn.layer.borderColor = [UIColor whiteColor].CGColor;
-    leftBarBtn.layer.borderWidth = 1.5;
-    leftBarBtn.layer.cornerRadius = 15;
-    leftBarBtn.layer.masksToBounds = YES;
-    [leftBarBtn setImage:[UIImage imageNamed:@"userIcon"] forState:UIControlStateNormal];
+    UIButton *leftBarBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+//    leftBarBtn.layer.borderColor = [UIColor whiteColor].CGColor;
+//    leftBarBtn.layer.borderWidth = 1.5;
+//    leftBarBtn.layer.cornerRadius = 10;
+//    leftBarBtn.layer.masksToBounds = YES;
+//    [leftBarBtn setImage:[UIImage imageNamed:@"userIcon"] forState:UIControlStateNormal];
+    [leftBarBtn setBackgroundImage:[UIImage imageNamed:@"userIcon"] forState:UIControlStateNormal];
     [leftBarBtn addTarget:self action:@selector(showSideBarClick) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBarBtn];
     

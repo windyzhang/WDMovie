@@ -12,7 +12,6 @@
 		1D02AA1B1D59C53900944CC3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA1A1D59C53900944CC3 /* AppDelegate.m */; };
 		1D02AA211D59C53900944CC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D02AA1F1D59C53900944CC3 /* Main.storyboard */; };
 		1D02AA231D59C53900944CC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D02AA221D59C53900944CC3 /* Assets.xcassets */; };
-		1D02AA261D59C53900944CC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D02AA241D59C53900944CC3 /* LaunchScreen.storyboard */; };
 		1D02AA311D59C53900944CC3 /* WDMovieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA301D59C53900944CC3 /* WDMovieTests.m */; };
 		1D02AA521D59C60500944CC3 /* WDBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA511D59C60500944CC3 /* WDBaseViewController.m */; };
 		1D02AA551D59C62500944CC3 /* WDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA541D59C62500944CC3 /* WDNavigationViewController.m */; };
@@ -67,6 +66,7 @@
 		1D84ADB51EE7F375001B0D7B /* WDNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D84ADB31EE7F375001B0D7B /* WDNewsTableViewCell.m */; };
 		1D84ADB61EE7F375001B0D7B /* WDNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D84ADB41EE7F375001B0D7B /* WDNewsTableViewCell.xib */; };
 		1D84ADB91EE7F442001B0D7B /* WDNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D84ADB81EE7F442001B0D7B /* WDNewsModel.m */; };
+		1D93BF341F948978001AA0ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D93BF331F948978001AA0ED /* LaunchScreen.xib */; };
 		1D9C5E661D5AD2FA006F5944 /* UIColor+Init.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C5E651D5AD2FA006F5944 /* UIColor+Init.m */; };
 		1D9C5E691D5AF007006F5944 /* WDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9C5E681D5AF007006F5944 /* WDSettingViewController.m */; };
 		1DA8F62B1F2F27C800885BC8 /* WDSelectSeatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA8F62A1F2F27C800885BC8 /* WDSelectSeatViewController.m */; };
@@ -122,7 +122,6 @@
 		1D02AA1A1D59C53900944CC3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D02AA201D59C53900944CC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D02AA221D59C53900944CC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1D02AA251D59C53900944CC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D02AA271D59C53900944CC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D02AA2C1D59C53900944CC3 /* WDMovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WDMovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D02AA301D59C53900944CC3 /* WDMovieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDMovieTests.m; sourceTree = "<group>"; };
@@ -230,6 +229,7 @@
 		1D84ADB41EE7F375001B0D7B /* WDNewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WDNewsTableViewCell.xib; sourceTree = "<group>"; };
 		1D84ADB71EE7F442001B0D7B /* WDNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDNewsModel.h; sourceTree = "<group>"; };
 		1D84ADB81EE7F442001B0D7B /* WDNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDNewsModel.m; sourceTree = "<group>"; };
+		1D93BF331F948978001AA0ED /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		1D9C5E621D5AC76F006F5944 /* WDMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDMacro.h; sourceTree = "<group>"; };
 		1D9C5E631D5AC8A3006F5944 /* WDSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDSingleton.h; sourceTree = "<group>"; };
 		1D9C5E641D5AD2FA006F5944 /* UIColor+Init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Init.h"; sourceTree = "<group>"; };
@@ -638,7 +638,7 @@
 				1D4508011D62ABE20065ED99 /* lunch.png */,
 				1D4507FF1D62ABD60065ED99 /* lunch_for6.png */,
 				1D02AA221D59C53900944CC3 /* Assets.xcassets */,
-				1D02AA241D59C53900944CC3 /* LaunchScreen.storyboard */,
+				1D93BF331F948978001AA0ED /* LaunchScreen.xib */,
 				1DF1B51B1DAF971F003E8AA3 /* Localizable.strings */,
 			);
 			name = Resources;
@@ -949,7 +949,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D02AA261D59C53900944CC3 /* LaunchScreen.storyboard in Resources */,
 				1DF1B51C1DAF971F003E8AA3 /* Localizable.strings in Resources */,
 				1D02AA231D59C53900944CC3 /* Assets.xcassets in Resources */,
 				1D84ADB61EE7F375001B0D7B /* WDNewsTableViewCell.xib in Resources */,
@@ -958,6 +957,7 @@
 				1D02AA211D59C53900944CC3 /* Main.storyboard in Resources */,
 				1D4508021D62ABE20065ED99 /* lunch.png in Resources */,
 				1D77CB6A1F300E3B005FF2D2 /* WDSelectSeatCollectionViewCell.xib in Resources */,
+				1D93BF341F948978001AA0ED /* LaunchScreen.xib in Resources */,
 				1D4508001D62ABD60065ED99 /* lunch_for6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1128,14 +1128,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		1D02AA241D59C53900944CC3 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1D02AA251D59C53900944CC3 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		1D2BA2151E715EC600142310 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1249,6 +1241,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.feeyo.WDMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
@@ -1267,6 +1260,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.feeyo.WDMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;
