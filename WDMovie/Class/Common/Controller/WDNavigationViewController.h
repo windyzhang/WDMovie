@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RTRootNavigationController.h"
+#import <RTRootNavigationController.h>
 
 @interface WDNavigationViewController : RTRootNavigationController
 

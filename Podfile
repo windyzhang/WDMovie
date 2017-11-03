@@ -16,6 +16,9 @@ target "WDMovie" do
  pod 'MMDrawerController'
  pod 'Masonry'
  pod 'YYKit'
+ pod 'RTRootNavigationController'
+ pod 'CRToast'
+ pod 'IQKeyboardManager'
  
 end
 

@@ -7,7 +7,7 @@
 //
 
 #import "WDToastOperation.h"
-#import "CRToast.h"
+#import <CRToast.h>
 
 @implementation WDToastOperation
 
@@ -29,8 +29,7 @@
                                       kCRToastAnimationInTypeKey                : @(CRToastAnimationTypeLinear),
                                       kCRToastAnimationOutTypeKey               : @(CRToastAnimationTypeLinear),
                                       kCRToastAnimationInDirectionKey           : @(CRToastAnimationDirectionBottom),
-                                      kCRToastAnimationOutDirectionKey          : @(CRToastAnimationDirectionBottom),
-                                      kCRToastNotificationIsFadeAnimation       : @(YES)} mutableCopy];
+                                      kCRToastAnimationOutDirectionKey          : @(CRToastAnimationDirectionBottom)} mutableCopy];
     
     options[kCRToastTextAlignmentKey] = @(NSTextAlignmentCenter);
     [CRToastManager showNotificationWithOptions:options
@@ -60,9 +59,7 @@
                                       kCRToastAnimationInTypeKey                : @(CRToastAnimationTypeLinear),
                                       kCRToastAnimationOutTypeKey               : @(CRToastAnimationTypeLinear),
                                       kCRToastAnimationInDirectionKey           : @(CRToastAnimationDirectionBottom),
-                                      kCRToastAnimationOutDirectionKey          : @(CRToastAnimationDirectionBottom),
-                                      kCRToastNotificationIsFadeAnimation       : @(YES),
-                                      kCRToastPositionBottom                    : @(YES)} mutableCopy];
+                                      kCRToastAnimationOutDirectionKey          : @(CRToastAnimationDirectionBottom)} mutableCopy];
     
     options[kCRToastTextAlignmentKey] = @(NSTextAlignmentCenter);
     [CRToastManager showNotificationWithOptions:options
@@ -90,8 +87,7 @@
                                       kCRToastAnimationInTypeKey                : @(CRToastAnimationTypeLinear),
                                       kCRToastAnimationOutTypeKey               : @(CRToastAnimationTypeLinear),
                                       kCRToastAnimationInDirectionKey           : @(0),
-                                      kCRToastAnimationOutDirectionKey          : @(0),
-                                      kCRToastNotificationIsFadeAnimation       : @(YES)} mutableCopy];
+                                      kCRToastAnimationOutDirectionKey          : @(0)} mutableCopy];
     
     options[kCRToastTextAlignmentKey] = @(NSTextAlignmentCenter);
     [CRToastManager showNotificationWithOptions:options
@@ -120,8 +116,7 @@
                                       kCRToastAnimationInTypeKey                : @(CRToastAnimationTypeLinear),
                                       kCRToastAnimationOutTypeKey               : @(CRToastAnimationTypeLinear),
                                       kCRToastAnimationInDirectionKey           : @(0),
-                                      kCRToastAnimationOutDirectionKey          : @(0),
-                                      kCRToastNotificationIsFadeAnimation       : @(YES)} mutableCopy];
+                                      kCRToastAnimationOutDirectionKey          : @(0)} mutableCopy];
     
     options[kCRToastTextAlignmentKey] = @(NSTextAlignmentCenter);
     [CRToastManager showNotificationWithOptions:options
