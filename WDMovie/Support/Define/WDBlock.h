@@ -8,4 +8,5 @@
 
 #pragma once
 
-typedef void(^WDBlock)(void);
+typedef void (^WDBlock)(void);
+typedef void (^WDIntegerBlock)(NSInteger iVal);

@@ -10,16 +10,6 @@
 
 @implementation NSString (Operation)
 
-- (void)alertInViewController:(UIViewController *)viewController{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@""
-                                                                   message:self
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"我知道了"
-                                              style:UIAlertActionStyleDefault
-                                            handler:NULL]];
-    [viewController presentViewController:alert animated:YES completion:NULL];
-}
-
 - (BOOL)isEmptyOrNil {
     NSString *str = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
     if ([str isEqualToString:@""] || !str) {
@@ -38,7 +28,7 @@
     return [predicate evaluateWithObject:self];
 }
 
-- (BOOL)includeChinese{
+- (BOOL)includeChinese {
     for (int i = 0; i < [self length]; i++) {
         int a = [self characterAtIndex:i];
         if (a > 0x4e00 && a < 0x9fff) {
