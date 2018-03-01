@@ -22,6 +22,8 @@
 		1D02AA731D59C8ED00944CC3 /* WDNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA721D59C8ED00944CC3 /* WDNewsViewController.m */; };
 		1D02AA7E1D59CA9D00944CC3 /* WDSideBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA7B1D59CA9D00944CC3 /* WDSideBarViewController.m */; };
 		1D02AA811D59CAB600944CC3 /* WDMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D02AA801D59CAB600944CC3 /* WDMoreViewController.m */; };
+		1D0451C3202949A2009E5BD9 /* WDTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0451C2202949A2009E5BD9 /* WDTools.m */; };
+		1D0451C620294AEC009E5BD9 /* WDAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0451C520294AEC009E5BD9 /* WDAlertView.m */; };
 		1D0CFB981D7FB01C008419C9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0CFB971D7FB01C008419C9 /* MapKit.framework */; };
 		1D0CFB9B1D7FC49A008419C9 /* WDLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0CFB9A1D7FC49A008419C9 /* WDLocationManager.m */; };
 		1D0CFCA11D80013B008419C9 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0CFCA01D80013B008419C9 /* libsqlite3.tbd */; };
@@ -142,6 +144,10 @@
 		1D02AA7F1D59CAB600944CC3 /* WDMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDMoreViewController.h; sourceTree = "<group>"; };
 		1D02AA801D59CAB600944CC3 /* WDMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDMoreViewController.m; sourceTree = "<group>"; };
 		1D02AA821D59CB4700944CC3 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		1D0451C1202949A2009E5BD9 /* WDTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDTools.h; sourceTree = "<group>"; };
+		1D0451C2202949A2009E5BD9 /* WDTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDTools.m; sourceTree = "<group>"; };
+		1D0451C420294AEC009E5BD9 /* WDAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDAlertView.h; sourceTree = "<group>"; };
+		1D0451C520294AEC009E5BD9 /* WDAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDAlertView.m; sourceTree = "<group>"; };
 		1D0CFB971D7FB01C008419C9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1D0CFB991D7FC49A008419C9 /* WDLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDLocationManager.h; sourceTree = "<group>"; };
 		1D0CFB9A1D7FC49A008419C9 /* WDLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDLocationManager.m; sourceTree = "<group>"; };
@@ -687,6 +693,10 @@
 				1D1DA08E1E1CFD1000A5E24F /* WDToastOperation.m */,
 				1D5BC75C1E8E463900AFF416 /* WDCreateBarcodeOperation.h */,
 				1D5BC75D1E8E463900AFF416 /* WDCreateBarcodeOperation.m */,
+				1D0451C1202949A2009E5BD9 /* WDTools.h */,
+				1D0451C2202949A2009E5BD9 /* WDTools.m */,
+				1D0451C420294AEC009E5BD9 /* WDAlertView.h */,
+				1D0451C520294AEC009E5BD9 /* WDAlertView.m */,
 			);
 			name = Operation;
 			path = Vender;
@@ -1022,6 +1032,7 @@
 				1D6A98CC1DA8D234008A9EF4 /* WDBarCodeViewController.m in Sources */,
 				1D02AA551D59C62500944CC3 /* WDNavigationViewController.m in Sources */,
 				1D02AA731D59C8ED00944CC3 /* WDNewsViewController.m in Sources */,
+				1D0451C3202949A2009E5BD9 /* WDTools.m in Sources */,
 				1D6317F01F3DAE4200FBA1DB /* M13ProgressView.m in Sources */,
 				1DA8F62B1F2F27C800885BC8 /* WDSelectSeatViewController.m in Sources */,
 				1D1DA0851E1CE0E400A5E24F /* WDHomeBaseViewController.m in Sources */,
@@ -1030,6 +1041,7 @@
 				1DEF9E071D9BC4DF005D41FE /* WDPersonCeterViewController.m in Sources */,
 				1D2CA8551E495AFB008884AA /* WDTopLeftLabel.m in Sources */,
 				1DEF9E0D1D9BCCA1005D41FE /* UITableView+Animation.m in Sources */,
+				1D0451C620294AEC009E5BD9 /* WDAlertView.m in Sources */,
 				1D02AA581D59C64C00944CC3 /* WDMainTabBarController.m in Sources */,
 				1D4027D01D9CC90C00870578 /* WDWebViewController.m in Sources */,
 				1D84ADAE1EE7F18B001B0D7B /* WDAutoScrollerView.m in Sources */,

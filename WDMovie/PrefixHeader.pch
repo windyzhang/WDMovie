@@ -24,6 +24,7 @@
 #import "WDColorManager.h"
 #import "WDBlock.h"
 #import "WDConstValues.h"
+#import "WDAlertView.h"
 
 #endif
 
