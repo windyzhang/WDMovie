@@ -1236,7 +1236,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 044FD58B413C51171B27054A /* Pods-WDMovie.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconBeta;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = WDMovie/WDMovie.entitlements;
 				DEVELOPMENT_TEAM = C78VJKGV2J;
